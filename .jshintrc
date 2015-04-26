@@ -1,0 +1,8 @@
+{
+    // JSHint Configuration File
+    // See http://jshint.com/docs/ for more details
+
+    "indent" : 2,
+    "maxlen" : 120,
+    "esnext" : true
+}

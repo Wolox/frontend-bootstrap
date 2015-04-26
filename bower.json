@@ -1,0 +1,17 @@
+{
+  "name": "frontend-bootstrap",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Wolox/frontend-bootstrap",
+  "authors": [
+    "Sebastian Balay <sebastian.balay@wolox.com.ar>"
+  ],
+  "description": "Kickoff for web applications",
+  "license": "Apache 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

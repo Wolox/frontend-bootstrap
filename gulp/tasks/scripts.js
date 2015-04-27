@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
+    plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     config = require('../config');
 
@@ -22,6 +23,7 @@ var localConfig = {
 
 gulp.task('scripts', function() {
   gulp.src(localConfig.src)
+    .pipe(plumber({errorHandler: config.errorHandler}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(sourcemaps.init())

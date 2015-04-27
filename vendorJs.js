@@ -1,3 +1,4 @@
 module.exports = [
-  // list of strings with js files inside the bower_components folder
+  "jquery/dist/jquery.min.js",
+  "bootstrap/dist/js/bootstrap.min.js"
 ];

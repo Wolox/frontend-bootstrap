@@ -12,4 +12,12 @@ gulp.task('watch:jade', function () {
   gulp.watch("src/**/*.jade", ['jade']);
 });
 
-gulp.task('watch', ['watch:jade', 'watch:js', 'watch:scss']);
+gulp.task('watch:vendor:js', function () {
+  gulp.watch(["vendorJs.js"], ['vendor:js']);
+});
+
+gulp.task('watch:vendor:css', function () {
+  gulp.watch(["vendorCss.js"], ['vendor:css']);
+});
+
+gulp.task('watch', ['watch:jade', 'watch:js', 'watch:scss', 'watch:vendor:js', 'watch:vendor:css']);

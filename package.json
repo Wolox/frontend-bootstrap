@@ -7,7 +7,7 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "postinstall": "npm shrinkwrap --dev"
+    "postinstall": "npm shrinkwrap --dev; node_modules/.bin/bower install"
   },
   "repository": {
     "type": "git",

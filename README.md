@@ -3,17 +3,23 @@ Frontend Bootstrap
 
 Kickoff for web applications.
 
-### Contributing ###
+### Main Tools
++ [Gulp](http://gulpjs.com/)
++ [Sass](http://sass-lang.com)
++ [Jade](http://jade-lang.com)
++ [Babel](https://babeljs.io/)
++ [BrowserSync](http://www.browsersync.io/)
++ [Bower](http://www.bower.io/)
+
+### Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Run rspec tests (`bundle exec rspec`)
-5. Run rubocop lint (`bundle exec rubocop app spec -R`)
-6. Push to the branch (`git push origin my-new-feature`)
-7. Create new Pull Request
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
-### License ###
+### License
 
 Copyright 2015 Wolox S.A.
 

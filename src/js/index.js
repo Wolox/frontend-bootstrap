@@ -1,5 +1,5 @@
 (function () {
 
-  alert('WOLOX');
+  console.log('WOLOX');
 
 })();

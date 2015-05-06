@@ -6,7 +6,7 @@ gulp.task('jade', function () {
     .pipe(jade({ pretty : true }))
   .pipe(gulp.dest('./build'));
 
-  gulp.src('./src/jade/**/*.jade')
+  gulp.src('./src/jade/**/*.jade', { base: 'src' })
     .pipe(jade({ pretty : true }))
   .pipe(gulp.dest('./build/html'));
 });

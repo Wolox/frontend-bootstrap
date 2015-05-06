@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('build', ['jade', 'sass', 'scripts', 'vendor']);
+gulp.task('build', ['assets', 'jade', 'sass', 'scripts', 'vendor']);

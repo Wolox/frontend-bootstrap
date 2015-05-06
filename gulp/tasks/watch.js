@@ -20,4 +20,9 @@ gulp.task('watch:vendor:css', function () {
   gulp.watch(["vendorCss.js"], ['vendor:css']);
 });
 
-gulp.task('watch', ['watch:jade', 'watch:js', 'watch:scss', 'watch:vendor:js', 'watch:vendor:css']);
+gulp.task('watch:assets', function () {
+  gulp.watch(["src/assets/**/*"], ['assets']);
+});
+
+gulp.task('watch', ['watch:jade', 'watch:js', 'watch:scss', 'watch:vendor:js',
+                    'watch:vendor:css', 'watch:assets']);

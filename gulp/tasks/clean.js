@@ -4,3 +4,7 @@ var gulp = require('gulp'),
 gulp.task('clean', function (cb) {
   del(['./build'], cb);
 });
+
+gulp.task('clean:assets', function (cb) {
+  del(['./build/assets'], cb);
+});

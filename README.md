@@ -3,7 +3,7 @@ Frontend Bootstrap
 
 Kickoff for web applications.
 
-### Main Tools
+## Main Tools
 + [Gulp](http://gulpjs.com/)
 + [Sass](http://sass-lang.com)
 + [Jade](http://jade-lang.com)
@@ -11,9 +11,18 @@ Kickoff for web applications.
 + [BrowserSync](http://www.browsersync.io/)
 + [Bower](http://www.bower.io/)
 
+## First steps
+#### Installing node
+Get the latest version of node from the [official website](https://nodejs.org/) or using [nvm](https://github.com/creationix/nvm)
+
+#### Get the dependencies
+Run ```npm install``` from rootpath of the project.
+
+#### Gulp
+To start your app run ```gulp``` in the rootpath of the project. It is recommended to run gulp using the binary in the node modules folder ```./node_modules/.bin/gulp``` to avoid using an incorrect version of gulp that may have been installed globally. Consider adding ```alias gulp='node_modules/.bin/gulp'``` to your .bashrc o .bash_profile settings.
+
+
 ###  Gulp tasks
-
-
 > **gulp scripts**
 > Compiles the javascript files in the *src/js* folder after applying the jshint linter.
 > Uglifies (unless you're in development environment) and concats the source code and outputs to *build/js/all.js* adding the sourcemaps metadata.
@@ -71,9 +80,7 @@ Kickoff for web applications.
 > **gulp publish**
 > Pushes the contents of the *build* to the s3 bucket specified in the task file.
 
-</sub>
-
-### Contributing
+## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -81,7 +88,7 @@ Kickoff for web applications.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-### License
+## License
 
 Copyright 2015 Wolox S.A.
 

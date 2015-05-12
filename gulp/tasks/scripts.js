@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
+    gulpif = require('gulp-if'),
     config = require('../config');
 
 var localConfig = {
@@ -29,7 +30,7 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(concat('all.js'))
-      .pipe(uglify(localConfig.uglify[config.environment]))
+      .pipe(gulpif(config.production(),uglify()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(localConfig.dest));
 });

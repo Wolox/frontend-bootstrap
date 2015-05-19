@@ -11,6 +11,9 @@ module.exports = {
   production: function () {
     return this.environment === 'production';
   },
+  productionlike: function () {
+    return this.production() || this.staging();
+  },
   errorHandler: function (error) {
      notify.onError({
        title:    "Gulp",

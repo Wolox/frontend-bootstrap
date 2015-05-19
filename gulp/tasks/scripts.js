@@ -30,7 +30,7 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(concat('all.js'))
-      .pipe(gulpif(config.production(),uglify()))
+      .pipe(gulpif(config.productionlike(),uglify()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(localConfig.dest));
 });

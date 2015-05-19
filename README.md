@@ -22,6 +22,7 @@ Run ```npm install``` from rootpath of the project.
 To start your app run ```gulp``` in the rootpath of the project. It is recommended to run gulp using the binary in the node modules folder ```./node_modules/.bin/gulp``` to avoid using an incorrect version of gulp that may have been installed globally. Consider adding ```alias gulp='node_modules/.bin/gulp'``` to your .bashrc o .bash_profile settings.
 
 If having problems with ```gulp watch```, run ```echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p```.
+This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
 
 
 ###  Gulp tasks

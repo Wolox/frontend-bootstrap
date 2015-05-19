@@ -5,7 +5,9 @@ var gulp = require('gulp'),
     config = require('../config'),
     scsslint = require('gulp-scss-lint'),
     sourcemaps = require('gulp-sourcemaps'),
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-minify-css'),
+    gulpif = require('gulp-if'),
+    config = require('../config');
 
 gulp.task('sass', function () {
   gulp.src('./src/scss/*.scss')
@@ -15,7 +17,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(concat('all.css'))
-      .pipe(minifyCss())
+      .pipe(gulpif(config.productionlike(),minifyCss()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'));
 });

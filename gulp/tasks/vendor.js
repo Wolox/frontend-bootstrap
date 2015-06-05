@@ -16,19 +16,15 @@ var cssVendorFiles = require('../../vendorCss').map(function (filepath) {
 
 gulp.task('vendor:js', function() {
   gulp.src(jsVendorFiles)
-    .pipe(sourcemaps.init())
-      .pipe(concat('vendor.js'))
-      .pipe(gulpif(config.productionlike(), uglify()))
-    .pipe(sourcemaps.write())
+    .pipe(concat('vendor.js'))
+    .pipe(gulpif(config.productionlike(), uglify()))
   .pipe(gulp.dest('./build/js/'));
 });
 
 gulp.task('vendor:css', function() {
   gulp.src(cssVendorFiles)
-    .pipe(sourcemaps.init())
-      .pipe(concat('vendor.css'))
-      .pipe(gulpif(config.productionlike(), minifyCss()))
-    .pipe(sourcemaps.write())
+    .pipe(concat('vendor.css'))
+    .pipe(gulpif(config.productionlike(), minifyCss()))
   .pipe(gulp.dest('./build/css/'));
 });
 

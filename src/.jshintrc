@@ -7,8 +7,8 @@
    * =================
    */
 
-  // Define globals exposed by Node.js.
-  "node": true,
+  // Define globals exposed by modern browsers.
+  "browser": true,
 
   // Allow ES6.
   "esnext": true,
@@ -39,6 +39,9 @@
 
   // Enforce use of single quotation marks for strings.
   "quotmark": "single",
+
+  // Enforce placing 'use strict' at the top function scope
+  "strict": true,
 
   // Prohibit use of explicitly undeclared variables.
   "undef": true,

@@ -4,13 +4,8 @@ var gulp = require('gulp'),
     jade = require('gulp-jade');
 
 gulp.task('jade', function () {
-  gulp.src('./src/index.jade')
+  return gulp.src('./src/**/*.jade', { base: 'src' })
     .pipe(plumber({errorHandler: config.errorHandler}))
     .pipe(jade({ pretty : true }))
   .pipe(gulp.dest('./build'));
-
-  gulp.src('./src/jade/**/*.jade', { base: 'src' })
-    .pipe(plumber({errorHandler: config.errorHandler}))
-    .pipe(jade({ pretty : true }))
-  .pipe(gulp.dest('./build/html'));
 });

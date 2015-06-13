@@ -15,14 +15,14 @@ var cssVendorFiles = require('../../vendorCss').map(function (filepath) {
 });
 
 gulp.task('vendor:js', function() {
-  gulp.src(jsVendorFiles)
+  return gulp.src(jsVendorFiles)
     .pipe(concat('vendor.js'))
     .pipe(gulpif(config.productionlike(), uglify()))
   .pipe(gulp.dest('./build/js/'));
 });
 
 gulp.task('vendor:css', function() {
-  gulp.src(cssVendorFiles)
+  return gulp.src(cssVendorFiles)
     .pipe(concat('vendor.css'))
     .pipe(gulpif(config.productionlike(), minifyCss()))
   .pipe(gulp.dest('./build/css/'));

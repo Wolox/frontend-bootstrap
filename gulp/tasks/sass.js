@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     config = require('../config');
 
 gulp.task('sass', function () {
-  gulp.src('./src/scss/*.scss')
+  return gulp.src('./src/scss/*.scss')
     .pipe(plumber({errorHandler: config.errorHandler}))
     .pipe(scsslint())
     .pipe(scsslint.failReporter('E'))

@@ -1,3 +1,6 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    runSequence = require('run-sequence');
 
-gulp.task('build', ['assets', 'jade', 'sass', 'scripts', 'vendor']);
+gulp.task('build', function (cb) {
+  runSequence(['assets', 'jade', 'sass', 'scripts', 'vendor'], cb);
+});

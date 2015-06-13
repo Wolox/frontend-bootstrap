@@ -23,7 +23,7 @@ var localConfig = {
 };
 
 gulp.task('scripts', function() {
-  gulp.src(localConfig.src)
+  return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: config.errorHandler}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))

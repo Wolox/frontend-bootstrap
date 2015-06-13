@@ -1,12 +1,17 @@
 var browserSync = require('browser-sync'),
     gulp        = require('gulp');
 
+var localConfig = {
+  buildSrc: './build/',
+  appFiles: './build/**/*.*'
+};
+
 gulp.task('serve', function() {
     browserSync({
         server: {
-            baseDir: "./build/"
+            baseDir: localConfig.buildSrc
         },
-        files: "./build/**/*.*",
+        files: localConfig.appFiles,
         open: false
     });
 });

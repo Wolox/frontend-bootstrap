@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
-    config = require('../config');
+    globalConfig = require('../config');
 
 gulp.task('set-production', function () {
-  config.environment = 'production';
+  globalConfig.environment = 'production';
 });
 
 gulp.task('production', ['set-production', 'default']);

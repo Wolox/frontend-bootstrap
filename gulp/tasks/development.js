@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
-    config = require('../config');
+    globalConfig = require('../config');
 
 gulp.task('set-development', function () {
-  config.environment = 'development';
+  globalConfig.environment = 'development';
 });
 
 gulp.task('development', ['set-development', 'default']);

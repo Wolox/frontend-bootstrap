@@ -65,7 +65,7 @@ This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
 
 > **gulp build**
 > Runs the following sequence of tasks: ['assets', 'jade', 'sass', 'scripts', 'vendor']
-> Accepts a param that indicates which development environment to use. The available options are: development (default option), staging and production. e.g: gulp build:staging
+> Accepts a param that indicates which development environment to use. The available options are: development (default option) and production. e.g: gulp build:production
 
 > **gulp default**
 > Runs the following sequence of tasks: ['clean', 'build', 'watch', 'serve']
@@ -73,9 +73,6 @@ This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
 
 > **gulp development**
 > Runs the default task using the development build
-
-> **gulp staging**
-> Runs the default task using the staging build</sub>
 
 > **gulp production**
 > Runs the default task using the production build

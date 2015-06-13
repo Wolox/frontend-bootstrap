@@ -17,7 +17,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(concat('all.css'))
-      .pipe(gulpif(config.productionlike(),minifyCss()))
+      .pipe(gulpif(config.production(),minifyCss()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'));
 });

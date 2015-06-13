@@ -10,16 +10,7 @@ var gulp = require('gulp'),
 
 var localConfig = {
   src: './src/js/**/*.js',
-  dest: './build/js/',
-  uglify: {
-    development: {
-      mangle: false,
-      compress: false,
-      preserveComments: 'all'
-    },
-    staging: {},
-    production: {}
-  }
+  dest: './build/js/'
 };
 
 gulp.task('scripts', function() {
@@ -30,7 +21,7 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(concat('all.js'))
-      .pipe(gulpif(config.productionlike(),uglify()))
+      .pipe(gulpif(config.production(),uglify()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(localConfig.dest));
 });

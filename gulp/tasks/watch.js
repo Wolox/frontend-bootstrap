@@ -2,8 +2,8 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence');
 
 var localConfig = {
-  scssWatchedFiles: 'src/scss/*.scss',
-  jsWatchedFiles: 'src/js/*.js',
+  scssWatchedFiles: 'src/**/*.scss',
+  jsWatchedFiles: 'src/**/*.js',
   jadeWatchedFiles: 'src/**/*.jade',
   assetsWatchedFiles: 'src/assets/**/*',
   vendorJsFile: 'vendorJs.js',

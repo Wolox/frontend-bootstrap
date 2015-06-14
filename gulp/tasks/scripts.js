@@ -6,17 +6,25 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     gulpif = require('gulp-if'),
+    preprocess = require('gulp-preprocess'),
     globalConfig = require('../config');
 
 var localConfig = {
-  src: './src/js/**/*.js',
-  dest: './build/js/',
+  src: function() {
+    return ['./src/app/app.module.js',
+        './src/**/*.js',
+        '!./src/app/config/!(' + globalConfig.environment + '.js)'];
+  },
+  dest: function () {
+    return './build/js/';
+  },
   buildFileName: 'all.js'
 };
 
 gulp.task('scripts', function() {
-  return gulp.src(localConfig.src)
+  return gulp.src(localConfig.src())
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
+    .pipe(preprocess())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(sourcemaps.init())
@@ -24,5 +32,5 @@ gulp.task('scripts', function() {
       .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))
       .pipe(gulpif(globalConfig.production(), uglify()))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(localConfig.dest));
+    .pipe(gulp.dest(localConfig.dest()));
 });

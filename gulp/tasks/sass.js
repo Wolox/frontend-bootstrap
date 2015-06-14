@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     globalConfig = require('../config');
 
 var localConfig = {
-  src: './src/scss/*.scss',
+  src: './src/**/*.scss',
   dest: './build/css/',
   buildFileName: 'all.css'
 };

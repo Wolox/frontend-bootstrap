@@ -13,6 +13,11 @@
   // Allow ES6.
   "esnext": true,
 
+  "globals": {
+    "angular": true,
+    "app": true
+  },
+
   /*
    * ENFORCING OPTIONS
    * =================
@@ -39,9 +44,6 @@
 
   // Enforce use of single quotation marks for strings.
   "quotmark": "single",
-
-  // Enforce placing 'use strict' at the top function scope
-  "strict": true,
 
   // Prohibit use of explicitly undeclared variables.
   "undef": true,

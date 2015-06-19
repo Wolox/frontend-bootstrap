@@ -1,0 +1,79 @@
+scss_files: "./src/scss/*.scss"
+
+linters:
+  BemDepth:
+    enabled: true
+    max_elements: 3
+
+  BorderZero:
+    enabled: true
+    convention: none
+
+  HexNotation:
+    enabled: true
+    style: uppercase
+
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  NameFormat:
+    enabled: true
+    allow_leading_underscore: true
+    convention: camel_case
+
+  NestingDepth:
+    enabled: true
+    max_depth: 4
+
+  PlaceholderInExtend:
+    enabled: false
+
+  PropertyUnits:
+    enabled: true
+    global: [
+      'em',
+      'px',
+      'vw',
+      'deg',
+      's',
+      'Hz',
+      'dpi',
+      '%']
+    properties: {}
+
+  PropertySortOrder:
+    enabled: false
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: true
+    allow_element_with_class: false
+    allow_element_with_id: false
+
+  Shorthand:
+    enabled: true
+    allowed_shorthands: [1, 2]
+
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: false
+
+  TrailingZero:
+    enabled: true
+
+  VariableForProperty:
+    enabled: true
+    properties: ['color']
+
+  VendorPrefix:
+    enabled: true
+    identifier_list: base
+    additional_identifiers: []
+    excluded_identifiers: []
+
+  ZeroUnit:
+    enabled: true

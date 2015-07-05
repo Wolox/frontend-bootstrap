@@ -16,6 +16,14 @@ Kickoff for web applications.
 Get the latest version of node from the [official website](https://nodejs.org/) or using [nvm](https://github.com/creationix/nvm)
 
 #### Get the dependencies
+To avoid errors related to access permissions to can try the following commands
+```bash
+sudo chown -R $USER ~/.npm
+```
+```bash
+sudo chown -R $USER .
+```
+
 Run ```npm install``` from rootpath of the project.
 
 #### Gulp

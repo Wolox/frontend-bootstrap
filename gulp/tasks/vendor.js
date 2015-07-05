@@ -6,28 +6,38 @@ var gulp = require('gulp'),
     globalConfig = require('../config');
 
 var localConfig = {
-  vendorJsFileName: 'vendor.js',
+  vendorJsDeclarationsFile: '../../vendorJs',
+  vendorJsCompiledFileName: 'vendor.js',
   buildJsSrc: './build/js/',
-  jsVendorFiles: require('../../vendorJs').map(function (filepath) {
-    return 'bower_components/' + filepath;
-  }),
-  vendorCssFileName: 'vendor.css',
+  jsVendorFiles: function () {
+    // We always want to load the fresh contents of vendorJs file, so avoid caching it.
+    delete require.cache[require.resolve(this.vendorJsDeclarationsFile)];
+    return require(this.vendorJsDeclarationsFile).map(function (filepath) {
+      return 'bower_components/' + filepath;
+    });
+  },
+  vendorCssDeclarationsFile: '../../vendorCss',
+  vendorCssCompiledFileName: 'vendor.css',
   buildCssSrc: './build/css/',
-  cssVendorFiles: require('../../vendorCss').map(function (filepath) {
-    return 'bower_components/' + filepath;
-  })
+  cssVendorFiles: function () {
+    // We always want to load the fresh contents of vendorCss file, so avoid caching it.
+    delete require.cache[require.resolve(this.vendorCssDeclarationsFile)];
+    return require('../../vendorCss').map(function (filepath) {
+      return 'bower_components/' + filepath;
+    });
+  }
 };
 
 gulp.task('vendor:js', function() {
-  return gulp.src(localConfig.jsVendorFiles)
-    .pipe(concat(localConfig.vendorJsFileName))
+  return gulp.src(localConfig.jsVendorFiles())
+    .pipe(concat(localConfig.vendorJsCompiledFileName))
     .pipe(gulpif(globalConfig.production(), uglify()))
   .pipe(gulp.dest(localConfig.buildJsSrc));
 });
 
 gulp.task('vendor:css', function() {
-  return gulp.src(localConfig.cssVendorFiles)
-    .pipe(concat(localConfig.vendorCssFileName))
+  return gulp.src(localConfig.cssVendorFiles())
+    .pipe(concat(localConfig.vendorCssCompiledFileName))
     .pipe(gulpif(globalConfig.production(), minifyCss()))
   .pipe(gulp.dest(localConfig.buildCssSrc));
 });

@@ -1,6 +1,6 @@
 app.config([
-  '$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+  '$stateProvider', '$urlRouterProvider', '$locationProvider',
+  function($stateProvider, $urlRouterProvider, $locationProvider) {
 
   // For any unmatched urls
   $urlRouterProvider.otherwise( ($injector) => {
@@ -43,4 +43,6 @@ app.config([
         }
       }
     });
+
+    $locationProvider.html5Mode(true);
 }]);

@@ -9,5 +9,5 @@ gulp.task('set-production', function () {
 gulp.task('build:production', ['set-production', 'build']);
 
 gulp.task('production', function (cb) {
-  runSequence('build:production', 'serve:production', cb);
+  runSequence('clean', 'build:production', 'serve:production', cb);
 });

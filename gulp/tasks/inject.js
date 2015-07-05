@@ -20,14 +20,17 @@ var localConfig = {
 };
 
 gulp.task('inject', function () {
-  var vendorFileNames = localConfig.jsVendorFiles(),
-      jsVendorSources = gulp.src(vendorFileNames, { read: false }),
-      sources = gulp.src([localConfig.buildFolder + localConfig.jsFilesRegex,
-                          '!' + localConfig.buildFolder + localConfig.jsVendorFilesPath + '*'],
-                         { read: false });
+  var vendorFileNames = localConfig.jsVendorFiles();
+
+  var jsVendorPath = localConfig.buildFolder + localConfig.jsVendorFilesPath + '*';
+  var jsVendorSources = globalConfig.development() ?
+                          gulp.src(vendorFileNames, { read: false }) :
+                          gulp.src(jsVendorPath, { read: false });
+  var jsSources = gulp.src([localConfig.buildFolder + localConfig.jsFilesRegex,
+                           '!' + jsVendorPath], { read: false });
 
   return gulp.src(localConfig.buildFolder + localConfig.indexHtmlFile)
-    .pipe(inject(series(jsVendorSources, sources), {
+    .pipe(inject(series(jsVendorSources, jsSources), {
       transform: function (filepath, file, i, length) {
         if (globalConfig.development()) {
           var vendorFileIndex = vendorFileNames.indexOf(filepath.split('/').pop());

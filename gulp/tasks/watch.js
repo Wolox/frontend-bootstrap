@@ -1,4 +1,5 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    runSequence = require('run-sequence');
 
 var localConfig = {
   scssWatchedFiles: 'src/scss/*.scss',
@@ -14,7 +15,9 @@ gulp.task('watch:scss', function () {
 });
 
 gulp.task('watch:js', function () {
-  gulp.watch(localConfig.jsWatchedFiles, ['scripts']);
+  gulp.watch(localConfig.jsWatchedFiles, function () {
+    runSequence('scripts', 'inject');
+  });
 });
 
 gulp.task('watch:jade', function () {
@@ -22,7 +25,9 @@ gulp.task('watch:jade', function () {
 });
 
 gulp.task('watch:vendor:js', function () {
-  gulp.watch(localConfig.vendorJsFile, ['vendor:js']);
+  gulp.watch(localConfig.vendorJsFile, function () {
+    runSequence('vendor:js', 'inject');
+  });
 });
 
 gulp.task('watch:vendor:css', function () {

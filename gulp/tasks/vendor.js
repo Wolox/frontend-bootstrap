@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 var localConfig = {
   vendorJsDeclarationsFile: '../../vendorJs',
   vendorJsCompiledFileName: 'vendor.js',
-  buildJsSrc: './build/js/',
+  buildJsSrc: './build/js/vendor/',
   jsVendorFiles: function () {
     // We always want to load the fresh contents of vendorJs file, so avoid caching it.
     delete require.cache[require.resolve(this.vendorJsDeclarationsFile)];
@@ -30,7 +30,7 @@ var localConfig = {
 
 gulp.task('vendor:js', function() {
   return gulp.src(localConfig.jsVendorFiles())
-    .pipe(concat(localConfig.vendorJsCompiledFileName))
+    .pipe(gulpif(globalConfig.production(), concat(localConfig.vendorJsCompiledFileName)))
     .pipe(gulpif(globalConfig.production(), uglify()))
   .pipe(gulp.dest(localConfig.buildJsSrc));
 });

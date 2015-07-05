@@ -21,7 +21,7 @@ gulp.task('scripts', function() {
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(sourcemaps.init())
       .pipe(babel())
-      .pipe(concat(localConfig.buildFileName))
+      .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))
       .pipe(gulpif(globalConfig.production(), uglify()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(localConfig.dest));

@@ -1,5 +1,14 @@
+# npm dependencies
 node_modules
+
+# bower dependencies
 bower_components
+
+# npm log file
 npm-debug.log
+
+# compiled code folder
 build
+
+# aws keys file
 gulp/aws.js

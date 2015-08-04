@@ -17,10 +17,10 @@ var localConfig = {
 gulp.task('sass', function () {
   return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
-    .pipe(scsslint({
+    .pipe(gulpif(globalConfig.development(), scsslint({
       'config': 'scss-lint.yml'
-    }))
-    .pipe(scsslint.failReporter('E'))
+    })))
+    .pipe(gulpif(globalConfig.development(), scsslint.failReporter('E')))
     .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(concat(localConfig.buildFileName))

@@ -17,8 +17,8 @@ var localConfig = {
 gulp.task('scripts', function() {
   return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(gulpif(globalConfig.development(), jshint()))
+    .pipe(gulpif(globalConfig.development(), jshint.reporter('jshint-stylish')))
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))

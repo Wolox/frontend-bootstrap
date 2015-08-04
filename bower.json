@@ -6,7 +6,7 @@
     "Sebastian Balay <sebastian.balay@wolox.com.ar>"
   ],
   "description": "Kickoff for web applications",
-  "license": "Apache 2.0",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",

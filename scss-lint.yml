@@ -1,4 +1,4 @@
-scss_files: "./src/scss/*.scss"
+scss_files: "./src/**/*.scss"
 
 linters:
   BemDepth:

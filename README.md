@@ -85,8 +85,38 @@ This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
 > **gulp production**
 > Runs the default task using the production build
 
-> **gulp publish**
-> Pushes the contents of the *build* to the s3 bucket specified in the task file.
+> **gulp s3**
+> Pushes the contents of the *build* to the s3 bucket specified in the task file. You can either call s3:staging or s3:production.
+
+
+### Deploy
+
+In order to deploy you must first create *gulp/aws.js* file with the credentials for the Amazon S3 bucket, this file is already added to *.gitignore*
+so you don't compromise the keys by pushing them to the repository. The file needs to have this format: 
+
+```
+module.exports = {
+  "staging": {
+    "accessKeyId": "Amazon_s3_staging_access_key",
+    "secretAccessKey": "Amazon_s3_staging_secret_key",
+    "region": "Amazon_s3_staging_region",
+    "params": {
+    	"Bucket": "Amazon_s3_staging_bucket_name"
+	}
+  },
+  "production": {
+    "accessKeyId": "Amazon_s3_production_access_key",
+    "secretAccessKey": "Amazon_s3_production_secret_key",
+    "region": "Amazon_s3_production_region",
+    "params": {
+    	"Bucket": "Amazon_s3_production_bucket_name"
+	}
+  }
+};
+```
+Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
+
+NOTE: You must have the corrects AIM permissions, if not, amazon will report an Access Denied error
 
 ## Contributing
 

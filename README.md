@@ -4,19 +4,88 @@ Frontend Bootstrap
 Kickoff for web applications.
 
 ## Main Tools
-+ [Gulp](http://gulpjs.com/)
++ [Bower](http://www.bower.io/)
++ [Babel](https://babeljs.io/)
 + [Sass](http://sass-lang.com)
 + [Jade](http://jade-lang.com)
-+ [Babel](https://babeljs.io/)
++ [Gulp](http://gulpjs.com/)
 + [BrowserSync](http://www.browsersync.io/)
-+ [Bower](http://www.bower.io/)
 
 ## First steps
 #### Installing node
 Get the latest version of node from the [official website](https://nodejs.org/) or using [nvm](https://github.com/creationix/nvm)
 
-#### Get the dependencies
-To avoid errors related to access permissions to can try the following commands
+#### Getting the dev dependencies
+Run ```npm install``` from rootpath of the project.
+
+#### The dependencies' dependencies
+The sass linter we use relays on a ruby gem called scss_lint, so...
+```bash
+gem install scss_lint
+```
+
+#### Bower and gulp. The right way
+In the following step you will need to use bower, and during the project development you will probably use gulp every day, so let's use them in the right way.
+A very popular way of installing these packages is simply tell npm to install them globally. (Do not execute the following line, just keep reading)
+```bash
+npm install -g gulp bower
+```
+That's needless as gulp and bower are already in this project dependencies. A big problem can have place if the version of the packages that were installed globally do not match the versions that this project require.
+The right way to execute these tools is using the binaries in the node_modules folder, that is ```node_modules/.bin```.
+To execute bower just use the following ```./node_modules/.bin/bower```. Same for gulp.
+Adding an alias for these tools is highly recommended. Like the following:
+```bash
+alias gulp='node_modules/.bin/gulp'
+alias bower='node_modules/.bin/bower'
+```
+
+#### Getting the project dependencies
+The actual dependencies that will be used to develop the app are managed using bower. You can easily get them with the following command
+```bash
+bower install
+```
+You may be asking:  why don't we simply get these packages using npm?
+Here are some articles I suggest reading about bower:
+
++ [Why Front-End Needs a Package Manager?](frontendbabel.info/articles/bower-why-frontend-package-manager/)
++ [Is bower useful?](http://benmccormick.org/2015/01/22/is-bower-useful)
++ [What's great about bower](https://css-tricks.com/whats-great-bower/)
+
+#### Gulp
+To start your app run ```gulp``` in the rootpath of the project. Then access your app at **localhost:port**. The port is logged in the console where you ran gulp.
+Take a look at **GULP_TASKS.md** for a detailed explanation of the gulp tasks.
+
+## Development
+
+#### Vendors
+To add a vendor simply install and save it using bower, then add the path of the source files, relative to the **bower_components** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
+i.e: Adding jquery
+```
+bower install --save jquery
+```
+This will generate the **jquery** folder inside **bower_components**. Then, add the source file of jquery to **vendorJs.js**. It should look like this:
+```
+module.exports = [
+  'jquery/dist/jquery.js',
+];
+```
+
+## Deploy
+
+#### S3
+In order to deploy you must first create **gulp/aws.js** file with the credentials for the Amazon S3 bucket, this file is already added to **.gitignore**
+so you don't compromise the keys by pushing them to the repository. The file needs to have to follow the format specified in *gulp/aws.js.example*
+
+Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
+
+#### Heroku
+Pushing the desired branch to heroku should be enough.
+
+## Troubleshooting
+
+#### npm permissions
+If you are struggling with permission problems when using npm, you can try the following commands to avoid using ```sudo``` every time you have this troubles.
+
 ```bash
 sudo chown -R $USER ~/.npm
 ```
@@ -24,99 +93,12 @@ sudo chown -R $USER ~/.npm
 sudo chown -R $USER .
 ```
 
-Run ```npm install``` from rootpath of the project.
+#### S3 deploy
+NOTE: You must have the corrects AIM permissions, if not, amazon will report an Access Denied error
 
-#### Gulp
-To start your app run ```gulp``` in the rootpath of the project. It is recommended to run gulp using the binary in the node modules folder ```./node_modules/.bin/gulp``` to avoid using an incorrect version of gulp that may have been installed globally. Consider adding ```alias gulp='node_modules/.bin/gulp'``` to your .bashrc o .bash_profile settings.
-
+#### gulp watch
 If having problems with ```gulp watch```, run ```echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p```.
 This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
-
-
-###  Gulp tasks
-> **gulp scripts**
-> Compiles the javascript files in the *src/js* folder after applying the jshint linter.
-> Uglifies (unless you're in development environment) and concats the source code and outputs to *build/js/all.js* adding the sourcemaps metadata.
-> Ecmascript6 compatible using the babel transpiler
-
-> **gulp sass**
-> Compiles the sass files in the *src/scss* folder after applying an scss linter.
-> Minifies and concats the source code and outputs to *build/css/all.css* adding the sourcemaps metadata.
-
-> **gulp jade**
-> Compiles the *index.jade* file and jade files in the *src/jade* folder. Outputs to *build/index.html* and to *build/html* folder
-
-> **gulp assets**
-> Copies the content of the *src/assets* folder to *build/assets*.
-
-> **gulp vendor:js**
-> Adds to your app the contents of the files listed in the *vendorJs.js* file.
-> Concats and uglifies the source code outputting to *build/js/vendor.js*
-
-> **gulp vendor:css**
-> Adds to your app the contents of the files listed in the *vendorCss.js* file.
-> Concats and minifies the source code outputting to *build/css/vendor.css*
-
-> **gulp vendor**
-> Runs the gulp vendor:js and the gulp vendor:css tasks
-
-> **gulp serve**
-> Sets up a node server in the port 3000 with the contents of the build folder
-> Browsersync will refresh the browser if any file changes in the *build* folder, excepting css files that, after changing, are injected without refreshing.
-
-> **gulp watch**
-> Will watch all files in the *src* folder and run the corresponding task after any change.
-> e.g: Whenever a scss file changes, the task sass will be called.
-
-> **gulp clean**
-> Erases the *build* folder
-
-> **gulp build**
-> Runs the following sequence of tasks: ['assets', 'jade', 'sass', 'scripts', 'vendor']
-> Accepts a param that indicates which development environment to use. The available options are: development (default option) and production. e.g: gulp build:production
-
-> **gulp default**
-> Runs the following sequence of tasks: ['clean', 'build', 'watch', 'serve']
-> This task gets called when running gulp without specifing a task
-
-> **gulp development**
-> Runs the default task using the development build
-
-> **gulp production**
-> Runs the default task using the production build
-
-> **gulp s3**
-> Pushes the contents of the *build* to the s3 bucket specified in the task file. You can either call s3:staging or s3:production.
-
-
-### Deploy
-
-In order to deploy you must first create *gulp/aws.js* file with the credentials for the Amazon S3 bucket, this file is already added to *.gitignore*
-so you don't compromise the keys by pushing them to the repository. The file needs to have this format: 
-
-```
-module.exports = {
-  "staging": {
-    "accessKeyId": "Amazon_s3_staging_access_key",
-    "secretAccessKey": "Amazon_s3_staging_secret_key",
-    "region": "Amazon_s3_staging_region",
-    "params": {
-    	"Bucket": "Amazon_s3_staging_bucket_name"
-	}
-  },
-  "production": {
-    "accessKeyId": "Amazon_s3_production_access_key",
-    "secretAccessKey": "Amazon_s3_production_secret_key",
-    "region": "Amazon_s3_production_region",
-    "params": {
-    	"Bucket": "Amazon_s3_production_bucket_name"
-	}
-  }
-};
-```
-Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
-
-NOTE: You must have the corrects AIM permissions, if not, amazon will report an Access Denied error
 
 ## Contributing
 
@@ -126,13 +108,33 @@ NOTE: You must have the corrects AIM permissions, if not, amazon will report an 
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## About
+
+This project is maintained by [Sebastian Balay](https://github.com/sbalay) and it was written by [Wolox](http://www.wolox.com.ar).
+
+![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
+
+
 ## License
 
-Copyright 2015 Wolox S.A.
+**frontend-bootstrap** is available under the MIT [license](LICENSE).
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+    Copyright (c) 2015 Sebastián Balay <sebastian.balay@wolox.com.ar>
 
-http://www.apache.org/licenses/LICENSE-2.0
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.

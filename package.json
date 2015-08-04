@@ -7,7 +7,6 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "postinstall": "npm shrinkwrap --dev; node_modules/.bin/bower install",
     "start": "node_modules/.bin/gulp production"
   },
   "repository": {

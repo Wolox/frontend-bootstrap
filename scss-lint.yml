@@ -1,4 +1,4 @@
-scss_files: "./src/scss/*.scss"
+scss_files: "./src/**/*.scss"
 
 linters:
   BemDepth:
@@ -7,7 +7,7 @@ linters:
 
   BorderZero:
     enabled: true
-    convention: none
+    convention: zero
 
   HexNotation:
     enabled: true
@@ -20,11 +20,11 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: camel_case
+    convention: '[-a-z0-9]+'
 
   NestingDepth:
     enabled: true
-    max_depth: 4
+    max_depth: 5
 
   PlaceholderInExtend:
     enabled: false
@@ -53,6 +53,10 @@ linters:
     allow_element_with_attribute: true
     allow_element_with_class: false
     allow_element_with_id: false
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 4
 
   Shorthand:
     enabled: true

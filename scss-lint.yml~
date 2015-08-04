@@ -7,7 +7,7 @@ linters:
 
   BorderZero:
     enabled: true
-    convention: zero
+    convention: none
 
   HexNotation:
     enabled: true
@@ -20,11 +20,11 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: '[-a-z0-9]+'
+    convention: camel_case
 
   NestingDepth:
     enabled: true
-    max_depth: 5
+    max_depth: 4
 
   PlaceholderInExtend:
     enabled: false
@@ -53,10 +53,6 @@ linters:
     allow_element_with_attribute: true
     allow_element_with_class: false
     allow_element_with_id: false
-
-  SelectorDepth:
-    enabled: true
-    max_depth: 4
 
   Shorthand:
     enabled: true

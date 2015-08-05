@@ -1,11 +1,9 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
-    sass = require('gulp-sass'),
     scsslint = require('gulp-scss-lint'),
     jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
-    jade = require('gulp-jade'),
-    runSequence = require('run-sequence');
+    jade = require('gulp-jade');
 
 var localConfig = {
   jadeFiles: './src/**/*.jade',
@@ -43,5 +41,3 @@ gulp.task('ci:jade', function () {
     .pipe(plumber({ errorHandler: localConfig.jadeErrorHandler }))
     .pipe(jade({ pretty : true }));
 });
-
-

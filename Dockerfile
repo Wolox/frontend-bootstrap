@@ -1,4 +1,16 @@
-FROM node:0.10.40
+FROM ruby:2.2.2
+
+RUN gem install scss-lint
+
+RUN cd \
+    &&  git clone https://github.com/joyent/node.git \
+    &&  cd node \
+    &&  git checkout v0.12.7 \
+    &&  ./configure \
+    &&  make \
+    &&  make install \
+    &&  cd .. \
+    &&  rm -rfv ~/node
 
 RUN npm config set loglevel error --global
 

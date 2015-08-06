@@ -1,7 +1,6 @@
-var app = angular.module( // jshint ignore:line
+angular.module(
   'app', [
     'ui.router',
-    'pascalprecht.translate',
-    'app.config'
+    'pascalprecht.translate'
   ]
 );

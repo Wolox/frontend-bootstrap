@@ -1,3 +1,3 @@
-angular.module('app.config', []).constant('configuration', {
+angular.module('app').constant('configuration', {
   apiUrl: 'localhost:3000'
 });

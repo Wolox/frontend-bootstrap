@@ -2,8 +2,8 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence');
 
 var localConfig = {
-  scssWatchedFiles: 'src/scss/*.scss',
-  jsWatchedFiles: 'src/js/*.js',
+  scssWatchedFiles: 'src/**/*.scss',
+  jsWatchedFiles: 'src/**/*.js',
   jadeWatchedFiles: 'src/**/*.jade',
   assetsWatchedFiles: 'src/assets/**/*',
   vendorJsFile: 'vendorJs.js',
@@ -20,9 +20,11 @@ gulp.task('watch:js', function () {
   });
 });
 
+gulp.task('watch:jade', function () {
   gulp.watch(localConfig.jadeWatchedFiles, function () {
     runSequence('jade', 'inject');
   });
+});
 
 gulp.task('watch:vendor:js', function () {
   gulp.watch(localConfig.vendorJsFile, function () {

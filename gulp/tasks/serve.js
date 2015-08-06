@@ -14,6 +14,7 @@ gulp.task('serve', function() {
             baseDir: localConfig.buildSrc
         },
         files: localConfig.appFiles,
+        reloadDelay: 1000,
         open: false,
         port: localConfig.defaultPort
     });

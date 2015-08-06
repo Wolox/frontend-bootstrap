@@ -20,9 +20,9 @@ gulp.task('watch:js', function () {
   });
 });
 
-gulp.task('watch:jade', function () {
-  gulp.watch(localConfig.jadeWatchedFiles, ['jade']);
-});
+  gulp.watch(localConfig.jadeWatchedFiles, function () {
+    runSequence('jade', 'inject');
+  });
 
 gulp.task('watch:vendor:js', function () {
   gulp.watch(localConfig.vendorJsFile, function () {

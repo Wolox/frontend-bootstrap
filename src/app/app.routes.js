@@ -11,7 +11,6 @@ angular.module('app').config([
   $stateProvider
     .state('state1', {
       abstract: true,
-      template: '<ui-view/>',
       views: {
         main: {
           templateUrl: '../app/layouts/state1/main.html'
@@ -28,7 +27,6 @@ angular.module('app').config([
     })
     .state('state2', {
       abstract: true,
-      template: '<ui-view/>',
       views: {
         main: {
           templateUrl: '../app/layouts/state2/main.html'

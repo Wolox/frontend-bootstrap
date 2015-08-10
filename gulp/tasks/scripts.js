@@ -6,15 +6,21 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     gulpif = require('gulp-if'),
+    del = require('del'),
     globalConfig = require('../config');
 
 var localConfig = {
   src: './src/js/**/*.js',
   dest: './build/js/',
-  buildFileName: 'all.js'
+  buildFileName: 'all.js',
+  cleanSrc: ['./build/js/**/*', '!./build/js/vendor/**']
 };
 
-gulp.task('scripts', function() {
+gulp.task('clean:scripts', function (cb) {
+  del(localConfig.cleanSrc, cb);
+});
+
+gulp.task('scripts', ['clean:scripts'], function() {
   return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
     .pipe(gulpif(globalConfig.development(), jshint()))

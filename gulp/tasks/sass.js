@@ -6,15 +6,21 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     minifyCss = require('gulp-minify-css'),
     gulpif = require('gulp-if'),
+    del = require('del'),
     globalConfig = require('../config');
 
 var localConfig = {
   src: './src/scss/*.scss',
   dest: './build/css/',
-  buildFileName: 'all.css'
+  buildFileName: 'all.css',
+  cleanSrc: ['./build/css/all.css', '!./build/css/vendor.css']
 };
 
-gulp.task('sass', function () {
+gulp.task('clean:css', function (cb) {
+  del(localConfig.cleanSrc, cb);
+});
+
+gulp.task('sass', ['clean:css'], function () {
   return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
     .pipe(gulpif(globalConfig.development(), scsslint({

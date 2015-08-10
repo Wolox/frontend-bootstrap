@@ -1,15 +1,21 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
-    globalConfig = require('../config'),
-    jade = require('gulp-jade');
+    jade = require('gulp-jade'),
+    del = require('del'),
+    globalConfig = require('../config');
 
 var localConfig = {
   src: './src/**/*.jade',
   base: 'src',
-  dest: './build'
+  dest: './build',
+  cleanSrc: './build/**/*.html'
 };
 
-gulp.task('jade', function () {
+gulp.task('clean:html', function (cb) {
+  del([localConfig.cleanSrc], cb);
+});
+
+gulp.task('jade', ['clean:html'], function () {
   return gulp.src(localConfig.src, { base: localConfig.base })
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
     .pipe(jade({ pretty : true }))

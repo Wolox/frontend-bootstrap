@@ -7,8 +7,10 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "start": "node_modules/.bin/gulp production"
+    "start": "node_modules/.bin/gulp production",
+    "postinstall": "bower install"
   },
+  "cacheDirectories": ["node_modules", "bower_components"],
   "repository": {
     "type": "git",
     "url": "https://github.com/Wolox/frontend-bootstrap.git"

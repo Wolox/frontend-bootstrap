@@ -11,4 +11,9 @@ npm-debug.log
 build
 
 # aws keys file
-gulp/aws.js
+config/aws.js
+
+# config keys
+config/secrets.development.js
+config/secrets.staging.js
+config/secrets.production.js

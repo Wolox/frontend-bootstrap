@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
+    preprocess = require('gulp-preprocess'),
     sourcemaps = require('gulp-sourcemaps'),
     gulpif = require('gulp-if'),
     del = require('del'),
@@ -22,7 +23,8 @@ gulp.task('clean:scripts', function (cb) {
 
 gulp.task('scripts', ['clean:scripts'], function() {
   return gulp.src(localConfig.src)
-    .pipe(plumber({errorHandler: globalConfig.errorHandler}))
+    .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
+    .pipe(preprocess({ context: globalConfig.getConfigKeys() }))
     .pipe(gulpif(globalConfig.development(), eslint()))
     .pipe(gulpif(globalConfig.development(), eslint.format()))
     .pipe(sourcemaps.init())

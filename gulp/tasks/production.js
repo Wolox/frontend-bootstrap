@@ -6,8 +6,8 @@ gulp.task('set-production', function () {
   globalConfig.environment = 'production';
 });
 
-gulp.task('build:production', ['set-production', 'build']);
-
-gulp.task('production', function (cb) {
-  runSequence('clean', 'build:production', 'serve:production', cb);
+gulp.task('production', ['set-production'], function (cb) {
+  runSequence('clean', 'build', 'serve:static', cb);
 });
+
+gulp.task('build:production', ['set-production', 'build']);

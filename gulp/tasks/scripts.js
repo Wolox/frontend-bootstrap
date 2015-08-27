@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
-    jshint = require('gulp-jshint'),
+    eslint = require('gulp-eslint'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
@@ -23,8 +23,8 @@ gulp.task('clean:scripts', function (cb) {
 gulp.task('scripts', ['clean:scripts'], function() {
   return gulp.src(localConfig.src)
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
-    .pipe(gulpif(globalConfig.development(), jshint()))
-    .pipe(gulpif(globalConfig.development(), jshint.reporter('jshint-stylish')))
+    .pipe(gulpif(globalConfig.development(), eslint()))
+    .pipe(gulpif(globalConfig.development(), eslint.format()))
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))

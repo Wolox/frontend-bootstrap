@@ -1,18 +1,19 @@
 angular.module('app').config([
   '$translateProvider',
-  function($translateProvider) {
+  function ($translateProvider) {
 
-  $translateProvider.translations('es', {
-    DAYS_OF_WEEK: {
-      SUNDAY: 'Domingo',
-      MONDAY: 'Lunes',
-      TUESDAY: 'Martes',
-      WEDNESDAY: 'Miércoles',
-      THURSDAY: 'Jueves',
-      FRIDAY: 'Viernes',
-      SATURDAY: 'Sabado'
-    }
-  });
-  $translateProvider.preferredLanguage('es');
-  $translateProvider.useSanitizeValueStrategy(null);
-}]);
+    $translateProvider.translations('es', {
+      DAYS_OF_WEEK: {
+        SUNDAY: 'Domingo',
+        MONDAY: 'Lunes',
+        TUESDAY: 'Martes',
+        WEDNESDAY: 'Miércoles',
+        THURSDAY: 'Jueves',
+        FRIDAY: 'Viernes',
+        SATURDAY: 'Sabado'
+      }
+    });
+    $translateProvider.preferredLanguage('es');
+    $translateProvider.useSanitizeValueStrategy(null);
+  }
+]);

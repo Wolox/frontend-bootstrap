@@ -23,7 +23,7 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('serve:production', function() {
+gulp.task('serve:static', function() {
   connect.server({
     root: localConfig.buildSrc,
     port: process.env.PORT || localConfig.defaultPort,

@@ -9,4 +9,5 @@ gulp.task('set-development', function () {
 gulp.task('development', ['set-development'], function (cb) {
   runSequence('clean', 'build', 'watch', 'serve', cb);
 });
+
 gulp.task('build:development', ['set-development', 'build']);

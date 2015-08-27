@@ -1,9 +1,10 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
-    jshint = require('gulp-jshint'),
+    eslint = require('gulp-eslint'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
+    preprocess = require('gulp-preprocess'),
     sourcemaps = require('gulp-sourcemaps'),
     gulpif = require('gulp-if'),
     del = require('del'),
@@ -29,10 +30,10 @@ gulp.task('clean:scripts', function (cb) {
 
 gulp.task('scripts', ['clean:scripts'], function() {
   return gulp.src(localConfig.src())
-    .pipe(plumber({errorHandler: globalConfig.errorHandler}))
-    .pipe(preprocess())
-    .pipe(gulpif(globalConfig.development(), jshint()))
-    .pipe(gulpif(globalConfig.development(), jshint.reporter('jshint-stylish')))
+    .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
+    .pipe(preprocess({ context: globalConfig.getConfigKeys() }))
+    .pipe(gulpif(globalConfig.development(), eslint()))
+    .pipe(gulpif(globalConfig.development(), eslint.format()))
     .pipe(sourcemaps.init())
       .pipe(babel())
       .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))

@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     scsslint = require('gulp-scss-lint'),
-    jshint = require('gulp-jshint'),
+    eslint = require('gulp-eslint'),
     babel = require('gulp-babel'),
     jade = require('gulp-jade');
 
@@ -21,9 +21,9 @@ var localConfig = {
 gulp.task('ci:js', function () {
   return gulp.src(localConfig.jsFiles)
     .pipe(plumber({ errorHandler: localConfig.errorHandler }))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
     .pipe(babel());
 });
 

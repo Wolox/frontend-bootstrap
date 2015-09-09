@@ -27,11 +27,11 @@ gulp.task('sass', ['clean:css'], function () {
       'config': 'scss-lint.yml'
     })))
     .pipe(gulpif(globalConfig.development(), scsslint.failReporter('E')))
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
       .pipe(sass())
       .pipe(concat(localConfig.buildFileName))
       .pipe(gulpif(globalConfig.production(), minifyCss()))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest));
 });
 

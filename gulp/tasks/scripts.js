@@ -27,10 +27,10 @@ gulp.task('scripts', ['clean:scripts'], function() {
     .pipe(preprocess({ context: globalConfig.getConfigKeys() }))
     .pipe(gulpif(globalConfig.development(), eslint()))
     .pipe(gulpif(globalConfig.development(), eslint.format()))
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
       .pipe(babel())
       .pipe(gulpif(globalConfig.production(), concat(localConfig.buildFileName)))
       .pipe(gulpif(globalConfig.production(), uglify()))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest));
 });

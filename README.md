@@ -26,12 +26,9 @@ gem install scss_lint
 
 #### Bower and gulp. The right way
 In the following step you will need to use bower, and during the project development you will probably use gulp every day, so let's use them in the right way.
-A very popular way of installing these packages is simply tell npm to install them globally. (Do not execute the following line, just keep reading)
-```bash
-npm install -g gulp bower
-```
+A very popular way of getting these packages is simply tell npm to install them globally using the ```-g``` flag.
 That's needless as gulp and bower are already in this project dependencies. A big problem can have place if the version of the packages that were installed globally do not match the versions that this project require.
-The right way to execute these tools is using the binaries in the node_modules folder, that is ```node_modules/.bin```.
+The right way to execute these tools is using the binaries in the node_modules folder, that is ```node_modules/.bin/```.
 To execute bower just use the following ```./node_modules/.bin/bower```. Same for gulp.
 Adding an alias for these tools is highly recommended. Like the following:
 ```bash
@@ -73,8 +70,7 @@ module.exports = [
 ## Deploy
 
 #### S3
-In order to deploy you must first create **gulp/aws.js** file with the credentials for the Amazon S3 bucket, this file is already added to **.gitignore**
-so you don't compromise the keys by pushing them to the repository. The file needs to have to follow the format specified in *gulp/aws.js.example*
+In order to deploy you must first create **config/aws.js** file with the credentials for the Amazon S3 bucket, this file is already added to **.gitignore** so you don't compromise the keys by pushing them to the repository. The file needs to have to follow the format specified in *config/aws.js.example*
 
 Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
 

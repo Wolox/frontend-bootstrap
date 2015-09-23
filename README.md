@@ -74,6 +74,24 @@ In order to deploy you must first create **config/aws.js** file with the credent
 
 Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
 
+Finally, you need to add a custom routing rule so that s3 handles the 404 (or 403 depending or the bucket policy) to the s3 properties. In the **Static Website Hosting** panel, check the **Enable website hosting** option and complete the form with the following:
+```
+Index document: index.html
+```
+And add this redirect rule (Depending on the bucket policy the error code to handle can be either 404 or 403)
+```
+<RoutingRules>
+    <RoutingRule>
+        <Condition>
+            <HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>#/</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+</RoutingRules>
+```
+
 #### Heroku
 Pushing the desired branch to heroku should be enough.
 

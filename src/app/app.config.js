@@ -7,6 +7,6 @@ angular.module('app').config([
     RestangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
 
     // Local Storage Setup
-    localStorageServiceProvider.setPrefix(window.btoa('app'));
+    localStorageServiceProvider.setPrefix(window.btoa('app-/* @echo environment */'));
   }
 ]);

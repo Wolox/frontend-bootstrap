@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    cached = require('gulp-cached'),
     del = require('del');
 
 var localConfig = {
@@ -6,5 +7,6 @@ var localConfig = {
 };
 
 gulp.task('clean', function (cb) {
+  cached.caches = {};
   del([localConfig.buildSrc], cb);
 });

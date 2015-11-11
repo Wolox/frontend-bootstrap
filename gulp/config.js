@@ -27,6 +27,7 @@ module.exports = {
       console.error('No config keys for environment: ' + this.environment);
       keys = {};
     }
+    keys.environment = this.environment;
     return keys;
   }
 };

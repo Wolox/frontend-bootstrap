@@ -4,6 +4,8 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     gulpif = require('gulp-if'),
     del = require('del'),
+    fs = require('fs'),
+    notifier = require('node-notifier'),
     globalConfig = require('../config');
 
 var localConfig = {
@@ -53,4 +55,46 @@ gulp.task('vendor:css', ['clean:vendor:css'], function() {
   .pipe(gulp.dest(localConfig.buildCssSrc));
 });
 
-gulp.task('vendor', ['vendor:js', 'vendor:css']);
+gulp.task('vendor:safe-check', function (cb) {
+  var that = this;
+
+  var jsVendorFiles = localConfig.jsVendorFiles();
+  var cssVendorFiles = localConfig.cssVendorFiles();
+
+  var checkedJsCount = checkedCssCount = 0;
+
+  var postCheckCallback = function () {
+    if (checkedJsCount === jsVendorFiles.length && checkedCssCount === cssVendorFiles.length) {
+      // finished checking all vendor files
+      cb();
+    }
+  }
+
+  jsVendorFiles.forEach(function (filename, index) {
+    fs.stat(filename, function(err, stat) {
+      checkedJsCount += 1;
+      if (err) {
+        notifier.notify({
+          title: 'Missing dependency',
+          message: filename
+        });
+      }
+      postCheckCallback();
+    });
+  });
+
+  cssVendorFiles.forEach(function (filename, index) {
+    fs.stat(filename, function(err, stat) {
+      checkedCssCount += 1;
+      if (err) {
+        notifier.notify({
+          title: 'Missing dependency',
+          message: filename
+        });
+      }
+      postCheckCallback();
+    });
+  });
+});
+
+gulp.task('vendor', ['vendor:js', 'vendor:css', 'vendor:safe-check']);

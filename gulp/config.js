@@ -1,4 +1,4 @@
-var notify = require('gulp-notify');
+var notifier = require('node-notifier');
 
 module.exports = {
   environment: 'development',
@@ -12,13 +12,11 @@ module.exports = {
     return this.environment === 'production';
   },
   errorHandler: function (error) {
-     notify.onError({
-       title:    "Gulp",
-       subtitle: "Failure!",
-       message:  "Error: <%= error.message %>",
-       sound:    "Beep"
-     })(error);
-     this.emit('end');
+    notifier.notify({
+      title: 'Gulp error',
+      message: error.message
+    });
+    this.emit('end');
   },
   getConfigKeys: function () {
     var keys;

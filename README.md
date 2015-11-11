@@ -77,6 +77,35 @@ To run these specs execute the following:
 npm run karma
 ```
 
+## Errors
+[Rollbar](https://rollbar.com/) is the tool we use to track errors. To set it up in the project follow these instructions:
+
+- Install rollbar.js
+```
+bower install rollbar --save
+```
+
+- Add the rollbar snippet to ```vendorJs``` file
+```
+'rollbar/dist/rollbar.snippet.js'
+```
+
+- Add the rollbar credentials in each secrets file in the ```config``` folder at the root of the project.
+
+- Add the `_rollbarConfig` configuration to the ```head``` of ```src/index.jade```
+```jade
+  script.
+    _rollbarConfig = {
+      accessToken: '<!-- @echo ROLLBAR_ACCESS_TOKEN -->',
+      captureUncaught: true,
+      payload: {
+        environment: '<!-- @echo environment -->'
+      }
+    };
+```
+
+Rollbar is now monitoring your page for all unhandled exceptions and is available via the global `window.Rollbar` object.
+Any further information can be found in the tracking tool [repository](https://github.com/rollbar/rollbar.js)
 
 ## Deploy
 

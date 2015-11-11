@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     jade = require('gulp-jade'),
+    preprocess = require('gulp-preprocess'),
     del = require('del'),
     globalConfig = require('../config');
 
@@ -19,5 +20,6 @@ gulp.task('jade', ['clean:html'], function () {
   return gulp.src(localConfig.src, { base: localConfig.base })
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
     .pipe(jade({ pretty : true }))
+    .pipe(preprocess({ context: globalConfig.getConfigKeys() }))
   .pipe(gulp.dest(localConfig.dest));
 });

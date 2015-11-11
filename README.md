@@ -67,6 +67,17 @@ module.exports = [
 ];
 ```
 
+#### Testing
+
+##### Unit testing
+We combine the power of [Karma](http://karma-runner.github.io/) and [Jasmine](http://jasmine.github.io/) frameworks to develop our unit testing. You can find the configuration files in the ```test/unit``` folder and you can find the tests inside the ```test/unit/specs``` folder.
+
+To run these specs execute the following:
+```
+npm run karma
+```
+
+
 ## Deploy
 
 #### S3

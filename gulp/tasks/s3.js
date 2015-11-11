@@ -15,7 +15,7 @@ var localConfig = {
   }
 };
 
-gulp.task('s3:staging', function() {
+gulp.task('s3:staging', ['build:staging'], function() {
   var awsConf = localConfig.getAwsConf('staging');
   var publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)
@@ -25,7 +25,7 @@ gulp.task('s3:staging', function() {
     .pipe(awspublish.reporter());
 });
 
-gulp.task('s3:production', function() {
+gulp.task('s3:production', ['build:production'], function() {
   var awsConf = localConfig.getAwsConf('production');
   var publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)

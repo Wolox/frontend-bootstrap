@@ -3,6 +3,10 @@
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true                  // browser global variables
   },
+  "globals": {
+    "angular": true,
+    "_": true
+  },
   "ecmaFeatures": {
     "arrowFunctions": true,
     "blockBindings": true,

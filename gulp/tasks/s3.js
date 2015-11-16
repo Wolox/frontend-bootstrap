@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 var localConfig = {
   buildSrc: './build/**/*',
   getAwsConf: function (environment) {
-    var conf = require('../../aws');
+    var conf = require('../../config/aws');
     if (!conf[environment]) {
       throw 'No aws conf for env: ' + environment;
     }

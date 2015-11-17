@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
-    scsslint = require('gulp-scss-lint'),
+    sasslint = require('gulp-sass-lint'),
     eslint = require('gulp-eslint'),
     babel = require('gulp-babel'),
     jade = require('gulp-jade');
@@ -30,10 +30,11 @@ gulp.task('ci:js', function () {
 gulp.task('ci:sass', function () {
   return gulp.src(localConfig.sassFiles)
     .pipe(plumber({ errorHandler: localConfig.errorHandler }))
-    .pipe(scsslint({
+    .pipe(sasslint({
       'config': 'scss-lint.yml'
     }))
-    .pipe(scsslint.failReporter());
+    .pipe(sassLint.format())
+    .pipe(sasslint.failOnError());
 });
 
 gulp.task('ci:jade', function () {

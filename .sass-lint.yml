@@ -51,7 +51,6 @@ rules:
   space-after-bang: 2
   space-after-colon: 2
   space-after-comma: 2
-  space-around-operator: 2
   space-before-bang: 2
   space-before-brace: 2
   space-before-colon: 2

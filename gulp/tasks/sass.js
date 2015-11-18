@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    concat = require('gulp-concat'),
+    filter = require('gulp-filter'),
     plumber = require('gulp-plumber'),
     sassLint = require('gulp-sass-lint'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -30,9 +30,9 @@ gulp.task('sass', ['clean:css'], function () {
     .pipe(gulpif(globalConfig.development(), sassLint.failOnError()))
     .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
       .pipe(sass())
-      .pipe(concat(localConfig.buildFileName))
       .pipe(gulpif(globalConfig.production(), minifyCss()))
     .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
+    .pipe(filter('./src/scss/application.scss'))
     .pipe(gulp.dest(localConfig.dest));
 });
 

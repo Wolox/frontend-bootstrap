@@ -31,7 +31,7 @@ gulp.task('ci:sass', function () {
   return gulp.src(localConfig.sassFiles)
     .pipe(plumber({ errorHandler: localConfig.errorHandler }))
     .pipe(sasslint({
-      'config': 'scss-lint.yml'
+      'config': '.sass-lint.yml'
     }))
     .pipe(sassLint.format())
     .pipe(sasslint.failOnError());

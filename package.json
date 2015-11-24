@@ -46,7 +46,6 @@
     "gulp-preprocess": "^1.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
-    "gulp-scss-lint": "^0.2.2",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "require-dir": "^0.3.0",
@@ -59,6 +58,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-chrome-launcher": "^0.2.0",
     "karma-ng-html2js-preprocessor": "^0.2.0",
+    "gulp-sass-lint": "^1.1.0",
     "node-notifier": "^4.3.1"
   }
 }

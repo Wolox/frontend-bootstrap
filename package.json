@@ -56,8 +56,9 @@
     "karma": "^0.13.9",
     "jasmine-core": "^2.3.4",
     "karma-jasmine": "^0.3.6",
-    "karma-chrome-launcher": "^0.2.0",
     "karma-ng-html2js-preprocessor": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
     "gulp-sass-lint": "^1.1.0",
     "node-notifier": "^4.3.1"
   }

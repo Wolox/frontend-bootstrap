@@ -1,5 +1,8 @@
 var gulp = require('gulp'),
-    del = require('del');
+    gulpif = require('gulp-if'),
+    webp = require('gulp-webp'),
+    del = require('del'),
+    globalConfig = require('../config');
 
 var localConfig = {
   src: './src/assets/**/*',
@@ -14,5 +17,6 @@ gulp.task('clean:assets', function (cb) {
 
 gulp.task('assets', ['clean:assets'], function() {
   return gulp.src(localConfig.src, { base: localConfig.base })
+    .pipe(gulpif(globalConfig.imageCompression, webp()))
     .pipe(gulp.dest(localConfig.dest));
 });

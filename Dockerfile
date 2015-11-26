@@ -20,3 +20,5 @@ RUN mkdir -p /myapp && cp -a /tmp/node_modules /myapp
 
 ADD . /myapp
 WORKDIR /myapp
+
+RUN node_modules/.bin/bower install --allow-root

@@ -78,7 +78,7 @@ Image compression is accomplished using [gulp-webp](https://github.com/sindresor
 
 Things to take into account:
 - If your assets include `.png` files, make sure `libpng` library is already installed.
-- If your assets include `.jpeg` files, make sure `libpng` library is already installed.
+- If your assets include `.jpeg` files, make sure `libjpeg` library is already installed.
 
 If any of these is not installed you have to first uninstall `webp` like the following:
 ```

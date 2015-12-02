@@ -80,13 +80,13 @@ Things to take into account:
 - If your assets include `.png` files, make sure `libpng` library is already installed.
 - If your assets include `.jpeg` files, make sure `libjpeg` library is already installed.
 
-If any of these is not installed you have to first uninstall `webp` like the following:
+If any of these are not installed you have to first uninstall `webp` like the following:
 ```
 npm remove gulp-webp
 ```
 Now, install the missing libraries.
 
-Finally, reinstall `gulp-webp` like the following:
+Finally, reinstall `gulp-webp` with the following command:
 ```
 npm install
 ```

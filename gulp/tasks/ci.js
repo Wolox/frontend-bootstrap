@@ -33,7 +33,7 @@ gulp.task('ci:sass', function () {
     .pipe(sasslint({
       'config': '.sass-lint.yml'
     }))
-    .pipe(sassLint.format())
+    .pipe(sasslint.format())
     .pipe(sasslint.failOnError());
 });
 

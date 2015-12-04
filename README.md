@@ -18,12 +18,6 @@ Get the latest version of node from the [official website](https://nodejs.org/) 
 #### Getting the dev dependencies
 Run ```npm install``` from rootpath of the project.
 
-#### The dependencies' dependencies
-The sass linter we use relays on a ruby gem called scss_lint, so...
-```bash
-gem install scss_lint
-```
-
 #### Bower and gulp. The right way
 In the following step you will need to use bower, and during the project development you will probably use gulp every day, so let's use them in the right way.
 A very popular way of getting these packages is simply tell npm to install them globally using the ```-g``` flag.

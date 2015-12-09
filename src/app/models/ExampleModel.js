@@ -23,12 +23,12 @@ angular.module('app').factory('ExampleModel', [
       }
 
       get nonSerializableAttributes () {
-        return [...super.nonSerializableAttributes, "ownerName"];
+        return [...super.nonSerializableAttributes, 'ownerName'];
       }
 
       serialize () {
         const serializedExample = super.serialize();
-        serializedExample.dates = {emition: this.emitionDate, expiration: this.expirationDate};
+        serializedExample.dates = { emition: this.emitionDate, expiration: this.expirationDate };
         delete serializedExample.emitionDate;
         delete serializedExample.expirationDate;
         return serializedExample;

@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "gulp-sass-lint": "^1.1.0",
+    "gulp-webp": "^2.3.0",
     "node-notifier": "^4.3.1"
   }
 }

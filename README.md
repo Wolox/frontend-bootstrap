@@ -61,6 +61,33 @@ module.exports = [
 ];
 ```
 
+#### Image compression
+
+If you want to reduce your assets weight so that the build is ligther, you can turn on image compression option. To make this possible, set `imageCompression` variable as `true` in `gulp/config.js` file.
+
+
+##### Webp Compression
+
+Image compression is accomplished using [gulp-webp](https://github.com/sindresorhus/gulp-webp).
+
+Things to take into account:
+- If your assets include `.png` files, make sure `libpng` library is already installed.
+- If your assets include `.jpeg` files, make sure `libjpeg` library is already installed.
+
+If any of these are not installed you have to first uninstall `webp` like the following:
+```
+npm remove gulp-webp
+```
+Now, install the missing libraries.
+
+Finally, reinstall `gulp-webp` with the following command:
+```
+npm install
+```
+
+Remember that you now have to reference your assets with `.webp` extension.
+
+
 ## Errors
 [Rollbar](https://rollbar.com/) is the tool we use to track errors. To set it up in the project follow these instructions:
 

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "0.12"
+
+
+install:
+  - npm install
+  - ./node_modules/.bin/bower install
+
+script:
+  - ./node_modules/.bin/gulp ci:js
+  - ./node_modules/.bin/gulp ci:sass
+  - ./node_modules/.bin/gulp ci:jade
+
+cache:
+  directories:
+    - node_modules
+    - bower_components

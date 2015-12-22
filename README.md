@@ -61,10 +61,15 @@ module.exports = [
 ];
 ```
 
+#### Maintanance
+If your app will be down for a period of time, you can set up a maintanance page during the downtime.
+```gulp build:maintanance``` will move the contents of ```src/maintanance``` to the build folder, then
+you only need to deploy that.
+If you want to customize the maintanance page, just change the contents of the ```src/maintanance``` folder.
+
 #### Image compression
 
 If you want to reduce your assets weight so that the build is ligther, you can turn on image compression option. To make this possible, set `imageCompression` variable as `true` in `gulp/config.js` file.
-
 
 ##### Webp Compression
 

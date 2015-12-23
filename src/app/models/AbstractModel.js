@@ -29,7 +29,9 @@ angular.module('app').factory('AbstractModel', [
       }
 
       equals (other) {
-        if (!other) return false;
+        if (!other) {
+          return false;
+        }
         return _.isEqual(Restangular.stripRestangular(this), Restangular.stripRestangular(other));
       }
 
@@ -49,7 +51,7 @@ angular.module('app').factory('AbstractModel', [
           const attrValue = this[attr];
           if (attrValue) {
             serializedModel[attr] = _.isArray(attrValue) ?
-              attrValue.map(each => each.serialize()) : attrValue.serialize();
+              attrValue.map((each) => each.serialize()) : attrValue.serialize();
           } else {
             serializedModel = _.omit(serializedModel, attr);
           }

@@ -29,10 +29,10 @@ gulp.task('sass', ['clean:css'], function () {
     .pipe(gulpif(globalConfig.development(), sassLint.format()))
     .pipe(gulpif(globalConfig.development(), sassLint.failOnError()))
     .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
+      .pipe(filter('*application.scss'))
       .pipe(sass())
       .pipe(gulpif(globalConfig.production(), minifyCss()))
     .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
-    .pipe(filter('./src/scss/application.scss'))
     .pipe(gulp.dest(localConfig.dest));
 });
 

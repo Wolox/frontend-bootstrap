@@ -81,8 +81,10 @@ module.exports.initPackageBower = function (responsibleFullName, projectName, pr
 }
 
 module.exports.initAngularModule = function (projectName) {
+
 	var toReplace = "'app-bootstrap'";
 	var replacement ="'" + projectName + "'";
+	var indexJade = './src/index.jade';
 
 	replace({
 		regex: toReplace,
@@ -92,4 +94,18 @@ module.exports.initAngularModule = function (projectName) {
 		recursive: true,
 		silent: true
 	});
+
+	fs.readFile(indexJade, 'utf8', function (err, data) {
+
+		if (err) {
+			return console.log(err);
+		}
+
+		var result = data.replace(toReplace, replacement)
+		fs.writeFile(indexJade, result, 'utf8', function (err) {
+			if (err) return console.log(err);
+		});
+
+	});
+
 }

@@ -1,4 +1,4 @@
-angular.module('app').controller('Component2Controller', [
+angular.module('app-bootstrap').controller('Component2Controller', [
   'localStorageService',
   function (localStorageService) {
     this.component2Phrase = 'This is component 2';

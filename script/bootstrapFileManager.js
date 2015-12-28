@@ -81,7 +81,7 @@ module.exports.initPackageBower = function (responsibleFullName, projectName, pr
 }
 
 module.exports.initAngularModule = function (projectName) {
-	var toReplace = "'app'";
+	var toReplace = "'app-bootstrap'";
 	var replacement ="'" + projectName + "'";
 
 	replace({

@@ -1,4 +1,4 @@
-angular.module('app').config([
+angular.module('app-bootstrap').config([
   'RestangularProvider', 'configuration', 'localStorageServiceProvider',
   function (RestangularProvider, configuration, localStorageServiceProvider) {
 

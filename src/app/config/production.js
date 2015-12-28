@@ -1,3 +1,3 @@
-angular.module('app').constant('configuration', {
+angular.module('app-bootstrap').constant('configuration', {
   apiUrl: '/* @echo API_URL */'
 });

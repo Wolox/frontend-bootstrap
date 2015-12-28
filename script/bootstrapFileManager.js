@@ -89,7 +89,7 @@ module.exports.initAngularModule = function (projectName) {
 	replace({
 		regex: toReplace,
 		replacement: replacement,
-		paths: ['./src/app'],
+		paths: ['./src/app', './test'],
 		include: '*.js',
 		recursive: true,
 		silent: true

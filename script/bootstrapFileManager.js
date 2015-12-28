@@ -1,4 +1,5 @@
-var fs = require('fs');
+var fs = require('fs'),
+	replace = require("replace");
 
 module.exports.initReadme = function (responsibleUername, responsibleFullName, projectName, projectDescription) {
 
@@ -77,4 +78,18 @@ module.exports.initPackageBower = function (responsibleFullName, projectName, pr
 
 	});
 
+}
+
+module.exports.initAngularModule = function (projectName) {
+	var toReplace = "'app'";
+	var replacement ="'" + projectName + "'";
+
+	replace({
+		regex: toReplace,
+		replacement: replacement,
+		paths: ['./src/app'],
+		include: '*.js',
+		recursive: true,
+		silent: true
+	});
 }

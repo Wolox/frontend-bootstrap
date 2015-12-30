@@ -17,3 +17,6 @@ config/aws.js
 config/secrets.development.js
 config/secrets.staging.js
 config/secrets.production.js
+
+# mac files
+.DS_Store

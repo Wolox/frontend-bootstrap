@@ -48,6 +48,10 @@ Take a look at **GULP_TASKS.md** for a detailed explanation of the gulp tasks.
 
 ## Development
 
+#### SCSS
+
+When creating SCSS files you don't need to import other files inside yours to use properties from them. There's a specific file called ```application.scss``` where every SCSS file should be imported in the desired priority order. This works just like the stylesheet elements in the head of an html, when repeated rules are present the rule that was imported last will override the other.
+
 #### Vendors
 To add a vendor simply install and save it using bower, then add the path of the source files, relative to the **bower_components** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
 i.e: Adding jquery

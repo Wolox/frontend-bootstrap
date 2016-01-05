@@ -44,6 +44,7 @@ prompt.get(config, function (err, result) {
 	} else {
 		bfm.initReadme(result.responsibleUsername, result.responsibleFullName, result.projectName, result.projectDescription);
 		bfm.initPackageBower(result.responsibleFullName, result.projectName, result.projectDescription);
+		bfm.removeScripts();
 	}
 
 });

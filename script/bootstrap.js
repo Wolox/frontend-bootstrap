@@ -9,7 +9,7 @@ prompt.start();
 
 var config = {
 	properties: {
-		responsibleUername: {
+		responsibleUsername: {
 			pattern: /^[a-zA-Z0-9]+$/,
 			message: 'Username must contain only alphanumeric characters.',
 			description: 'Responsible Username',
@@ -42,7 +42,7 @@ prompt.get(config, function (err, result) {
 	if (err) {
 		console.log('\nError found. Operation ' + err.message + '.');
 	} else {
-		bfm.initReadme(result.responsibleUername, result.responsibleFullName, result.projectName, result.projectDescription);
+		bfm.initReadme(result.responsibleUsername, result.responsibleFullName, result.projectName, result.projectDescription);
 		bfm.initPackageBower(result.responsibleFullName, result.projectName, result.projectDescription);
 	}
 

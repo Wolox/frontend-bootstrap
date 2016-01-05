@@ -12,23 +12,23 @@ var config = {
 		responsibleUsername: {
 			pattern: /^[a-zA-Z0-9]+$/,
 			message: 'Username must contain only alphanumeric characters.',
-			description: 'Responsible Username',
+			description: 'Responsible Username:',
 			required: true
 		},
 		responsibleFullName: {
 			pattern: /^([a-zA-Z]+[ ]?){2,13}$/g,
 			message: 'Responsible full name must contain only letters.',
-			description: 'Responsible Full Name',
+			description: 'Responsible Full Name:',
 			required: true
 		},
 		projectName: {
 			pattern: /^[a-zA-Z\-]+$/,
 			message: 'Name must be only letters or dashes.',
-			description: 'Projects name',
+			description: 'Projects name:',
 			required: true
 		},
 		projectDescription: {
-			description: 'Projects description',
+			description: 'Projects description:',
 			required: false
 		}
 	}

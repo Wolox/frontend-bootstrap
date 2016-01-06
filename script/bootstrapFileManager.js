@@ -1,4 +1,5 @@
-var fs = require('fs');
+var fs = require('fs'),
+	replace = require("replace");
 
 module.exports.initReadme = function (responsibleUername, responsibleFullName, projectName, projectDescription) {
 
@@ -72,6 +73,36 @@ module.exports.initPackageBower = function (responsibleFullName, projectName, pr
 		result = JSON.stringify(result, null, '  ') + '\n';
 
 		fs.writeFile(bowerjson, result, 'utf8', function (err) {
+			if (err) return console.log(err);
+		});
+
+	});
+
+}
+
+module.exports.initAngularModule = function (projectName) {
+
+	var toReplace = "'app-bootstrap'";
+	var replacement ="'" + projectName + "'";
+	var indexJade = './src/index.jade';
+
+	replace({
+		regex: toReplace,
+		replacement: replacement,
+		paths: ['./src/app', './test'],
+		include: '*.js',
+		recursive: true,
+		silent: true
+	});
+
+	fs.readFile(indexJade, 'utf8', function (err, data) {
+
+		if (err) {
+			return console.log(err);
+		}
+
+		var result = data.replace(toReplace, replacement)
+		fs.writeFile(indexJade, result, 'utf8', function (err) {
 			if (err) return console.log(err);
 		});
 

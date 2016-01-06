@@ -5,7 +5,7 @@ describe('Component 2', function () {
   var component2Controller;
 
   beforeEach(function () {
-    module('app');
+    module('app-bootstrap');
   });
 
   beforeEach(inject(function ($controller) {

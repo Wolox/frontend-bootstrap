@@ -1,5 +1,5 @@
 angular.module(
-  'app', [
+  'app-bootstrap', [
     'ui.router',
     'LocalStorageModule',
     'restangular',

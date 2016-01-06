@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    minifyCss = require('gulp-minify-css'),
+    cssnano = require('gulp-cssnano'),
     gulpif = require('gulp-if'),
     del = require('del'),
     fs = require('fs'),
@@ -51,7 +51,7 @@ gulp.task('clean:vendor:css', function(cb) {
 gulp.task('vendor:css', ['clean:vendor:css'], function() {
   return gulp.src(localConfig.cssVendorFiles())
     .pipe(concat(localConfig.vendorCssCompiledFileName))
-    .pipe(gulpif(globalConfig.production(), minifyCss()))
+    .pipe(gulpif(globalConfig.production(), cssnano()))
   .pipe(gulp.dest(localConfig.buildCssSrc));
 });
 

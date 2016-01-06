@@ -57,6 +57,7 @@
   "devDependencies": {
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.15.0",
+    "gulp-cssnano": "^2.1.0",
     "gulp-sass-lint": "^1.1.0",
     "gulp-webp": "^2.3.0",
     "jasmine-core": "^2.3.4",

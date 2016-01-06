@@ -15,12 +15,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.0",
+    "angular": "~1.4.8",
     "angular-ui-router": "~0.2.15",
-    "angular-translate": "~2.7.2",
-    "angular-local-storage": "~0.2.2",
-    "bootstrap": "~3.3.4",
+    "angular-translate": "~2.8.1",
+    "angular-local-storage": "~0.2.3",
+    "bootstrap": "~3.3.6",
     "restangular": "~1.5.1",
-    "angular-mocks": "~1.4.6"
+    "angular-mocks": "~1.4.8"
   }
 }

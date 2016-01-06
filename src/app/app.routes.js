@@ -4,7 +4,7 @@ angular.module('app-bootstrap').config([
 
     // For any unmatched urls
     $urlRouterProvider.otherwise(($injector) => {
-      $injector.get('$state').go('state1.index');
+      $injector.get('$state').go('centered.state1');
     });
 
     // Now set up the states

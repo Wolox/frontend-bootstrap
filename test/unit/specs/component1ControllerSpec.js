@@ -2,7 +2,7 @@
 
 describe('Component 1', function () {
 
-  let component1Controller;
+  var component1Controller;
 
   beforeEach(function () {
     module('app-bootstrap');

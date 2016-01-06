@@ -3,7 +3,7 @@ angular.module('app-bootstrap').config([
   function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     // For any unmatched urls
-    $urlRouterProvider.otherwise( ($injector) => {
+    $urlRouterProvider.otherwise(($injector) => {
       $injector.get('$state').go('state1.index');
     });
 

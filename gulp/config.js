@@ -2,6 +2,7 @@ var notifier = require('node-notifier');
 
 module.exports = {
   environment: 'development',
+  imageCompression: false,
   development: function () {
     return this.environment === 'development';
   },

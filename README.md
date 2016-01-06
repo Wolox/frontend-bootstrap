@@ -18,12 +18,6 @@ Get the latest version of node from the [official website](https://nodejs.org/) 
 #### Getting the dev dependencies
 Run ```npm install``` from rootpath of the project.
 
-#### The dependencies' dependencies
-The sass linter we use relays on a ruby gem called scss_lint, so...
-```bash
-gem install scss_lint
-```
-
 #### Bower and gulp. The right way
 In the following step you will need to use bower, and during the project development you will probably use gulp every day, so let's use them in the right way.
 A very popular way of getting these packages is simply tell npm to install them globally using the ```-g``` flag.
@@ -54,6 +48,10 @@ Take a look at **GULP_TASKS.md** for a detailed explanation of the gulp tasks.
 
 ## Development
 
+#### SCSS
+
+When creating SCSS files you don't need to import other files inside yours to use properties from them. There's a specific file called ```application.scss``` where every SCSS file should be imported in the desired priority order. This works just like the stylesheet elements in the head of an html, when repeated rules are present the rule that was imported last will override the other.
+
 #### Vendors
 To add a vendor simply install and save it using bower, then add the path of the source files, relative to the **bower_components** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
 i.e: Adding jquery
@@ -71,11 +69,42 @@ module.exports = [
 
 ##### Unit testing
 We combine the power of [Karma](http://karma-runner.github.io/) and [Jasmine](http://jasmine.github.io/) frameworks to develop our unit testing. You can find the configuration files in the ```test/unit``` folder and you can find the tests inside the ```test/unit/specs``` folder.
-
 To run these specs execute the following:
 ```
 npm run karma
 ```
+
+#### Maintenance
+
+If your app will be down for a period of time, you can set up a maintenance page during the downtime.
+```gulp build:maintenance``` will move the contents of ```src/maintenance``` to the build folder, then
+you only need to deploy that.
+If you want to customize the maintenance page, just change the contents of the ```src/maintenance``` folder.
+
+#### Image compression
+
+If you want to reduce your assets weight so that the build is ligther, you can turn on image compression option. To make this possible, set `imageCompression` variable as `true` in `gulp/config.js` file.
+
+##### Webp Compression
+
+This is accomplished using the (webp)[https://developers.google.com/speed/webp/?hl=en] image format.
+
+Things to take into account:
+- If your assets include `.png` files, make sure `libpng` library is already installed.
+- If your assets include `.jpeg` files, make sure `libjpeg` library is already installed.
+
+If any of these were not installed before you will need reinstall the webp conversion tool:
+```
+npm remove gulp-webp
+```
+Now, install the missing libraries.
+
+Finally, reinstall `gulp-webp` with the following command:
+```
+npm install
+```
+
+Remember that you now have to reference your assets with `.webp` extension.
 
 ## Errors
 [Rollbar](https://rollbar.com/) is the tool we use to track errors. To set it up in the project follow these instructions:

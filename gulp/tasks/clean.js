@@ -6,7 +6,7 @@ var localConfig = {
   buildSrc: './build'
 };
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function () {
   cached.caches = {};
-  del([localConfig.buildSrc], cb);
+  return del([localConfig.buildSrc]);
 });

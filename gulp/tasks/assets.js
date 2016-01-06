@@ -11,8 +11,8 @@ var localConfig = {
   cleanSrc: './build/assets'
 };
 
-gulp.task('clean:assets', function (cb) {
-  del([localConfig.cleanSrc], cb);
+gulp.task('clean:assets', function () {
+  return del([localConfig.cleanSrc]);
 });
 
 gulp.task('assets', ['clean:assets'], function() {

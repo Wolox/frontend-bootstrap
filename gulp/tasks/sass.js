@@ -18,8 +18,8 @@ var localConfig = {
   }
 };
 
-gulp.task('clean:css', function (cb) {
-  del(localConfig.cleanSrc, cb);
+gulp.task('clean:css', function () {
+  return del(localConfig.cleanSrc);
 });
 
 gulp.task('sass', ['clean:css'], function () {

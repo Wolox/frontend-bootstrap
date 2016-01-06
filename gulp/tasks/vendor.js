@@ -33,8 +33,8 @@ var localConfig = {
   }
 };
 
-gulp.task('clean:vendor:js', function(cb) {
-  del([localConfig.cleanJsSrc], cb);
+gulp.task('clean:vendor:js', function() {
+  return del([localConfig.cleanJsSrc]);
 });
 
 gulp.task('vendor:js', ['clean:vendor:js'], function() {
@@ -44,8 +44,8 @@ gulp.task('vendor:js', ['clean:vendor:js'], function() {
   .pipe(gulp.dest(localConfig.buildJsSrc));
 });
 
-gulp.task('clean:vendor:css', function(cb) {
-  del([localConfig.cleanCssSrc], cb);
+gulp.task('clean:vendor:css', function() {
+  return del([localConfig.cleanCssSrc]);
 });
 
 gulp.task('vendor:css', ['clean:vendor:css'], function() {

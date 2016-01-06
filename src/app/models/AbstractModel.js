@@ -1,4 +1,4 @@
-angular.module('app').factory('AbstractModel', [
+angular.module('app-bootstrap').factory('AbstractModel', [
   'Restangular',
   function (Restangular) {
 

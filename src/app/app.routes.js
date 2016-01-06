@@ -9,35 +9,31 @@ angular.module('app-bootstrap').config([
 
     // Now set up the states
     $stateProvider
-      .state('state1', {
+      .state('centered', {
         abstract: true,
         views: {
           main: {
-            templateUrl: '../app/layouts/state1/main.html'
+            templateUrl: '../app/components/centered/centered.html'
           }
         }
       })
-      .state('state1.index', {
+      .state('centered.state1', {
         url: '/state1',
         views: {
-          innerComponent: {
-            templateUrl: '../app/components/component1/component1.html'
+          content: {
+            templateUrl: '../app/components/centered/component1/component1.html',
+            controller: 'Component1Controller',
+            controllerAs: 'comp1Ctrl'
           }
         }
       })
-      .state('state2', {
-        abstract: true,
-        views: {
-          main: {
-            templateUrl: '../app/layouts/state2/main.html'
-          }
-        }
-      })
-      .state('state2.index', {
+      .state('centered.state2', {
         url: '/state2',
         views: {
-          innerComponent: {
-            templateUrl: '../app/components/component2/component2.html'
+          content: {
+            templateUrl: '../app/components/centered/component2/component2.html',
+            controller: 'Component2Controller',
+            controllerAs: 'comp2Ctrl'
           }
         }
       });

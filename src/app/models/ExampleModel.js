@@ -1,4 +1,4 @@
-angular.module('app').factory('ExampleModel', [
+angular.module('app-bootstrap').factory('ExampleModel', [
   'AbstractModel',
   function (AbstractModel) {
 

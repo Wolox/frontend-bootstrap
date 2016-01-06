@@ -14,6 +14,7 @@ Kickoff for web applications.
 ## First steps
 #### Installing node
 Get the latest version of node from the [official website](https://nodejs.org/) or using [nvm](https://github.com/creationix/nvm)
+Nvm approach is preferred. Also, you may find this [tool](https://github.com/wbyoung/avn) useful to automate version changing between projects.
 
 #### Getting the dev dependencies
 Run ```npm install``` from rootpath of the project.

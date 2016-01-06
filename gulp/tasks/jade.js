@@ -12,8 +12,8 @@ var localConfig = {
   cleanSrc: './build/**/*.html'
 };
 
-gulp.task('clean:html', function (cb) {
-  del([localConfig.cleanSrc], cb);
+gulp.task('clean:html', function () {
+  return del([localConfig.cleanSrc]);
 });
 
 gulp.task('jade', ['clean:html'], function () {

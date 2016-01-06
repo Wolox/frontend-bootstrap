@@ -8,6 +8,8 @@ var gulp = require('gulp'),
     notifier = require('node-notifier'),
     globalConfig = require('../config');
 
+var taskOptions = globalConfig.getConfigKeys();
+
 var localConfig = {
   vendorJsDeclarationsFile: '../../vendorJs',
   vendorJsCompiledFileName: 'vendor.js',
@@ -39,8 +41,8 @@ gulp.task('clean:vendor:js', function() {
 
 gulp.task('vendor:js', ['clean:vendor:js'], function() {
   return gulp.src(localConfig.jsVendorFiles())
-    .pipe(gulpif(globalConfig.production(), concat(localConfig.vendorJsCompiledFileName)))
-    .pipe(gulpif(globalConfig.production(), uglify()))
+    .pipe(gulpif(taskOptions.concat, concat(localConfig.vendorJsCompiledFileName)))
+    .pipe(gulpif(taskOptions.minify, uglify()))
   .pipe(gulp.dest(localConfig.buildJsSrc));
 });
 
@@ -51,7 +53,7 @@ gulp.task('clean:vendor:css', function() {
 gulp.task('vendor:css', ['clean:vendor:css'], function() {
   return gulp.src(localConfig.cssVendorFiles())
     .pipe(concat(localConfig.vendorCssCompiledFileName))
-    .pipe(gulpif(globalConfig.production(), cssnano()))
+    .pipe(gulpif(taskOptions.minify, cssnano()))
   .pipe(gulp.dest(localConfig.buildCssSrc));
 });
 

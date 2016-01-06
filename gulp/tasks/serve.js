@@ -1,6 +1,9 @@
 var browserSync = require('browser-sync'),
     gulp        = require('gulp'),
-    connect     = require('gulp-connect');
+    connect     = require('gulp-connect'),
+    globalConfig = require('../config');
+
+var taskOptions = globalConfig.getConfigKeys();
 
 var localConfig = {
   buildSrc: './build/',
@@ -9,20 +12,20 @@ var localConfig = {
 };
 
 gulp.task('serve', function() {
+  if (taskOptions.watch) {
     browserSync({
-        server: {
-            baseDir: localConfig.buildSrc
-        },
-        files: localConfig.appFiles,
-        reloadDelay: 1000,
-        open: false,
-        port: localConfig.defaultPort
+      server: {
+        baseDir: localConfig.buildSrc
+      },
+      files: localConfig.appFiles,
+      reloadDelay: 1000,
+      open: false,
+      port: localConfig.defaultPort
     });
-});
-
-gulp.task('serve:static', function() {
-  connect.server({
-    root: localConfig.buildSrc,
-    port: process.env.PORT || localConfig.defaultPort
-  });
+  } else {
+    connect.server({
+      root: localConfig.buildSrc,
+      port: process.env.PORT || localConfig.defaultPort
+    });
+  }
 });

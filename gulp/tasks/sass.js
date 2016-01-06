@@ -8,13 +8,15 @@ var gulp = require('gulp'),
     del = require('del'),
     globalConfig = require('../config');
 
+var taskOptions = globalConfig.getConfigKeys();
+
 var localConfig = {
   src: './src/scss/*.scss',
   dest: './build/css/',
   base: 'src/scss',
   cleanSrc: ['./build/css/application.css', '!./build/css/vendor.css'],
   sassOptions: function () {
-    return globalConfig.development() ? {} : { outputStyle: 'compressed' };
+    return taskOptions.minify ? { outputStyle: 'compressed' } : {};
   }
 };
 
@@ -25,15 +27,15 @@ gulp.task('clean:css', function () {
 gulp.task('sass', ['clean:css'], function () {
   return gulp.src(localConfig.src, { base: localConfig.base })
     .pipe(plumber({errorHandler: globalConfig.errorHandler}))
-    .pipe(gulpif(globalConfig.development(), sassLint({
+    .pipe(gulpif(taskOptions.lint, sassLint({
       config: '.sass-lint.yml'
     })))
-    .pipe(gulpif(globalConfig.development(), sassLint.format()))
-    .pipe(gulpif(globalConfig.development(), sassLint.failOnError()))
-    .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
+    .pipe(gulpif(taskOptions.lint, sassLint.format()))
+    .pipe(gulpif(taskOptions.lint, sassLint.failOnError()))
+    .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.init()))
       .pipe(filter('**/application.scss'))
       .pipe(sass(localConfig.sassOptions()))
-    .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
+    .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest));
 });
 

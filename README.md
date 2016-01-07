@@ -49,6 +49,9 @@ Take a look at **GULP_TASKS.md** for a detailed explanation of the gulp tasks.
 
 ## Development
 
+#### Environments
+By default, the environment will be **development**, but you can easily change it using the **env** param in your gulp tasks: ```gulp build --env production```
+
 #### SCSS
 
 When creating SCSS files you don't need to import other files inside yours to use properties from them. There's a specific file called ```application.scss``` where every SCSS file should be imported in the desired priority order. This works just like the stylesheet elements in the head of an html, when repeated rules are present the rule that was imported last will override the other.
@@ -140,9 +143,11 @@ Any further information can be found in the tracking tool [repository](https://g
 ## Deploy
 
 #### S3
-In order to deploy you must first create **config/aws.js** file with the credentials for the Amazon S3 bucket, this file is already added to **.gitignore** so you don't compromise the keys by pushing them to the repository. The file needs to have to follow the format specified in *config/aws.js.example*
+In order to deploy you must first create **config/aws.js** file with the credentials of the Amazon S3 bucket for each environment.
+The file needs to have to follow the format specified in *config/aws.js.example*
 
-Then you just run ```gulp build``` followed by the deploy task ```gulp s3:staging``` or ```gulp :s3:production```
+Then just run ```gulp s3 --env <environment name>``` with your desired env as parameter.
+
 
 Finally, you need to add a custom routing rule so that s3 handles the 404 (or 403 depending or the bucket policy) to the s3 properties. In the **Static Website Hosting** panel, check the **Enable website hosting** option and complete the form with the following:
 ```

@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    awspublish = require('gulp-awspublish');
+    awspublish = require('gulp-awspublish'),
+    globalConfig = require('../config');
 
 var localConfig = {
   buildSrc: './build/**/*',
@@ -15,19 +16,8 @@ var localConfig = {
   }
 };
 
-gulp.task('s3:staging', ['build:staging'], function() {
-  var awsConf = localConfig.getAwsConf('staging');
-  var publisher = awspublish.create(awsConf.keys);
-  return gulp.src(localConfig.buildSrc)
-    .pipe(awspublish.gzip({ ext: '' }))
-    .pipe(publisher.publish(awsConf.headers))
-    .pipe(publisher.cache())
-    .pipe(publisher.sync())
-    .pipe(awspublish.reporter());
-});
-
-gulp.task('s3:production', ['build:production'], function() {
-  var awsConf = localConfig.getAwsConf('production');
+gulp.task('s3', ['build'], function() {
+  var awsConf = localConfig.getAwsConf(globalConfig.environment);
   var publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)
     .pipe(awspublish.gzip({ ext: '' }))

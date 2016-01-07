@@ -3,6 +3,8 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),
     globalConfig = require('../config');
 
+var taskOptions = globalConfig.getConfigKeys()
+
 var localConfig = {
   indexHtmlFile: 'index.html',
   buildFolder: './build/',
@@ -23,16 +25,16 @@ gulp.task('inject', function () {
   var vendorFileNames = localConfig.jsVendorFiles();
 
   var jsVendorPath = localConfig.buildFolder + localConfig.jsVendorFilesPath + '*';
-  var jsVendorSources = globalConfig.development() ?
-                          gulp.src(vendorFileNames, { read: false }) :
-                          gulp.src(jsVendorPath, { read: false });
+  var jsVendorSources = taskOptions.concat ?
+                          gulp.src(jsVendorPath, { read: false }) :
+                          gulp.src(vendorFileNames, { read: false });
   var jsSources = gulp.src([localConfig.buildFolder + localConfig.jsFilesRegex,
                            '!' + jsVendorPath], { read: false });
 
   return gulp.src(localConfig.buildFolder + localConfig.indexHtmlFile)
     .pipe(inject(series(jsVendorSources, jsSources), {
       transform: function (filepath, file, i, length) {
-        if (globalConfig.development()) {
+        if (!taskOptions.concat) {
           var vendorFileIndex = vendorFileNames.indexOf(filepath.split('/').pop());
           if (vendorFileIndex !== -1) {
             i = vendorFileIndex;

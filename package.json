@@ -66,6 +66,7 @@
     "replace": "^0.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
-    "stream-series": "^0.1.1"
+    "stream-series": "^0.1.1",
+    "yargs": "^3.31.0"
   }
 }

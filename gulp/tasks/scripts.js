@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     globalConfig = require('../config');
 
+var taskOptions = globalConfig.getConfigKeys()
+
 var localConfig = {
   src: function() {
     return ['./src/app/app.module.js',
@@ -26,13 +28,13 @@ gulp.task('scripts', function() {
   return gulp.src(localConfig.src())
     .pipe(cached('scripts'))
     .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
-    .pipe(preprocess({ context: globalConfig.getConfigKeys() }))
-    .pipe(gulpif(globalConfig.development(), eslint()))
-    .pipe(gulpif(globalConfig.development(), eslint.format()))
-    .pipe(gulpif(globalConfig.development(), sourcemaps.init()))
+    .pipe(preprocess({ context: globalConfig.getSecretKeys() }))
+    .pipe(gulpif(taskOptions.lint, eslint()))
+    .pipe(gulpif(taskOptions.lint, eslint.format()))
+    .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.init()))
       .pipe(babel())
-      .pipe(gulpif(!globalConfig.development(), concat(localConfig.buildFileName)))
-      .pipe(gulpif(!globalConfig.development(), uglify()))
-    .pipe(gulpif(globalConfig.development(), sourcemaps.write()))
+      .pipe(gulpif(taskOptions.concat, concat(localConfig.buildFileName)))
+      .pipe(gulpif(taskOptions.minify, uglify()))
+    .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest()));
 });

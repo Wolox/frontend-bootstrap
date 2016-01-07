@@ -1,33 +1,34 @@
-var notifier = require('node-notifier');
+var notifier = require('node-notifier'),
+    taskArgs = require('yargs').argv;
 
 module.exports = {
-  environment: 'development',
-  imageCompression: false,
-  development: function () {
-    return this.environment === 'development';
-  },
-  staging: function () {
-    return this.environment === 'staging';
-  },
-  production: function () {
-    return this.environment === 'production';
-  },
+  environment: taskArgs.env || 'development',
   errorHandler: function (error) {
     notifier.notify({
       title: 'Gulp error',
       message: error.message
     });
+    console.error(error.message);
     this.emit('end');
   },
-  getConfigKeys: function () {
+  readKeys: function (filename) {
     var keys;
     try {
-      keys = require('../config/secrets.' + this.environment)
+      keys = require(filename)
     }
     catch (e) {
-      console.error('No config keys for environment: ' + this.environment);
+      console.error('No config file found at: ' + filename);
       keys = {};
     }
+    return keys;
+  },
+  getConfigKeys: function () {
+    var keys = this.readKeys('../config/' + this.environment);
+    keys.environment = this.environment;
+    return keys;
+  },
+  getSecretKeys: function () {
+    var keys = this.readKeys('../config/secrets.' + this.environment);
     keys.environment = this.environment;
     return keys;
   }

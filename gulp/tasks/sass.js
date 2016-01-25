@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     filter = require('gulp-filter'),
     plumber = require('gulp-plumber'),
     sassLint = require('gulp-sass-lint'),
+    autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
     gulpif = require('gulp-if'),
     del = require('del'),
@@ -35,6 +36,10 @@ gulp.task('sass', ['clean:css'], function () {
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.init()))
       .pipe(filter('**/application.scss'))
       .pipe(sass(localConfig.sassOptions()))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.write()))
     .pipe(gulp.dest(localConfig.dest));
 });

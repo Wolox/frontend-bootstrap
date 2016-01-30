@@ -1,17 +1,17 @@
-var browserSync = require('browser-sync'),
-    gulp        = require('gulp'),
-    connect     = require('gulp-connect'),
-    globalConfig = require('../config');
+import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import connect from 'gulp-connect';
+import globalConfig from '../config';
 
-var taskOptions = globalConfig.getConfigKeys();
+const taskOptions = globalConfig.getConfigKeys();
 
-var localConfig = {
+const localConfig = {
   buildSrc: './build/',
   appFiles: './build/**/*.*',
   defaultPort: 3000
 };
 
-gulp.task('serve', function() {
+gulp.task('serve', () => {
   if (taskOptions.watch) {
     browserSync({
       server: {

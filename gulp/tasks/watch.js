@@ -1,42 +1,42 @@
-var gulp = require('gulp'),
-    runSequence = require('run-sequence');
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
 
-var localConfig = {
+const localConfig = {
   scssWatchedFiles: 'src/**/*.scss',
   jsWatchedFiles: 'src/**/*.js',
   jadeWatchedFiles: 'src/**/*.jade',
   assetsWatchedFiles: 'src/assets/**/*',
   vendorJsFile: 'vendorJs.js',
-  vendorCssFile: 'vendorCss.js',
+  vendorCssFile: 'vendorCss.js'
 };
 
-gulp.task('watch:scss', function () {
+gulp.task('watch:scss', () => {
   gulp.watch(localConfig.scssWatchedFiles, ['sass']);
 });
 
-gulp.task('watch:js', function () {
-  gulp.watch(localConfig.jsWatchedFiles, function () {
+gulp.task('watch:js', () => {
+  gulp.watch(localConfig.jsWatchedFiles, () => {
     runSequence('scripts', 'inject');
   });
 });
 
-gulp.task('watch:jade', function () {
-  gulp.watch(localConfig.jadeWatchedFiles, function () {
+gulp.task('watch:jade', () => {
+  gulp.watch(localConfig.jadeWatchedFiles, () => {
     runSequence('jade', 'inject');
   });
 });
 
-gulp.task('watch:vendor:js', function () {
-  gulp.watch(localConfig.vendorJsFile, function () {
+gulp.task('watch:vendor:js', () => {
+  gulp.watch(localConfig.vendorJsFile, () => {
     runSequence('vendor:js', 'inject');
   });
 });
 
-gulp.task('watch:vendor:css', function () {
+gulp.task('watch:vendor:css', () => {
   gulp.watch(localConfig.vendorCssFile, ['vendor:css']);
 });
 
-gulp.task('watch:assets', function () {
+gulp.task('watch:assets', () => {
   gulp.watch(localConfig.assetsWatchedFiles, ['assets']);
 });
 

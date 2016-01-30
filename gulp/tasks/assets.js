@@ -1,23 +1,21 @@
-var gulp = require('gulp'),
-    gulpif = require('gulp-if'),
-    webp = require('gulp-webp'),
-    del = require('del'),
-    globalConfig = require('../config');
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import webp from 'gulp-webp';
+import del from 'del';
+import config from '../config';
 
-var taskOptions = globalConfig.getConfigKeys()
+const taskOptions = config.getConfigKeys()
 
-var localConfig = {
+const localConfig = {
   src: './src/assets/**/*',
   base: 'src',
   dest: './build',
   cleanSrc: './build/assets'
 };
 
-gulp.task('clean:assets', function () {
-  return del([localConfig.cleanSrc]);
-});
+gulp.task('clean:assets', () => del([localConfig.cleanSrc]));
 
-gulp.task('assets', ['clean:assets'], function() {
+gulp.task('assets', ['clean:assets'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
     .pipe(gulpif(taskOptions.webp, webp()))
     .pipe(gulp.dest(localConfig.dest));

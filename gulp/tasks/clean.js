@@ -1,12 +1,12 @@
-var gulp = require('gulp'),
-    cached = require('gulp-cached'),
-    del = require('del');
+import gulp from 'gulp';
+import cached from 'gulp-cached';
+import del from 'del';
 
-var localConfig = {
+const localConfig = {
   buildSrc: './build'
 };
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   cached.caches = {};
   return del([localConfig.buildSrc]);
 });

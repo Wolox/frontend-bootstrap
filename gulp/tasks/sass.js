@@ -1,33 +1,33 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    filter = require('gulp-filter'),
-    plumber = require('gulp-plumber'),
-    sassLint = require('gulp-sass-lint'),
-    autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    gulpif = require('gulp-if'),
-    del = require('del'),
-    globalConfig = require('../config');
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+import filter from 'gulp-filter';
+import plumber from 'gulp-plumber';
+import sassLint from 'gulp-sass-lint';
+import autoprefixer from 'gulp-autoprefixer';
+import sourcemaps from 'gulp-sourcemaps';
+import gulpif from 'gulp-if';
+import del from 'del';
+import globalConfig from '../config';
 
-var taskOptions = globalConfig.getConfigKeys();
+const taskOptions = globalConfig.getConfigKeys();
 
-var localConfig = {
+const localConfig = {
   src: './src/scss/*.scss',
   dest: './build/css/',
   base: 'src/scss',
   cleanSrc: ['./build/css/application.css', '!./build/css/vendor.css'],
-  sassOptions: function () {
+  sassOptions () {
     return taskOptions.minify ? { outputStyle: 'compressed' } : {};
   }
 };
 
-gulp.task('clean:css', function () {
+gulp.task('clean:css', () => {
   return del(localConfig.cleanSrc);
 });
 
-gulp.task('sass', ['clean:css'], function () {
+gulp.task('sass', ['clean:css'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
-    .pipe(plumber({errorHandler: globalConfig.errorHandler}))
+    .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
     .pipe(gulpif(taskOptions.lint, sassLint({
       config: '.sass-lint.yml'
     })))

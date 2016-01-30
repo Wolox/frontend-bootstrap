@@ -1,28 +1,28 @@
-var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
-    eslint = require('gulp-eslint'),
-    babel = require('gulp-babel'),
-    cached = require('gulp-cached'),
-    concat = require('gulp-concat'),
-    plumber = require('gulp-plumber'),
-    preprocess = require('gulp-preprocess'),
-    sourcemaps = require('gulp-sourcemaps'),
-    gulpif = require('gulp-if'),
-    globalConfig = require('../config');
+import gulp from 'gulp';
+import uglify from 'gulp-uglify';
+import eslint from 'gulp-eslint';
+import babel from 'gulp-babel';
+import cached from 'gulp-cached';
+import concat from 'gulp-concat';
+import plumber from 'gulp-plumber';
+import preprocess from 'gulp-preprocess';
+import sourcemaps from 'gulp-sourcemaps';
+import gulpif from 'gulp-if';
+import config from '../config';
 
-var taskOptions = globalConfig.getConfigKeys()
+const taskOptions = config.getConfigKeys()
 
-var localConfig = {
+const localConfig = {
   src: './src/js/**/*.js',
   dest: './build/js/',
   buildFileName: 'all.js'
 };
 
-gulp.task('scripts', function() {
-  return gulp.src(localConfig.src)
+gulp.task('scripts', () =>
+  gulp.src(localConfig.src)
     .pipe(cached('scripts'))
-    .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
-    .pipe(preprocess({ context: globalConfig.getSecretKeys() }))
+    .pipe(plumber({ errorHandler: config.errorHandler }))
+    .pipe(preprocess({ context: config.getSecretKeys() }))
     .pipe(gulpif(taskOptions.lint, eslint()))
     .pipe(gulpif(taskOptions.lint, eslint.format()))
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.init()))
@@ -30,5 +30,5 @@ gulp.task('scripts', function() {
       .pipe(gulpif(taskOptions.concat, concat(localConfig.buildFileName)))
       .pipe(gulpif(taskOptions.minify, uglify()))
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.write()))
-    .pipe(gulp.dest(localConfig.dest));
-});
+    .pipe(gulp.dest(localConfig.dest))
+);

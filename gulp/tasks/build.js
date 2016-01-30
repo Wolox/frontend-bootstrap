@@ -1,6 +1,6 @@
-var gulp = require('gulp'),
-    runSequence = require('run-sequence');
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
 
-gulp.task('build', function (cb) {
+gulp.task('build', (cb) => {
   runSequence(['assets', 'jade', 'sass', 'scripts', 'vendor'], 'inject', cb);
 });

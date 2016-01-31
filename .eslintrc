@@ -46,7 +46,7 @@
     "eol-last": 2,                                                // http://eslint.org/docs/rules/eol-last
     "eqeqeq": 2,                                                  // http://eslint.org/docs/rules/eqeqeq
     "func-names": 0,                                              // http://eslint.org/docs/rules/func-names
-    "func-style": [2, "expression"],                              // http://eslint.org/docs/rules/func-style
+    "func-style": 0,                                              // http://eslint.org/docs/rules/func-style
     "generator-star-spacing": [2, "before"],                      // http://eslint.org/docs/rules/generator-star-spacing
     "global-require": 0,                                          // http://eslint.org/docs/rules/global-require
     "guard-for-in": 0,                                            // http://eslint.org/docs/rules/guard-for-in

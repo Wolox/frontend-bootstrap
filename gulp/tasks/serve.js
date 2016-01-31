@@ -1,9 +1,9 @@
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import connect from 'gulp-connect';
-import globalConfig from '../config';
+import { getConfigKeys } from '../config';
 
-const taskOptions = globalConfig.getConfigKeys();
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   buildSrc: './build/',

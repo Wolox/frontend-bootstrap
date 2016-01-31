@@ -6,9 +6,9 @@ import gulpif from 'gulp-if';
 import del from 'del';
 import fs from 'fs';
 import notifier from 'node-notifier';
-import globalConfig from '../config';
+import { getConfigKeys } from '../config';
 
-const taskOptions = globalConfig.getConfigKeys();
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   vendorJsDeclarationsFile: '../../vendorJs',

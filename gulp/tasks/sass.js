@@ -7,9 +7,9 @@ import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpif from 'gulp-if';
 import del from 'del';
-import globalConfig from '../config';
+import { getConfigKeys, errorHandler } from '../config';
 
-const taskOptions = globalConfig.getConfigKeys();
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   src: './src/scss/*.scss',
@@ -27,7 +27,7 @@ gulp.task('clean:css', () => {
 
 gulp.task('sass', ['clean:css'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
-    .pipe(plumber({ errorHandler: globalConfig.errorHandler }))
+    .pipe(plumber({ errorHandler }))
     .pipe(gulpif(taskOptions.lint, sassLint({
       config: '.sass-lint.yml'
     })))

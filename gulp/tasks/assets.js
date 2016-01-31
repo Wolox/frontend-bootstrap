@@ -2,9 +2,9 @@ import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import webp from 'gulp-webp';
 import del from 'del';
-import config from '../config';
+import { getConfigKeys } from '../config';
 
-const taskOptions = config.getConfigKeys()
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   src: './src/assets/**/*',

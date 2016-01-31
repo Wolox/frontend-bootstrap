@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 import series from 'stream-series';
 import inject from 'gulp-inject';
-import globalConfig from '../config';
+import { getConfigKeys } from '../config';
 
-const taskOptions = globalConfig.getConfigKeys()
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   indexHtmlFile: 'index.html',

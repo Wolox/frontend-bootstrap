@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import awspublish from 'gulp-awspublish';
-import globalConfig from '../config';
+import { env } from '../config';
 
 const localConfig = {
   buildSrc: './build/**/*',
@@ -17,7 +17,7 @@ const localConfig = {
 };
 
 gulp.task('s3', ['build'], () => {
-  const awsConf = localConfig.getAwsConf(globalConfig.environment);
+  const awsConf = localConfig.getAwsConf(env);
   const publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)
     .pipe(awspublish.gzip({ ext: '' }))

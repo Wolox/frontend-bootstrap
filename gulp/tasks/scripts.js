@@ -8,9 +8,9 @@ import plumber from 'gulp-plumber';
 import preprocess from 'gulp-preprocess';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpif from 'gulp-if';
-import config from '../config';
+import { getConfigKeys, getSecretKeys, errorHandler } from '../config';
 
-const taskOptions = config.getConfigKeys()
+const taskOptions = getConfigKeys();
 
 const localConfig = {
   src: './src/js/**/*.js',
@@ -21,8 +21,8 @@ const localConfig = {
 gulp.task('scripts', () =>
   gulp.src(localConfig.src)
     .pipe(cached('scripts'))
-    .pipe(plumber({ errorHandler: config.errorHandler }))
-    .pipe(preprocess({ context: config.getSecretKeys() }))
+    .pipe(plumber({ errorHandler }))
+    .pipe(preprocess({ context: getSecretKeys() }))
     .pipe(gulpif(taskOptions.lint, eslint()))
     .pipe(gulpif(taskOptions.lint, eslint.format()))
     .pipe(gulpif(taskOptions.sourcemaps, sourcemaps.init()))

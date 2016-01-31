@@ -1,35 +1,36 @@
-var notifier = require('node-notifier'),
-    taskArgs = require('yargs').argv;
+import notifier from 'node-notifier';
+import { argv } from 'yargs';
 
-module.exports = {
-  environment: taskArgs.env || 'development',
-  errorHandler: function (error) {
-    notifier.notify({
-      title: 'Gulp error',
-      message: error.message
-    });
-    console.error(error.message);
-    this.emit('end');
-  },
-  readKeys: function (filename) {
-    var keys;
-    try {
-      keys = require(filename)
-    }
-    catch (e) {
-      console.error('No config file found at: ' + filename);
-      keys = {};
-    }
-    return keys;
-  },
-  getConfigKeys: function () {
-    var keys = this.readKeys('../config/' + this.environment);
-    keys.environment = this.environment;
-    return keys;
-  },
-  getSecretKeys: function () {
-    var keys = this.readKeys('../config/secrets.' + this.environment);
-    keys.environment = this.environment;
-    return keys;
+export const env = argv.env || 'development';
+
+export function errorHandler (error) {
+  notifier.notify({
+    title: 'Gulp error',
+    message: error.message
+  });
+  console.error(error.message);
+  this.emit('end');
+}
+
+function readKeys (filename) {
+  let keys;
+  try {
+    keys = require(filename)
+  } catch (e) {
+    console.error(`No config file found at: ${filename}`);
+    keys = {};
   }
-};
+  return keys;
+}
+
+export function getConfigKeys () {
+  const keys = readKeys(`../config/${env}`);
+  keys.environment = env;
+  return keys;
+}
+
+export function getSecretKeys () {
+  const keys = readKeys(`../config/secrets.${env}`);
+  keys.environment = env;
+  return keys;
+}

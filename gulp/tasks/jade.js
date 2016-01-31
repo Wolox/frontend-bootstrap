@@ -1,25 +1,25 @@
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    jade = require('gulp-jade'),
-    preprocess = require('gulp-preprocess'),
-    del = require('del'),
-    globalConfig = require('../config');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import jade from 'gulp-jade';
+import preprocess from 'gulp-preprocess';
+import del from 'del';
+import { errorHandler, getSecretKeys } from '../config';
 
-var localConfig = {
+const localConfig = {
   src: './src/**/*.jade',
   base: 'src',
   dest: './build',
   cleanSrc: './build/**/*.html'
 };
 
-gulp.task('clean:html', function () {
+gulp.task('clean:html', () => {
   return del([localConfig.cleanSrc]);
 });
 
-gulp.task('jade', ['clean:html'], function () {
+gulp.task('jade', ['clean:html'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
-    .pipe(plumber({errorHandler: globalConfig.errorHandler}))
+    .pipe(plumber({ errorHandler }))
     .pipe(jade({ pretty : true }))
-    .pipe(preprocess({ context: globalConfig.getSecretKeys() }))
+    .pipe(preprocess({ context: getSecretKeys() }))
   .pipe(gulp.dest(localConfig.dest));
 });

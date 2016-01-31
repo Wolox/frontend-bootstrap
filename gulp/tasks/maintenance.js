@@ -1,21 +1,21 @@
-var gulp = require('gulp'),
-    runSequence = require('run-sequence');
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
 
-var localConfig = {
+const localConfig = {
   maintenanceFile: './src/maintenance/index.html',
   destFolder: './build/'
 };
 
-gulp.task('maintenance:production', function (cb) {
+gulp.task('maintenance:production', (cb) => {
   runSequence('clean', 'build:production', 'build:maintenance', cb);
 });
 
-gulp.task('maintenance:staging', function (cb) {
+gulp.task('maintenance:staging', (cb) => {
   runSequence('clean', 'build:staging', 'build:maintenance', cb);
 });
 
 
-gulp.task('build:maintenance', function () {
+gulp.task('build:maintenance', () => {
   return gulp.src(localConfig.maintenanceFile)
              .pipe(gulp.dest(localConfig.destFolder));
 });

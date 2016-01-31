@@ -16,7 +16,7 @@ const localConfig = {
   src () {
     return ['./src/app/app.module.js',
             './src/**/*.js',
-            `!./src/app/config/!('${env}.js)`];
+            `!./src/app/config/!(${env}.js)`];
   },
   dest () {
     return './build/js/';

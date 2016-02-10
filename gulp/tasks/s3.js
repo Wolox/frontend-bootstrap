@@ -9,7 +9,7 @@ const localConfig = {
     if (!conf[environment]) {
       throw new Error(`No aws conf for env: ${environment}`);
     }
-    if (!conf[`${environment} Headers`]) {
+    if (!conf[`${environment}Headers`]) {
       throw new Error(`No aws headers for env: ${environment}`);
     }
     return { keys: conf[environment], headers: conf[`${environment}Headers`] };

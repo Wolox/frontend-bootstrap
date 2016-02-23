@@ -78,6 +78,23 @@ To run these specs execute the following:
 npm run karma
 ```
 
+##### End to end tests
+
+We combine the power of Protractor and Jasmine frameworks to develop our end to end tests. You can find the configuration files in the test/e2e folder and you can find the tests inside the test/e2e/specs folder.
+
+The first time you are running the tests, you probably need to update webdriver. Use the following
+```
+./node_modules/.bin/webdriver-manager update
+```
+To run these specs against staging, execute the following:
+```
+npm run protractor
+```
+To run these specs against your development environment, execute the following:
+```
+npm run protractor-local
+```
+
 #### Maintenance
 
 If your app will be down for a period of time, you can set up a maintenance page during the downtime.

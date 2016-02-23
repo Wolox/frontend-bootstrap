@@ -64,6 +64,7 @@
     "node-notifier": "^4.4.0",
     "phantomjs": "^1.9.19",
     "prompt": "^0.2.14",
+    "protractor": "^3.1.1",
     "replace": "^0.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",

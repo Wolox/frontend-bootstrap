@@ -1,5 +1,5 @@
 'use strict';
-var credentials = require(process.cwd() + '/test/e2e/testUserCredentials');
+var credentials = require(process.cwd() + '/test/e2e/testUserCredentials.example');
 var SpecReporter = require('jasmine-spec-reporter');
 
 exports.config = {

@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node_modules/.bin/gulp production",
     "postinstall": "bower install",
-    "karma": "karma start test/unit/karma.conf.js"
+    "karma": "karma start test/unit/karma.conf.js",
+    "protractor": "protractor test/e2e/protractor.conf.js",
+    "protractor-local": "protractor --baseUrl='http://localhost:3000/' test/e2e/protractor.conf.js"
   },
   "cacheDirectories": [
     "node_modules",

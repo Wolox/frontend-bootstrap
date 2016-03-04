@@ -16,7 +16,7 @@ const localConfig = {
   }
 };
 
-gulp.task('s3', ['build'], () => {
+gulp.task('s3', ['clean', 'build'], () => {
   const awsConf = localConfig.getAwsConf(env);
   const publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)

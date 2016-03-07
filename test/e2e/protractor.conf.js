@@ -1,5 +1,4 @@
 'use strict';
-var credentials = require(process.cwd() + '/test/e2e/testUserCredentials.example');
 var SpecReporter = require('jasmine-spec-reporter');
 
 exports.config = {
@@ -37,13 +36,7 @@ exports.config = {
 
     browser.get(browser.baseUrl);
     browser.driver.manage().window().maximize();
-    beforeEach(function () {
-      browser.executeScript("window.onbeforeunload = function(){};");
-    });
     beforeAll(function () {
-      // Workaround to avoid logging in on every test
-      // browser.executeScript('window.localStorage.setItem(\'' + credentials.localStorageKey + '\', \'' +
-      //                       credentials.localStorageValue + '\');');
       browser.get(browser.baseUrl);
     });
   },

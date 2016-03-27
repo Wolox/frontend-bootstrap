@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node_modules/.bin/gulp production",
     "postinstall": "bower install",
-    "karma": "karma start test/unit/karma.conf.js"
+    "karma": "karma start test/unit/karma.conf.js",
+    "protractor": "protractor test/e2e/protractor.conf.js",
+    "protractor-local": "protractor --baseUrl='http://localhost:3000/' test/e2e/protractor.conf.js"
   },
   "cacheDirectories": [
     "node_modules",
@@ -57,6 +59,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-webp": "^2.3.0",
     "jasmine-core": "^2.4.1",
+    "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.19",
     "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
@@ -65,6 +68,7 @@
     "node-notifier": "^4.4.0",
     "phantomjs": "^1.9.19",
     "prompt": "^0.2.14",
+    "protractor": "^3.1.1",
     "replace": "^0.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",

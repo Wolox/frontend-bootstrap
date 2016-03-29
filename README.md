@@ -163,6 +163,9 @@ NOTE: You must have the corrects AIM permissions, if not, amazon will report an 
 If having problems with ```gulp watch```, run ```echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p```.
 This solution was found [here](https://github.com/gulpjs/gulp/issues/217).
 
+## Google Analytics
+In order to monitor your page by google analytics set GOOGLE_ANALYTICS_TRACK_ID with the tracking id in each secrets file in the ```config``` folder at the root of the project.
+
 ## Contributing
 
 1. Fork it

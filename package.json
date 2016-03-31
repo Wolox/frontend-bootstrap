@@ -24,9 +24,7 @@
     "url": "https://github.com/Wolox/frontend-bootstrap/issues"
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
-  "dependencies": {
-    "concurrent-transform": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.4.5",
     "babel-eslint": "^5.0.0-beta6",

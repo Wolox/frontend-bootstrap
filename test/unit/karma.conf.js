@@ -71,6 +71,9 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
+    // If, during test execution, Karma does not receive any message from a browser within
+    // browserNoActivityTimeout (ms), it will disconnect from the browser.
+    browserNoActivityTimeout: 60000,
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher

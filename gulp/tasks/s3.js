@@ -1,8 +1,7 @@
 import gulp from 'gulp';
 import awspublish from 'gulp-awspublish';
+import parallelize from 'concurrent-transform';
 import { env } from '../config';
-
-var parallelize = require("concurrent-transform")
 
 const localConfig = {
   buildSrc: './build/**/*',

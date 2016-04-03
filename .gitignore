@@ -23,3 +23,6 @@ config/secrets.production.js
 
 # test coverage results
 test/unit/coverage
+
+# deploy cache
+.awspublish*

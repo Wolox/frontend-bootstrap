@@ -3,4 +3,4 @@ describe('State behavior', function() {
     $("[ui-sref='centered.state1']").click();
     expect(browser.getCurrentUrl()).toContain('/state1');
   });
-};
+});

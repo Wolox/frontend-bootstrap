@@ -21,8 +21,14 @@ config/secrets.production.js
 # mac files
 .DS_Store
 
-# test coverage results
+# unit tests coverage report
 test/unit/coverage
+
+# unit tests results report
+test/unit/test-results.xml
+
+# protractor test results report
+protractor-results.xml
 
 # deploy cache
 .awspublish*

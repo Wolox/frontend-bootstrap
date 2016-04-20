@@ -1,19 +1,26 @@
 'use strict';
 var SpecReporter = require('jasmine-spec-reporter');
+var jasmineReporters = require('jasmine-reporters');
 
 exports.config = {
   allScriptsTimeout: 11000,
 
   capabilities: {
-    'browserName': 'chrome'
+    browserName: 'chrome'
   },
 
   baseUrl: 'http://BASE_URL_SAMPLE.com',
 
   onPrepare: function () {
 
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000; // increase jasmine default timeout from 5 to 30 secs
+
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+      filePrefix: 'protractor-results'
+    }));
+
     jasmine.getEnv().addReporter(new SpecReporter({
-      displayStacktrace: 'all',     // display stacktrace for each failed assertion, values: (all|specs|summary|none)
+      displayStacktrace: 'all',     // display stacktrace for each failed assertion
       displayFailuresSummary: true, // display summary of all failures after execution
       displayPendingSummary: true,  // display summary of all pending specs after execution
       displaySuccessfulSpec: true,  // display each successful spec

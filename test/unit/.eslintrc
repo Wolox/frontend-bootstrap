@@ -1,0 +1,11 @@
+{
+  "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
+    "node": true,
+    "phantomjs": true,
+    "jasmine": true
+  },
+  "globals": {
+    angular: true,
+    inject: true
+  }
+}

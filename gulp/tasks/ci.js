@@ -7,7 +7,7 @@ import jade from 'gulp-jade';
 
 const localConfig = {
   jadeFiles: './src/**/*.jade',
-  jsFiles: './src/**/*.js',
+  jsFiles: ['./src/**/*.js', './test/**/*.js'],
   sassFiles: './src/**/*.scss',
   errorHandler () {
     process.exit(1);

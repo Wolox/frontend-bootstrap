@@ -3,4 +3,4 @@ describe('TEST DESCRIPTION', function() {
     console.log('ok')
     expect(true).toBe(true);
   });
-};
+});

@@ -34,7 +34,8 @@
     "indent": [2, 2],                                             // http://eslint.org/docs/rules/indent
     "init-declarations": 0,                                       // http://eslint.org/docs/rules/init-declarations
     "jsx-quotes": 0,                                              // http://eslint.org/docs/rules/jsx-quotes
-    "key-spacing": 0,                                             // http://eslint.org/docs/rules/key-spacing
+    "key-spacing": [2, {"beforeColon": false, "afterColon": true, "mode": "minimum"}],                                             // http://eslint.org/docs/rules/key-spacing
+    "keyword-spacing": 2,                                         // http://eslint.org/docs/rules/keyword-spacing
     "linebreak-style": 0,                                         // http://eslint.org/docs/rules/linebreak-style
     "lines-around-comment": 0,                                    // http://eslint.org/docs/rules/lines-around-comment
     "max-depth": 0,                                               // http://eslint.org/docs/rules/max-depth
@@ -66,7 +67,6 @@
     "no-else-return": 0,                                          // http://eslint.org/docs/rules/no-else-return
     "no-empty": 2,                                                // http://eslint.org/docs/rules/no-empty
     "no-empty-character-class": 0,                                // http://eslint.org/docs/rules/no-empty-character-class
-    "no-empty-label": 2,                                          // http://eslint.org/docs/rules/no-empty-label
     "no-empty-pattern": 2,                                        // http://eslint.org/docs/rules/no-empty-pattern
     "no-eq-null": 2,                                              // http://eslint.org/docs/rules/no-eq-null
     "no-eval": 2,                                                 // http://eslint.org/docs/rules/no-eval
@@ -159,13 +159,10 @@
     "semi": 0,                                                    // http://eslint.org/docs/rules/semi
     "semi-spacing": [2, {"before": false, "after": true}],        // http://eslint.org/docs/rules/semi-spacing
     "sort-vars": 0,                                               // http://eslint.org/docs/rules/sort-vars
-    "space-after-keywords": [2, "always"],                        // http://eslint.org/docs/rules/space-after-keywords
     "space-before-blocks": 2,                                     // http://eslint.org/docs/rules/space-before-blocks
     "space-before-function-paren": 0,                             // http://eslint.org/docs/rules/space-before-function-paren
-    "space-before-keywords": [2, "always"],                       // http://eslint.org/docs/rules/space-before-keywords
     "space-in-parens": [2, "never"],                              // http://eslint.org/docs/rules/space-in-parens
     "space-infix-ops": 2,                                         // http://eslint.org/docs/rules/space-infix-ops
-    "space-return-throw-case": 2,                                 // http://eslint.org/docs/rules/space-return-throw-case
     "space-unary-ops": 2,                                         // http://eslint.org/docs/rules/space-unary-ops
     "spaced-comment": [2, "always"],                              // http://eslint.org/docs/rules/spaced-comment
     "strict": 0,                                                  // http://eslint.org/docs/rules/strict

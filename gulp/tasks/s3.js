@@ -1,5 +1,8 @@
 import gulp from 'gulp';
 import awspublish from 'gulp-awspublish';
+import invalidate from 'gulp-cloudfront-invalidate-aws-publish';
+import runSequence from 'run-sequence';
+import gulpif from 'gulp-if';
 import parallelize from 'concurrent-transform';
 import { env } from '../config';
 
@@ -17,13 +20,17 @@ const localConfig = {
   }
 };
 
-gulp.task('s3', ['clean', 'build'], () => {
+gulp.task('s3push', () => {
   const awsConf = localConfig.getAwsConf(env);
   const publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)
     .pipe(awspublish.gzip({ ext: '' }))
     .pipe(parallelize(publisher.publish(awsConf.headers), 100))
-    .pipe(publisher.cache())
     .pipe(publisher.sync())
-    .pipe(awspublish.reporter());
+    .pipe(awspublish.reporter())
+    .pipe(gulpif(!!awsConf.keys.distribution, invalidate(awsConf.keys)));
+});
+
+gulp.task('s3', (cb) => {
+  runSequence('clean', 'build', 's3push', cb);
 });

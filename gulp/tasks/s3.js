@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import awspublish from 'gulp-awspublish';
+import runSequence from 'run-sequence';
 import parallelize from 'concurrent-transform';
 import { env } from '../config';
 
@@ -17,7 +18,7 @@ const localConfig = {
   }
 };
 
-gulp.task('s3', ['clean', 'build'], () => {
+gulp.task('s3push', () => {
   const awsConf = localConfig.getAwsConf(env);
   const publisher = awspublish.create(awsConf.keys);
   return gulp.src(localConfig.buildSrc)
@@ -26,4 +27,8 @@ gulp.task('s3', ['clean', 'build'], () => {
     .pipe(publisher.cache())
     .pipe(publisher.sync())
     .pipe(awspublish.reporter());
+});
+
+gulp.task('s3', (cb) => {
+  runSequence('clean', 'build', 's3push', cb);
 });

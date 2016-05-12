@@ -19,7 +19,7 @@ gulp.task('clean:html', () => {
 gulp.task('jade', ['clean:html'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
     .pipe(plumber({ errorHandler }))
-    .pipe(jade({ pretty : true }))
+    .pipe(jade({ pretty: true }))
     .pipe(preprocess({ context: getSecretKeys() }))
   .pipe(gulp.dest(localConfig.dest));
 });

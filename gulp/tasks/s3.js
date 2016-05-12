@@ -28,7 +28,7 @@ gulp.task('s3push', () => {
     .pipe(parallelize(publisher.publish(awsConf.headers), 100))
     .pipe(publisher.sync())
     .pipe(awspublish.reporter())
-    .pipe(gulpif(awsConf.keys.distribution, invalidate(awsConf.keys)));
+    .pipe(gulpif(!!awsConf.keys.distribution, invalidate(awsConf.keys)));
 });
 
 gulp.task('s3', (cb) => {

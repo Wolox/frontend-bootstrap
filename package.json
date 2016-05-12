@@ -41,6 +41,7 @@
     "gulp-awspublish": "^3.0.1",
     "gulp-babel": "^6.1.1",
     "gulp-cached": "^1.1.0",
+    "gulp-cloudfront-invalidate-aws-publish": "0.0.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.0.0",
     "gulp-cssnano": "^2.1.0",

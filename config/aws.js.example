@@ -5,7 +5,8 @@ module.exports = {
     'region': 'Amazon_s3_staging_region',
     'params': {
         'Bucket': 'Amazon_s3_staging_bucket_name'
-    }
+    },
+    'distribution': 'Cloudfront_distribution_id'
   },
   'stagingHeaders': {
 
@@ -17,19 +18,21 @@ module.exports = {
     'region': 'Amazon_s3_production_region',
     'params': {
         'Bucket': 'Amazon_s3_production_bucket_name'
-    }
+    },
+    'distribution': 'Cloudfront_distribution_id'
   },
   'productionHeaders': {
 
   },
 
   'myEnv': {
-    'accessKeyId': 'Amazon_s3_production_access_key',
-    'secretAccessKey': 'Amazon_s3_production_secret_key',
-    'region': 'Amazon_s3_production_region',
+    'accessKeyId': 'Amazon_s3_myEnv_access_key',
+    'secretAccessKey': 'Amazon_s3_myEnv_secret_key',
+    'region': 'Amazon_s3_myEnv_region',
     'params': {
-        'Bucket': 'Amazon_s3_production_bucket_name'
-    }
+        'Bucket': 'Amazon_s3_myEnv_bucket_name'
+    },
+    'distribution': 'Cloudfront_distribution_id'
   },
   'myEnvHeaders': {
 

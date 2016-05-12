@@ -24,7 +24,6 @@ gulp.task('s3push', () => {
   return gulp.src(localConfig.buildSrc)
     .pipe(awspublish.gzip({ ext: '' }))
     .pipe(parallelize(publisher.publish(awsConf.headers), 100))
-    .pipe(publisher.cache())
     .pipe(publisher.sync())
     .pipe(awspublish.reporter());
 });

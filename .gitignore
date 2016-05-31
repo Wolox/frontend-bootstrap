@@ -30,5 +30,8 @@ test/unit/test-results.xml
 # protractor test results report
 protractor-results.xml
 
+# static analysis report
+code-quality-report
+
 # deploy cache
 .awspublish*

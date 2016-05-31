@@ -2,8 +2,8 @@
   "name": "frontend-bootstrap",
   "version": "0.0.1",
   "engines": {
-    "node": "0.12.2",
-    "npm": "2.7.4"
+    "node": "4.2.4",
+    "npm": "2.14.12"
   },
   "description": "Kickoff for web applications",
   "scripts": {

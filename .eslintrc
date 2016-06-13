@@ -10,7 +10,7 @@
     "block-spacing": [2, "always"],                               // http://eslint.org/docs/rules/block-spacing
     "brace-style": [2, "1tbs", { "allowSingleLine": false }],     // http://eslint.org/docs/rules/brace-style
     "callback-return": 0,                                         // http://eslint.org/docs/rules/callback-return
-    "camelcase": [2, {properties: "never"}],                      // http://eslint.org/docs/rules/camelcase
+    "camelcase": [2, {"properties": "never"}],                      // http://eslint.org/docs/rules/camelcase
     "comma-dangle": [2, "never"],                                 // http://eslint.org/docs/rules/comma-dangle
     "comma-spacing": [2, {"before": false, "after": true}],       // http://eslint.org/docs/rules/comma-spacing
     "comma-style": [2, "last"],                                   // http://eslint.org/docs/rules/comma-style

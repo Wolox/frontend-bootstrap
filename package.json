@@ -75,7 +75,6 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "mkdirp": "^0.5.1",
     "node-notifier": "^4.4.0",
-    "phantomjs": "^2.1.7",
     "phantomjs-prebuilt": "^2.1.7",
     "plato": "^1.5.0",
     "prompt": "^1.0.0",

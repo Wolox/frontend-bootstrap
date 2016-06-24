@@ -10,6 +10,7 @@ rules:
       allow-single-line-rulesets: true
   extends-before-declarations: 2
   final-newline: 2
+  force-element-nesting: false
   force-pseudo-nesting: false
   function-name-format:
     - 2

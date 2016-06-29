@@ -83,6 +83,8 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
 
+    failOnEmptyTestSuite: false,
+
     plugins: [
       'karma-coverage',
       'karma-junit-reporter',

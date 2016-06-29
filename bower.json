@@ -21,7 +21,6 @@
     "angular-translate": "^2.11.0",
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.6",
-    "font-awesome": "^4.6.3",
-    "restangular": "^1.5.2"
+    "font-awesome": "^4.6.3"
   }
 }

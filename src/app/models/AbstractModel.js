@@ -1,6 +1,5 @@
 angular.module('app-bootstrap').factory('AbstractModel', [
-  'Restangular',
-  function (Restangular) {
+  function () {
 
     const privateBuild = function (modelData) {
       return new this(modelData);
@@ -32,7 +31,7 @@ angular.module('app-bootstrap').factory('AbstractModel', [
         if (!other) {
           return false;
         }
-        return _.isEqual(Restangular.stripRestangular(this), Restangular.stripRestangular(other));
+        return _.isEqual(this, other);
       }
 
       /**
@@ -40,11 +39,6 @@ angular.module('app-bootstrap').factory('AbstractModel', [
        */
       serialize () {
         let serializedModel = angular.copy(this);
-
-        // remove restangular boilerplate
-        if (serializedModel.restangularized) {
-          serializedModel = Restangular.stripRestangular(serializedModel);
-        }
 
         // serialize attributes with custom serializers
         this.serializableAttributes.forEach((attr) => {

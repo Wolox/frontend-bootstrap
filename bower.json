@@ -16,11 +16,12 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "angular-ui-router": "~0.2.15",
-    "angular-translate": "~2.8.1",
     "angular-local-storage": "~0.2.3",
+    "angular-mocks": "~1.4.8",
+    "angular-translate": "~2.8.1",
+    "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.6",
-    "restangular": "~1.5.1",
-    "angular-mocks": "~1.4.8"
+    "font-awesome": "~4.6.3",
+    "restangular": "~1.5.1"
   }
 }

@@ -8,7 +8,9 @@ const localConfig = {
   cleanSrc: './build/fonts'
 };
 
-gulp.task('clean:fonts', (cb) => del([localConfig.cleanSrc], cb));
+gulp.task('clean:fonts', () => {
+  return del([localConfig.cleanSrc]);
+});
 
 gulp.task('fonts', ['clean:fonts'], () => {
   return gulp.src(localConfig.src)

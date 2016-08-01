@@ -1,0 +1,19 @@
+config:
+  token: <%= ENV['CODE_STATS_TOKEN'] %>
+  ci: 'JENKINS'
+  url: 'http://codestats.wolox.com.ar/'
+metrics:
+  escomplex:
+    name: 'Js Maintainability'
+    location: 'code-quality-report/stats.json'
+    enabled: true
+    minimum: 75
+    build_base_url: 'http://ci.wolox.com.ar/job'
+    build_report_file_url: 'Code_Quality_Report'
+  karma_coverage:
+    name: 'Code Coverage'
+    location: 'test/unit/coverage/cobertura-coverage.xml'
+    enabled: true
+    minimum: 20
+    build_base_url: 'http://ci.wolox.com.ar/job'
+    build_report_file_url: 'cobertura'

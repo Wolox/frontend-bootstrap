@@ -12,7 +12,9 @@
     "karma": "karma start test/unit/karma.conf.js",
     "protractor": "protractor test/e2e/protractor.conf.js",
     "protractor-local": "protractor --baseUrl='http://localhost:3000/' test/e2e/protractor.conf.js",
-    "code-quality-report": "plato -r -d code-quality-report -e .eslintrc build/js/app"
+    "code-quality-html-report": "plato -r -d code-quality-report -e .eslintrc -x build/js/vendor build/js",
+    "code-quality-json-report": "cr -o code-quality-report/stats.json -f json -x build/js/vendor build/js",
+    "reports": "npm run code-quality-html-report && npm run code-quality-json-report"
   },
   "cacheDirectories": [
     "node_modules",

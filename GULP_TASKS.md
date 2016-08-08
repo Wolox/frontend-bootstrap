@@ -1,3 +1,5 @@
+# Outdated
+
 ##  Gulp tasks
 > **gulp scripts**
 > Compiles the javascript files in the *src/js* folder after applying the jshint linter.

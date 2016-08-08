@@ -156,7 +156,7 @@
     "quotes": [2, "single"],                                      // http://eslint.org/docs/rules/quotes
     "radix": 0,                                                   // http://eslint.org/docs/rules/radix
     "require-jsdoc": 0,                                           // http://eslint.org/docs/rules/require-jsdoc
-    "semi": 0,                                                    // http://eslint.org/docs/rules/semi
+    "semi": [2, "always"],                                        // http://eslint.org/docs/rules/semi
     "semi-spacing": [2, {"before": false, "after": true}],        // http://eslint.org/docs/rules/semi-spacing
     "sort-vars": 0,                                               // http://eslint.org/docs/rules/sort-vars
     "space-before-blocks": 2,                                     // http://eslint.org/docs/rules/space-before-blocks

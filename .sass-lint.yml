@@ -1,6 +1,8 @@
 files:
-  include: './src/**/*.scss'
-  exclude: './src/overrides/**/*.scss'
+  include:
+    - './src/**/*.scss'
+  ignore:
+    - './src/overrides/**/*.scss'
 rules:
   border-zero: 2
   brace-style: 2

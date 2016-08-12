@@ -40,6 +40,7 @@
     "babel-register": "^6.8.0",
     "bower": "^1.7.2",
     "browser-sync": "^2.12.8",
+    "complexity-report": "^2.0.0-alpha",
     "concurrent-transform": "^1.0.0",
     "connect-history-api-fallback": "^1.1.0",
     "del": "^2.2.0",

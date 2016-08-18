@@ -57,6 +57,10 @@ gulp.task('vendor:safe-check', (cb) => {
   const jsVendorFiles = localConfig.jsVendorFiles();
   const cssVendorFiles = localConfig.cssVendorFiles();
 
+  if (!jsVendorFiles.length && !cssVendorFiles.length) {
+    return cb();
+  }
+
   let checkedJsCount = 0;
   let checkedCssCount = 0;
 
@@ -65,7 +69,7 @@ gulp.task('vendor:safe-check', (cb) => {
       // finished checking all vendor files
       cb();
     }
-  }
+  };
 
   jsVendorFiles.forEach((filename) => {
     fs.stat(filename, (err) => {

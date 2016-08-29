@@ -6,12 +6,12 @@ const taskOptions = getConfigKeys();
 const localConfig = {
   src: './build/css/application.css',
   files: ['./build/**/*.html', './build/**/*.js'],
-  dest: './build/'
+  dest: './build/css'
 };
 const options = { minify: taskOptions.minify };
 
 gulp.task('purifycss', () => {
   return gulp.src(localConfig.src)
     .pipe(purifycss(localConfig.files, options))
-    .pipe(gulp.dest(localConfig.dest));
+    .pipe(gulp.dest(localConfig.dest, {overwrite: true}));
 });

@@ -18,13 +18,13 @@ gulp.task('watch:scss', () => {
 
 gulp.task('watch:js', () => {
   gulp.watch(localConfig.jsWatchedFiles, () => {
-    runSequence('scripts', 'purifycss', 'inject');
+    runSequence('scripts', 'inject', 'purifycss');
   });
 });
 
 gulp.task('watch:jade', () => {
   gulp.watch(localConfig.jadeWatchedFiles, () => {
-    runSequence('jade', 'purifycss', 'inject');
+    runSequence('jade', 'inject', 'sass', 'purifycss');
   });
 });
 

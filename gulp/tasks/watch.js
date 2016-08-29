@@ -18,7 +18,7 @@ gulp.task('watch:scss', () => {
 
 gulp.task('watch:js', () => {
   gulp.watch(localConfig.jsWatchedFiles, () => {
-    runSequence('scripts', 'inject', 'purifycss');
+    runSequence('scripts', 'inject', 'sass', 'purifycss');
   });
 });
 

@@ -12,7 +12,7 @@ const localConfig = {
 
 gulp.task('watch:scss', () => {
   gulp.watch(localConfig.scssWatchedFiles, () => {
-    runSequence('sass', 'purifycss');
+    runSequence('sass', 'purifycss:src');
   });
 });
 
@@ -30,12 +30,14 @@ gulp.task('watch:jade', () => {
 
 gulp.task('watch:vendor:js', () => {
   gulp.watch(localConfig.vendorJsFile, () => {
-    runSequence('vendor:js', 'inject');
+    runSequence('vendor:js', 'inject', 'sass', 'purifycss:vendor');
   });
 });
 
 gulp.task('watch:vendor:css', () => {
-  gulp.watch(localConfig.vendorCssFile, ['vendor:css']);
+  gulp.watch(localConfig.vendorCssFile, () => {
+    runSequence('vendor:css', 'sass', 'purifycss:vendor');
+  });
 });
 
 gulp.task('watch:assets', () => {

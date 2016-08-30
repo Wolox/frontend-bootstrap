@@ -11,29 +11,33 @@ const localConfig = {
 };
 
 gulp.task('watch:scss', () => {
-  gulp.watch(localConfig.scssWatchedFiles, ['sass']);
+  gulp.watch(localConfig.scssWatchedFiles, () => {
+    runSequence('sass', 'purifycss:src');
+  });
 });
 
 gulp.task('watch:js', () => {
   gulp.watch(localConfig.jsWatchedFiles, () => {
-    runSequence('scripts', 'inject');
+    runSequence('scripts', 'inject', 'sass', 'purifycss');
   });
 });
 
 gulp.task('watch:jade', () => {
   gulp.watch(localConfig.jadeWatchedFiles, () => {
-    runSequence('jade', 'inject');
+    runSequence('jade', 'inject', 'sass', 'purifycss');
   });
 });
 
 gulp.task('watch:vendor:js', () => {
   gulp.watch(localConfig.vendorJsFile, () => {
-    runSequence('vendor:js', 'inject');
+    runSequence('vendor:js', 'inject', 'sass', 'purifycss:vendor');
   });
 });
 
 gulp.task('watch:vendor:css', () => {
-  gulp.watch(localConfig.vendorCssFile, ['vendor:css']);
+  gulp.watch(localConfig.vendorCssFile, () => {
+    runSequence('vendor:css', 'sass', 'purifycss:vendor');
+  });
 });
 
 gulp.task('watch:assets', () => {

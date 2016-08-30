@@ -53,6 +53,7 @@
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-preprocess": "^2.0.0",
+    "gulp-purifycss": "^0.2.0",
     "gulp-sass": "^2.3.1",
     "gulp-sass-lint": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",

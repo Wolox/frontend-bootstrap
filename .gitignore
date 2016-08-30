@@ -35,3 +35,6 @@ code-quality-report
 
 # deploy cache
 .awspublish*
+
+#Backstopjs images
+backstop_data

@@ -28,7 +28,13 @@
     "url": "https://github.com/Wolox/frontend-bootstrap/issues"
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
-  "dependencies": {},
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-local-storage": "^0.2.7",
+    "angular-mocks": "^1.5.8",
+    "angular-translate": "^2.11.1",
+    "angular-ui-router": "^0.3.1"
+  },
   "devDependencies": {
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.3",

@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: vendorJs.concat([
-      '../../bower_components/angular-mocks/angular-mocks.js',
+      '../../node_modules/angular-mocks/angular-mocks.js',
       '../../build/js/**/*.js',
       './specs/**/*.js',
       '../../build/app/**/*.html'

@@ -4,7 +4,6 @@ Frontend Bootstrap
 Kickoff for web applications.
 
 ## Main Tools
-+ [Bower](http://www.bower.io/)
 + [Babel](https://babeljs.io/)
 + [Sass](http://sass-lang.com)
 + [Jade](http://jade-lang.com)
@@ -19,29 +18,16 @@ Nvm approach is preferred. Also, you may find this [tool](https://github.com/wby
 #### Getting the dev dependencies
 Run ```npm install``` from rootpath of the project.
 
-#### Bower and gulp. The right way
-In the following step you will need to use bower, and during the project development you will probably use gulp every day, so let's use them in the right way.
+#### Gulp. The right way
+During the project development you will probably use gulp every day, so let's use them in the right way.
 A very popular way of getting these packages is simply tell npm to install them globally using the ```-g``` flag.
-That's needless as gulp and bower are already in this project dependencies. A big problem can have place if the version of the packages that were installed globally do not match the versions that this project require.
+That's needless as gulp is already in this project dependencies. A big problem can have place if the version of the packages that were installed globally do not match the versions that this project require.
 The right way to execute these tools is using the binaries in the node_modules folder, that is ```node_modules/.bin/```.
-To execute bower just use the following ```./node_modules/.bin/bower```. Same for gulp.
+To execute gulp just use the following ```./node_modules/.bin/gulp```. The same applies for other dependencies that have command line tools.
 Adding an alias for these tools is highly recommended. Like the following:
 ```bash
 alias gulp='node_modules/.bin/gulp'
-alias bower='node_modules/.bin/bower'
 ```
-
-#### Getting the project dependencies
-The actual dependencies that will be used to develop the app are managed using bower. You can easily get them with the following command
-```bash
-bower install
-```
-You may be asking:  why don't we simply get these packages using npm?
-Here are some articles I suggest reading about bower:
-
-+ [Why Front-End Needs a Package Manager?](frontendbabel.info/articles/bower-why-frontend-package-manager/)
-+ [Is bower useful?](http://benmccormick.org/2015/01/22/is-bower-useful)
-+ [What's great about bower](https://css-tricks.com/whats-great-bower/)
 
 #### Gulp
 To start your app run ```gulp``` in the rootpath of the project. Then access your app at **localhost:port**. The port is logged in the console where you ran gulp.
@@ -57,12 +43,12 @@ By default, the environment will be **development**, but you can easily change i
 When creating SCSS files you don't need to import other files inside yours to use properties from them. There's a specific file called ```application.scss``` where every SCSS file should be imported in the desired priority order. This works just like the stylesheet elements in the head of an html, when repeated rules are present the rule that was imported last will override the other.
 
 #### Vendors
-To add a vendor simply install and save it using bower, then add the path of the source files, relative to the **bower_components** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
+To add a vendor simply install and save it using npm, then add the path of the source files, relative to the **node_modules** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
 i.e: Adding jquery
 ```
-bower install --save jquery
+npm install --save jquery
 ```
-This will generate the **jquery** folder inside **bower_components**. Then, add the source file of jquery to **vendorJs.js**. It should look like this:
+This will generate the **jquery** folder inside **node_modules** and add the register the dependency in the `package.json` file. Then, add the source file of jquery to **vendorJs.js**. It should look like this:
 ```
 module.exports = [
   'jquery/dist/jquery.js',
@@ -78,6 +64,7 @@ If you want to test how your views change according to the changes in your css w
 - Run ```npm run test``` to check the images again. Your browser will show a report with the image diffs, so if there's an error fix it and run the reference command again.
 
 #### Maintenance
+##### Outdated
 If your app will be down for a period of time, you can set up a maintenance page during the downtime.
 ```gulp build:maintenance``` will move the contents of ```src/maintenance``` to the build folder, then
 you only need to deploy that.
@@ -107,38 +94,6 @@ npm install
 ```
 
 Remember that you now have to reference your assets with `.webp` extension.
-
-
-## Errors
-[Rollbar](https://rollbar.com/) is the tool we use to track errors. To set it up in the project follow these instructions:
-
-- Install rollbar.js
-```
-bower install rollbar --save
-```
-
-- Add the rollbar snippet to ```vendorJs``` file
-```
-'rollbar/dist/rollbar.snippet.js'
-```
-
-- Add the rollbar credentials in each secrets file in the ```config``` folder at the root of the project.
-
-- Add the `_rollbarConfig` configuration to the ```head``` of ```src/index.jade```
-```jade
-  script.
-    _rollbarConfig = {
-      accessToken: '<!-- @echo ROLLBAR_ACCESS_TOKEN -->',
-      captureUncaught: true,
-      payload: {
-        environment: '<!-- @echo environment -->'
-      }
-    };
-```
-
-Rollbar is now monitoring your page for all unhandled exceptions and is available via the global `window.Rollbar` object.
-Any further information can be found in the tracking tool [repository](https://github.com/rollbar/rollbar.js)
-
 
 ## Deploy
 

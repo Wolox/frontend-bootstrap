@@ -7,12 +7,10 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "start": "node_modules/.bin/gulp --env production",
-    "postinstall": "bower install"
+    "start": "node_modules/.bin/gulp --env production"
   },
   "cacheDirectories": [
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   "repository": {
     "type": "git",
@@ -33,7 +31,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.8.0",
     "backstopjs": "^1.3.5",
-    "bower": "^1.7.2",
     "browser-sync": "^2.12.8",
     "concurrent-transform": "^1.0.0",
     "del": "^2.2.0",

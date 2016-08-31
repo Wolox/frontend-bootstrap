@@ -43,7 +43,7 @@ prompt.get(config, function (err, result) {
 		console.log('\nError found. Operation ' + err.message + '.');
 	} else {
 		bfm.initReadme(result.responsibleUsername, result.responsibleFullName, result.projectName, result.projectDescription);
-		bfm.initPackageBower(result.responsibleFullName, result.projectName, result.projectDescription);
+		bfm.initPackage(result.responsibleFullName, result.projectName, result.projectDescription);
 		bfm.removeScripts();
 	}
 

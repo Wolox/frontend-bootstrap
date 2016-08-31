@@ -16,7 +16,7 @@ module.exports.initReadme = function (responsibleUername, responsibleFullName, p
 
 		result = result.toString();
 		result = result.split('\n');
-		
+
 		result[0] = projectName;
 		result[3] = projectDescription;
 
@@ -27,7 +27,7 @@ module.exports.initReadme = function (responsibleUername, responsibleFullName, p
 		result = result.splice(0, index - 1)
 
 		result = result.join('\n');
-		
+
 		fs.writeFile(readme, result, 'utf8', function (err) {
 			if (err) return console.log(err);
 		});
@@ -35,7 +35,7 @@ module.exports.initReadme = function (responsibleUername, responsibleFullName, p
 
 }
 
-module.exports.initPackageBower = function (responsibleFullName, projectName, projectDescription) {
+module.exports.initPackage = function (responsibleFullName, projectName, projectDescription) {
 
 	var packagejson = 'package.json';
 	fs.readFile(packagejson, 'utf8', function (err, data) {
@@ -57,27 +57,6 @@ module.exports.initPackageBower = function (responsibleFullName, projectName, pr
 		});
 
 	});
-
-	var bowerjson = 'bower.json';
-	fs.readFile(bowerjson, 'utf8', function (err, data) {
-
-		if (err) {
-			return console.log(err);
-		}
-
-		var result = JSON.parse(data);
-		result['name'] = projectName;
-		result['description'] = projectDescription
-		result['authors'] = [ responsibleFullName ];
-		result['homepage'] = 'https://github.com/Wolox/' + projectName;
-		result = JSON.stringify(result, null, '  ') + '\n';
-
-		fs.writeFile(bowerjson, result, 'utf8', function (err) {
-			if (err) return console.log(err);
-		});
-
-	});
-
 }
 
 module.exports.initAngularModule = function (projectName) {

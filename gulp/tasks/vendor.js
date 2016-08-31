@@ -18,7 +18,7 @@ const localConfig = {
   jsVendorFiles () {
     // We always want to load the fresh contents of vendorJs file, so avoid caching it.
     delete require.cache[require.resolve(this.vendorJsDeclarationsFile)];
-    return require(this.vendorJsDeclarationsFile).map((filepath) => `bower_components/${filepath}`);
+    return require(this.vendorJsDeclarationsFile).map((filepath) => `node_modules/${filepath}`);
   },
   vendorCssDeclarationsFile: '../../vendorCss',
   vendorCssCompiledFileName: 'vendor.css',
@@ -27,7 +27,7 @@ const localConfig = {
   cssVendorFiles () {
     // We always want to load the fresh contents of vendorCss file, so avoid caching it.
     delete require.cache[require.resolve(this.vendorCssDeclarationsFile)];
-    return require('../../vendorCss').map((filepath) => `bower_components/${filepath}`);
+    return require('../../vendorCss').map((filepath) => `node_modules/${filepath}`);
   }
 };
 

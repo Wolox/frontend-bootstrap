@@ -8,7 +8,6 @@
   "description": "Kickoff for web applications",
   "scripts": {
     "start": "node_modules/.bin/gulp --env production",
-    "postinstall": "bower install",
     "karma": "karma start test/unit/karma.conf.js",
     "protractor": "protractor test/e2e/protractor.conf.js",
     "protractor-local": "protractor --baseUrl='http://localhost:3000/' test/e2e/protractor.conf.js",
@@ -17,8 +16,7 @@
     "reports": "npm run code-quality-html-report && npm run code-quality-json-report"
   },
   "cacheDirectories": [
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   "repository": {
     "type": "git",
@@ -39,7 +37,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.8.0",
     "backstopjs": "^1.3.5",
-    "bower": "^1.7.2",
     "browser-sync": "^2.12.8",
     "complexity-report": "^2.0.0-alpha",
     "concurrent-transform": "^1.0.0",

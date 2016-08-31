@@ -63,7 +63,7 @@ module.exports.initAngularModule = function (projectName) {
 
 	var toReplace = "'app-bootstrap'";
 	var replacement ="'" + projectName + "'";
-	var indexJade = './src/index.jade';
+	var indexPug = './src/index.pug';
 
 	replace({
 		regex: toReplace,
@@ -74,14 +74,14 @@ module.exports.initAngularModule = function (projectName) {
 		silent: true
 	});
 
-	fs.readFile(indexJade, 'utf8', function (err, data) {
+	fs.readFile(indexPug, 'utf8', function (err, data) {
 
 		if (err) {
 			return console.log(err);
 		}
 
 		var result = data.replace(toReplace, replacement)
-		fs.writeFile(indexJade, result, 'utf8', function (err) {
+		fs.writeFile(indexPug, result, 'utf8', function (err) {
 			if (err) return console.log(err);
 		});
 

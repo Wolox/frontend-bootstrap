@@ -9,7 +9,7 @@ install:
 script:
   - ./node_modules/.bin/gulp ci:js
   - ./node_modules/.bin/gulp ci:sass
-  - ./node_modules/.bin/gulp ci:jade
+  - ./node_modules/.bin/gulp ci:pug
 
 cache:
   directories:

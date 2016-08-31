@@ -6,7 +6,7 @@ Kickoff for web applications.
 ## Main Tools
 + [Babel](https://babeljs.io/)
 + [Sass](http://sass-lang.com)
-+ [Jade](http://jade-lang.com)
++ [Pug](https://pugjs.org)
 + [Gulp](http://gulpjs.com/)
 + [BrowserSync](http://www.browsersync.io/)
 

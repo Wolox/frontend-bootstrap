@@ -3,16 +3,16 @@ import plumber from 'gulp-plumber';
 import sasslint from 'gulp-sass-lint';
 import eslint from 'gulp-eslint';
 import babel from 'gulp-babel';
-import jade from 'gulp-jade';
+import pug from 'gulp-pug';
 
 const localConfig = {
-  jadeFiles: './src/**/*.jade',
   jsFiles: ['./src/**/*.js', './test/**/*.js'],
+  pugFiles: './src/**/*.pug',
   sassFiles: './src/**/*.scss',
   errorHandler () {
     process.exit(1);
   },
-  jadeErrorHandler (err) {
+  pugErrorHandler (err) {
     console.log(err.message);
     process.exit(1);
   }
@@ -37,8 +37,8 @@ gulp.task('ci:sass', () => {
     .pipe(sasslint.failOnError());
 });
 
-gulp.task('ci:jade', () => {
-  return gulp.src(localConfig.jadeFiles)
-    .pipe(plumber({ errorHandler: localConfig.jadeErrorHandler }))
-    .pipe(jade({ pretty : true }));
+gulp.task('ci:pug', () => {
+  return gulp.src(localConfig.pugFiles)
+    .pipe(plumber({ errorHandler: localConfig.pugErrorHandler }))
+    .pipe(pug({ pretty : true }));
 });

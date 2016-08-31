@@ -4,7 +4,7 @@ import runSequence from 'run-sequence';
 const localConfig = {
   scssWatchedFiles: 'src/**/*.scss',
   jsWatchedFiles: 'src/**/*.js',
-  jadeWatchedFiles: 'src/**/*.jade',
+  pugWatchedFiles: 'src/**/*.pug',
   assetsWatchedFiles: 'src/assets/**/*',
   vendorJsFile: 'vendorJs.js',
   vendorCssFile: 'vendorCss.js'
@@ -22,9 +22,9 @@ gulp.task('watch:js', () => {
   });
 });
 
-gulp.task('watch:jade', () => {
-  gulp.watch(localConfig.jadeWatchedFiles, () => {
-    runSequence('jade', 'inject', 'sass', 'purifycss');
+gulp.task('watch:pug', () => {
+  gulp.watch(localConfig.pugWatchedFiles, () => {
+    runSequence('pug', 'inject', 'sass', 'purifycss');
   });
 });
 
@@ -44,5 +44,5 @@ gulp.task('watch:assets', () => {
   gulp.watch(localConfig.assetsWatchedFiles, ['assets']);
 });
 
-gulp.task('watch', ['watch:jade', 'watch:js', 'watch:scss', 'watch:vendor:js',
+gulp.task('watch', ['watch:pug', 'watch:js', 'watch:scss', 'watch:vendor:js',
                     'watch:vendor:css', 'watch:assets']);

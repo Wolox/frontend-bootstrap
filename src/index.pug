@@ -2,11 +2,12 @@ doctype html
 html(lang='en')
   head
     title Frontend Bootstrap!
-    meta(charset="UTF-8")
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(href='/css/vendor.css', rel='stylesheet')
-    link(href='/css/application.css', rel='stylesheet')
-    base(href="/")
+    meta(charset='UTF-8')
+    meta(name='viewport'
+      content='width=device-width, initial-scale=1')
+    link(href='/css/vendor.css' rel='stylesheet')
+    link(href='/css/application.css' rel='stylesheet')
+    base(href='/')
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -18,7 +19,7 @@ html(lang='en')
       });
       ga('send', 'pageview');
   body(ng-app='app-bootstrap' ng-strict-di)
-    i.fa.fa-heart(aria-hidden="true")
+    i.fa.fa-heart(aria-hidden='true')
     div(ui-view='main')
     // inject:js
     // endinject

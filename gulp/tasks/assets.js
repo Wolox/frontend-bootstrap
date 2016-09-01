@@ -7,7 +7,7 @@ import { getConfigKeys } from '../config';
 const taskOptions = getConfigKeys();
 
 const localConfig = {
-  src: './src/assets/**/*',
+  src: ['./src/assets/**/*', '!./src/assets/vendor', '!./src/assets/vendor/**/*'],
   base: 'src',
   dest: './build',
   cleanSrc: './build/assets'

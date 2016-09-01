@@ -28,7 +28,9 @@ const localConfig = {
     // We always want to load the fresh contents of vendorCss file, so avoid caching it.
     delete require.cache[require.resolve(this.vendorCssDeclarationsFile)];
     return require('../../vendorCss').map((filepath) => `node_modules/${filepath}`);
-  }
+  },
+  vendorAssetsSrc: './src/assets/vendor/**/*',
+  vendorAssetsDest: './build'
 };
 
 gulp.task('clean:vendor:js', () => {
@@ -98,4 +100,10 @@ gulp.task('vendor:safe-check', (cb) => {
   });
 });
 
-gulp.task('vendor', ['vendor:js', 'vendor:css', 'vendor:safe-check']);
+gulp.task('vendor:assets', () => {
+  return gulp.src(localConfig.vendorAssetsSrc)
+    .pipe(gulp.dest(localConfig.vendorAssetsDest));
+});
+
+
+gulp.task('vendor', ['vendor:js', 'vendor:css', 'vendor:safe-check', 'vendor:assets']);

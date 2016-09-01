@@ -4,6 +4,7 @@ import sasslint from 'gulp-sass-lint';
 import eslint from 'gulp-eslint';
 import babel from 'gulp-babel';
 import pug from 'gulp-pug';
+import pugLint from 'gulp-pug-lint';
 
 const localConfig = {
   pugFiles: './src/**/*.pug',
@@ -40,5 +41,6 @@ gulp.task('ci:sass', () => {
 gulp.task('ci:pug', () => {
   return gulp.src(localConfig.pugFiles)
     .pipe(plumber({ errorHandler: localConfig.pugErrorHandler }))
-    .pipe(pug({ pretty : true }));
+    .pipe(pugLint())
+    .pipe(pug({ pretty: true }));
 });

@@ -34,7 +34,7 @@
   "requireSpecificAttributes": [ { "img": [ "alt" ] } ],
   "requireStrictEqualityOperators": true,
   "validateAttributeQuoteMarks": true,
-  "validateAttributeSeparator": { "separator": " ", "multiLineSeparator": "\n " },
+  "validateAttributeSeparator": { "separator": " ", "multiLineSeparator": "\n  " },
   "validateDivTags": true,
   "validateExtensions": true,
   "validateIndentation": 2,

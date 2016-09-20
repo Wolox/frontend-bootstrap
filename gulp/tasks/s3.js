@@ -1,9 +1,8 @@
 import gulp from 'gulp';
 import awspublish from 'gulp-awspublish';
-import invalidate from 'gulp-cloudfront-invalidate-aws-publish';
 import runSequence from 'run-sequence';
-import gulpif from 'gulp-if';
 import parallelize from 'concurrent-transform';
+import merge from 'merge-stream';
 import { env } from '../config';
 
 const localConfig = {
@@ -23,12 +22,23 @@ const localConfig = {
 gulp.task('s3push', () => {
   const awsConf = localConfig.getAwsConf(env);
   const publisher = awspublish.create(awsConf.keys);
-  return gulp.src(localConfig.buildSrc)
+
+  const unrevisionedHeaders = {
+    ...awsConf.headers,
+    'Cache-Control': 'max-age=0;smax-age=0;must-revalidate;'
+  };
+
+  const versioned = gulp.src(['./build/**/*', '!./build/index.html'])
     .pipe(awspublish.gzip({ ext: '' }))
-    .pipe(parallelize(publisher.publish(awsConf.headers), 100))
+    .pipe(parallelize(publisher.publish(awsConf.headers), 100));
+
+  const unversioned = gulp.src('./build/index.html')
+    .pipe(awspublish.gzip({ ext: '' }))
+    .pipe(parallelize(publisher.publish(unrevisionedHeaders), 100));
+
+  return merge(versioned, unversioned)
     .pipe(publisher.sync())
-    .pipe(awspublish.reporter())
-    .pipe(gulpif(!!awsConf.keys.distribution, invalidate(awsConf.keys)));
+    .pipe(awspublish.reporter());
 });
 
 gulp.task('s3', (cb) => {

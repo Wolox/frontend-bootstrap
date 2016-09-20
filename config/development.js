@@ -25,6 +25,12 @@ module.exports = {
   sourcemaps: true,
 
   /**
+   * versioning
+   * Do static asset versioning in filenames
+   */
+  versioning: true,
+
+  /**
    * watch
    * Watch source files and recompile on any change
    */

@@ -25,10 +25,11 @@ module.exports = {
   sourcemaps: true,
 
   /**
-   * versioning
-   * Do static asset versioning in filenames
+   * revisioning
+   * Static asset revisioning by appending content hash to filenames
+   * **Warning**: Must be false if concat is set to false.
    */
-  versioning: true,
+  revisioning: false,
 
   /**
    * watch

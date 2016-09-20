@@ -6,7 +6,7 @@ const config = getConfigKeys();
 
 gulp.task('build', (cb) => {
   const defaultBuildTasks = ['assets', 'pug', 'sass', 'scripts', 'vendor'];
-  const buildTasks = config.versioning
+  const buildTasks = config.revisioning
     ? [defaultBuildTasks, 'revisioning', 'inject', cb]
     : [defaultBuildTasks, 'inject', cb];
   runSequence(...buildTasks);

@@ -34,6 +34,7 @@
     "browser-sync": "^2.12.8",
     "concurrent-transform": "^1.0.0",
     "del": "^2.2.0",
+    "eslint": "^3.6.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-awspublish": "^3.0.1",

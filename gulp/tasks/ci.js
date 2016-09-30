@@ -10,10 +10,7 @@ const localConfig = {
   pugFiles: './src/**/*.pug',
   jsFiles: './src/**/*.js',
   sassFiles: './src/**/*.scss',
-  errorHandler () {
-    process.exit(1);
-  },
-  pugErrorHandler (err) {
+  errorHandler (err) {
     console.log(err.message);
     process.exit(1);
   }
@@ -40,7 +37,7 @@ gulp.task('ci:sass', () => {
 
 gulp.task('ci:pug', () => {
   return gulp.src(localConfig.pugFiles)
-    .pipe(plumber({ errorHandler: localConfig.pugErrorHandler }))
+    .pipe(plumber({ errorHandler: localConfig.errorHandler }))
     .pipe(pugLint())
     .pipe(pug({ pretty: true }));
 });

@@ -1,7 +1,6 @@
 files:
   include:
     - 'src/**/*.scss'
-    - 'src/app/**/*.scss'
   ignore:
     - 'src/scss/overrides/**/*.scss'
 rules:

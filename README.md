@@ -53,7 +53,7 @@ module.exports = [
   'jquery/dist/jquery.js',
 ];
 ```
-<<<<<<< HEAD
+
 #### Testing
 
 ##### Unit testing
@@ -71,7 +71,6 @@ To run these specs against your development environment, execute the following: 
 ## Deploy
 
 #### S3
-<<<<<<< HEAD
 In order to deploy you must first create **config/aws.js** file with the credentials of the Amazon S3 bucket for each environment.
 The file needs to have to follow the format specified in *config/aws.js.example*
 

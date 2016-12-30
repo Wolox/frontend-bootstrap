@@ -45,5 +45,5 @@ gulp.task('s3push', () => {
 });
 
 gulp.task('s3', (cb) => {
-  runSequence('clean', 'build', 's3push', cb);
+  runSequence('clean', 'build', 's3push', 'git-tag', cb);
 });

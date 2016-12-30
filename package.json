@@ -61,7 +61,6 @@
     "gulp-sass-lint": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
-    "gulp-webp": "^2.3.0",
     "merge-stream": "^1.0.0",
     "node-notifier": "^4.4.0",
     "prompt": "^1.0.0",

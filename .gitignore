@@ -35,3 +35,6 @@ code-quality-report
 
 #Backstopjs images
 backstop_data
+
+#IDE files
+.vscode

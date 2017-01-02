@@ -15,8 +15,11 @@ const taskOptions = getConfigKeys();
 const localConfig = {
   src () {
     return ['./src/app/app.module.js',
-            './src/**/*.js',
-            `!./src/app/config/!(${env}.js)`];
+      './src/**/*.js',
+      `!./src/app/config/!(${env}.js)`,
+      '!./src/vendor/*.js',
+      '!./src/vendor/**/*.js'
+    ];
   },
   dest () {
     return './build/js/';

@@ -23,3 +23,6 @@ config/secrets.production.js
 
 #Backstopjs images
 backstop_data
+
+#IDE files
+.vscode

@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
-import webp from 'gulp-webp';
 import del from 'del';
 import { getConfigKeys } from '../config';
 
@@ -17,6 +16,5 @@ gulp.task('clean:assets', () => del([localConfig.cleanSrc]));
 
 gulp.task('assets', ['clean:assets'], () => {
   return gulp.src(localConfig.src, { base: localConfig.base })
-    .pipe(gulpif(taskOptions.webp, webp()))
     .pipe(gulp.dest(localConfig.dest));
 });

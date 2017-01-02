@@ -13,7 +13,7 @@ import { getConfigKeys, getSecretKeys, errorHandler } from '../config';
 const taskOptions = getConfigKeys();
 
 const localConfig = {
-  src: './src/js/**/*.js',
+  src: ['./src/js/**/*.js', '!./src/vendor/*.js', '!./src/vendor/**/*.js'],
   dest: './build/js/',
   buildFileName: 'all.js'
 };

@@ -27,9 +27,9 @@ gulp.task('inject', () => {
   const jsVendorPath = `${localConfig.buildFolder}${localConfig.jsVendorFilesPath}*`;
   const jsVendorSources = taskOptions.concat ?
                           gulp.src(jsVendorPath, { read: false }) :
-                          gulp.src(vendorFileNames, { read: false });
+                          gulp.src(vendorFileNames.concat(`${jsVendorPath}**/*`), { read: false });
   const jsSources = gulp.src([`${localConfig.buildFolder}${localConfig.jsFilesRegex}`,
-                           `!${jsVendorPath}`], { read: false });
+    `!${jsVendorPath}`, `!${jsVendorPath}*/*`], { read: false });
 
   return gulp.src(localConfig.buildFolder + localConfig.indexHtmlFile)
     .pipe(inject(series(jsVendorSources, jsSources), {

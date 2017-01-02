@@ -12,6 +12,7 @@ const taskOptions = getConfigKeys();
 
 const localConfig = {
   vendorJsDeclarationsFile: '../../vendorJs',
+  srcVendorFiles: ['./src/vendor/*.js', './src/vendor/**/*.js'],
   vendorJsCompiledFileName: 'vendor.js',
   buildJsSrc: './build/js/vendor/',
   cleanJsSrc: './build/js/vendor/**/*',
@@ -38,7 +39,7 @@ gulp.task('clean:vendor:js', () => {
 });
 
 gulp.task('vendor:js', ['clean:vendor:js'], () => {
-  return gulp.src(localConfig.jsVendorFiles())
+  return gulp.src(localConfig.jsVendorFiles().concat(localConfig.srcVendorFiles))
     .pipe(gulpif(taskOptions.concat, concat(localConfig.vendorJsCompiledFileName)))
     .pipe(gulpif(taskOptions.minify, uglify()))
   .pipe(gulp.dest(localConfig.buildJsSrc));

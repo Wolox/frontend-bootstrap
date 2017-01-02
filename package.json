@@ -52,7 +52,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-preprocess": "^2.0.0",
     "gulp-pug": "^3.0.4",
-    "gulp-pug-lint": "^0.1.6",
+    "gulp-pug-linter": "^0.4.1",
     "gulp-purifycss": "^0.2.0",
     "gulp-rev": "^7.1.2",
     "gulp-rev-delete-original": "^0.2.2",

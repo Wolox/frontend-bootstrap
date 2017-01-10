@@ -32,7 +32,7 @@ export function getConfigKeys () {
 export function getSecretKeys () {
   const keys = readKeys('../config/secrets');
   return {
-    ...keys,
+    ...keys[env],
     environment: env
   };
 }

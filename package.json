@@ -30,10 +30,10 @@
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-local-storage": "^0.2.7",
+    "angular-local-storage": "^0.5.2",
     "angular-mocks": "^1.5.8",
     "angular-translate": "^2.11.1",
-    "angular-ui-router": "^0.3.1"
+    "angular-ui-router": "^0.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
@@ -80,8 +80,8 @@
     "gulp-uglify": "^2.0.1",
     "jasmine-core": "^2.4.1",
     "jasmine-reporters": "^2.1.1",
-    "jasmine-spec-reporter": "^2.4.0",
-    "karma": "^0.13.19",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma": "^1.4.1",
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-junit-reporter": "^1.0.0",
@@ -93,7 +93,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "plato": "^1.5.0",
     "prompt": "^1.0.0",
-    "protractor": "^3.3.0",
+    "protractor": "^5.1.0",
     "replace": "^0.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",

@@ -1,6 +1,7 @@
 'use strict';
-var SpecReporter = require('jasmine-spec-reporter');
+var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 var jasmineReporters = require('jasmine-reporters');
+var ReporterProcessor = require('./ReporterProcessor');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -38,7 +39,7 @@ exports.config = {
         failure: '✗ ',
         pending: '* '
       },
-      customProcessors: []
+      customProcessors: [ReporterProcessor]
     }));
 
     browser.get(browser.baseUrl);

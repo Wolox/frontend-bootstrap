@@ -41,4 +41,4 @@ gulp.task('watch:assets', () => {
 });
 
 gulp.task('watch', ['watch:pug', 'watch:js', 'watch:scss', 'watch:vendor:js',
-                    'watch:vendor:css', 'watch:assets']);
+  'watch:vendor:css', 'watch:assets']);

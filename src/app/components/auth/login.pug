@@ -1,0 +1,14 @@
+h1.frontend-bootstrap-component-2
+  | Log in
+form.login-form(name='loginForm' ng-submit='loginForm.$valid && authCtrl.login()')
+  .form-group
+    label.label
+      | Email
+    input.custom-input(ng-model='authCtrl.loginData.email' type='email')
+  .form-group
+    label.label
+      | Password
+    input.custom-input(ng-model='authCtrl.loginData.password' type='password')
+  .actions
+    button.btn(type='submit' ng-disabled='loginForm.$invalid && loginForm.$submitted')
+      | Log in

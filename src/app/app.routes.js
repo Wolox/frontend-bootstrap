@@ -36,6 +36,38 @@ angular.module('app-bootstrap').config([
             controllerAs: 'comp2Ctrl'
           }
         }
+      })
+      .state('centered.requiredLogin', {
+        url: '/required_login',
+        views: {
+          content: {
+            templateUrl: '../app/components/centered/requiredLoginComponent/requiredLoginComponent.html'
+          }
+        },
+        data: {
+          requireLogin: true
+        }
+      })
+      .state('auth', {
+        abstract: true,
+        views: {
+          main: {
+            templateUrl: '../app/components/auth/auth.html'
+          }
+        }
+      })
+      .state('auth.login', {
+        url: '/login',
+        views: {
+          content: {
+            templateUrl: '../app/components/auth/login.html',
+            controller: 'AuthController',
+            controllerAs: 'authCtrl'
+          }
+        },
+        data: {
+          requireLogin: false
+        }
       });
 
     $locationProvider.html5Mode(true);

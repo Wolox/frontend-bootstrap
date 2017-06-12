@@ -32,7 +32,7 @@
 
     "angular/controller-as-vm": 0,                                // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/controller-as-vm.md
     "angular/deferred": 0,                                        // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/deferred.md
-    "angular/di": [2,"array"],                                    // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/di.md
+    "angular/di": [1,"array"],                                    // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/di.md
     "angular/di-order": 0,                                        // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/di-order.md
     "angular/di-unused": 2,                                       // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/di-unused.md
     "angular/document-service": 0,                                // https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/document-service.md

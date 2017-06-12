@@ -18,3 +18,32 @@ body {
 .class-to-be-purified {
   color: $translucent-white;
 }
+
+.btn {
+  background-color: $translucent-white;
+  border: 1px solid $wolox-green;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.custom-input {
+  border: 1px solid $wolox-green;
+  border-radius: 4px;
+  display: block;
+  padding: 6px 12px;
+  width: calc(100% - 24px);
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  .label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+  }
+}

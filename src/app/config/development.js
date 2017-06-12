@@ -1,3 +1,3 @@
 angular.module('app-bootstrap').constant('configuration', {
-  apiUrl: 'localhost:3000'
+  apiUrl: '/* @echo API_URL */'
 });

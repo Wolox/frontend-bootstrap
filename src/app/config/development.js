@@ -1,3 +1,3 @@
 angular.module('app-bootstrap').constant('configuration', {
-  apiUrl: '/* @echo API_URL */'
+  apiUrl: 'http://private-5ddfd0-authentication45.apiary-mock.com/'
 });

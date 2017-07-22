@@ -5,8 +5,8 @@ angular.module('app-bootstrap').factory('authenticationService', [
     return {
       login: (params) => {
         const defaultSuccessCb = (data) => {
-          localStorageService.set('session_token', data.data.session_token);
-          $http.defaults.headers.common.AUTHORIZATION = data.data.session_token;
+          localStorageService.set('session_token', data.data.user.session_token);
+          $http.defaults.headers.common.AUTHORIZATION = data.data.user.session_token;
           return data;
         };
         return httpService.post('login', params).then(defaultSuccessCb);
@@ -19,7 +19,7 @@ angular.module('app-bootstrap').factory('authenticationService', [
           $state.go('auth.login');
         };
 
-        return httpService.delete('logout').then(successLogoutCb);
+        return httpService.post('logout').then(successLogoutCb);
       },
 
       isLoggedIn: () => {

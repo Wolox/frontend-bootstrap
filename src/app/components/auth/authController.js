@@ -14,7 +14,11 @@ angular.module('app-bootstrap').controller('AuthController', [
     };
 
     this.isLoggedIn = () => {
-      authenticationService.isLoggedIn();
+      return authenticationService.isLoggedIn();
+    };
+
+    this.currentUser = () => {
+      return authenticationService.currentUser();
     };
 
   }

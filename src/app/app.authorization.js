@@ -5,7 +5,6 @@ angular.module('app-bootstrap').run([
     $http.defaults.headers.common.AUTHORIZATION = localStorageService.get('session_token');
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
-
       if (!authenticationService.isLoggedIn() && toState.data.requireLogin) {
         event.preventDefault();
         $state.go('auth.login');

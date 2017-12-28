@@ -29,7 +29,6 @@ rules:
   mixin-name-format:
     - 2
     - allow-leading-underscore: false
-      convention: camelcase
   mixins-before-declarations: 2
   nesting-depth:
     - 2

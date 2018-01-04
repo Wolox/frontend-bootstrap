@@ -1,0 +1,9 @@
+machine:
+  node:
+    version: 8.5.0
+dependencies:
+  override:
+    - yarn
+test:
+  override:
+    - npm rebuild node-sass

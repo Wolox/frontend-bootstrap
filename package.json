@@ -7,7 +7,10 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "start": "node_modules/.bin/gulp --env production"
+    "start": "node_modules/.bin/gulp --env production",
+    "pug-diff" : "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/.bin/pug-lint",
+    "lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
+    "precommit" : "npm run pug-diff && npm run lint-diff"
   },
   "cacheDirectories": [
     "node_modules"
@@ -63,6 +66,7 @@
     "gulp-sass-lint": "^1.1.0",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
+    "husky": "^0.14.3",
     "merge-stream": "^1.0.1",
     "minimatch": "^3.0.4",
     "node-notifier": "^5.0.2",

@@ -7,7 +7,10 @@
   },
   "description": "Kickoff for web applications",
   "scripts": {
-    "start": "node_modules/.bin/gulp --env production"
+    "start": "node_modules/.bin/gulp --env production",
+    "pug-diff" : "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/.bin/pug-lint",
+    "lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
+    "precommit" : "npm run pug-diff && npm run lint-diff"
   },
   "cacheDirectories": [
     "node_modules"
@@ -28,6 +31,7 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.8.0",
     "backstopjs": "^2.3.7",
@@ -62,13 +66,16 @@
     "gulp-sass-lint": "^1.1.0",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
+    "husky": "^0.14.3",
     "merge-stream": "^1.0.1",
+    "minimatch": "^3.0.4",
     "node-notifier": "^5.0.2",
     "prompt": "^1.0.0",
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^1.1.5",
     "stream-series": "^0.1.1",
+    "webpack": "^1.15.0",
     "yargs": "^6.6.0"
   }
 }

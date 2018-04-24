@@ -2,9 +2,8 @@ language: node_js
 node_js:
   - "0.12"
 
-
 install:
-  - npm install
+  - npm i
 
 script:
   - ./node_modules/.bin/gulp ci:js

@@ -1,4 +1,10 @@
 {
   "plugins": ["transform-object-rest-spread"],
-  "presets": ["es2015"]
+  "presets": [
+    ["env", {
+      "targets": [
+        "last 2 versions", "safari >= 7", "not ie < 9"
+      ]
+    }]
+  ]
 }

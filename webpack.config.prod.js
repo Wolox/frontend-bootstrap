@@ -33,32 +33,25 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        include: path.resolve(__dirname, 'src/views'),
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html'
-            }
-          },
+          'file-loader?name=[name].html',
           'extract-loader',
           'html-loader',
           'pug-html-loader'
         ]
       },
       {
-        test: /index.pug$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html'
-            }
-          },
-          'extract-loader',
-          'html-loader',
-          'pug-html-loader'
-        ]
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            cache: true,
+            emitError: true,
+            emitWarning: true
+          }
+        }
       },
       {
         test: /\.js$/,

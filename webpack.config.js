@@ -51,6 +51,7 @@ module.exports = {
         use: [
           /**
            * HTML files will be at the root for the url to be as short as possible
+           * TODO: Find a way to ditch the extension on urls
            */
           'file-loader?name=[name].html',
           'extract-loader',
@@ -58,10 +59,22 @@ module.exports = {
           'pug-html-loader'
         ]
       },
-      // TODO: Lint the app before building?
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            cache: true,
+            emitError: true,
+            emitWarning: true
+          }
+        }
+      },
       {
         test: /\.js$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: 'babel-loader'
       },
       {

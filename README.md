@@ -20,18 +20,15 @@ Nvm approach is preferred. Also, you may find this [tool](https://github.com/wby
 #### Getting the dev dependencies
 Run `npm install` from rootpath of the project.
 
-#### Gulp. The right way
-During the project development you will probably use gulp every day, so let's use it in the right way.
-A very popular way of getting these kind of packages is simply tell npm to install them globally using the `-g` flag.
-That's needless as gulp is already included in this project dependencies. A big problem can have place if the version of the packages that were installed globally do not match the versions that each project require.
-The right way to execute these tools is using the binaries in the node_modules folder, that is `node_modules/.bin/`.
-To execute gulp just use the following in your terminal: `./node_modules/.bin/gulp`. The same applies for other dependencies that have command line tools.
-Adding an alias in your .bashrc/.bash_profile for these tools is highly recommended:
-```bash
-alias gulp='node_modules/.bin/gulp'
+## Development
+
+#### Run the project
+After doing `npm install`,  execute `npm start`. This will run the project instance in:
+```
+  https://localhost:3000/
 ```
 
-## Development
+We use HTTPS protocol because it's required for some cool webpack configurations.
 
 #### Environments
 By default, the environment will be **development**, but you can easily change it using the **env** param in your gulp tasks: ```gulp --env production```

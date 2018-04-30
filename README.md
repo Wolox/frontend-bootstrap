@@ -18,17 +18,17 @@ Get the latest version of node from the [official website](https://nodejs.org/) 
 Nvm approach is preferred. Also, you may find this [tool](https://github.com/wbyoung/avn) useful to automate version changing between projects.
 
 #### Getting the dev dependencies
-Run `npm install` from rootpath of the project.
+Run `npm i` from rootpath of the project.
 
 ## Development
 
 #### Run the project
-After doing `npm install`,  execute `npm start`. This will run the project instance in:
+After doing `npm i`,  execute `npm start`. This will run the project instance in:
 ```
   https://localhost:3000/
 ```
 
-We use HTTPS protocol because it's required for some cool webpack configurations.
+We use HTTPS protocol because it's required for some cool webpack configurations and it will allow us to develop a custom service worker.
 
 #### Environments
 By default, the environment will be **development**, but you can easily change it using the **env** param in your gulp tasks: ```gulp --env production```

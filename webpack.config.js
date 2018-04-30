@@ -171,8 +171,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'async'
-    },
-    minimize: true
+    }
   },
   performance: {
     hints: false

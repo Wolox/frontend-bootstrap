@@ -8,7 +8,8 @@ const glob = require('glob')
 
 /**
  * We need this function to retrieve each page in a multi-page app
- *  without the need to change the config each time we create a new one
+ * without the need to change the config each time we create a new one
+ * TODO: Add HMR for this new views
  */
 const entry = glob
   .sync('./src/**/*.js')
@@ -42,17 +43,9 @@ module.exports = {
   },
   module: {
     rules: [
-      /**
-       * We need the double Pug config to separate the index file
-       * from the another views/templates
-       */
       {
         test: /\.pug$/,
         use: [
-          /**
-           * HTML files will be at the root for the url to be as short as possible
-           * TODO: Find a way to ditch the extension on urls
-           */
           'file-loader?name=[name].html',
           'extract-loader',
           'html-loader',
@@ -79,7 +72,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, 'src/scss'),
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader',
@@ -121,9 +114,6 @@ module.exports = {
           }
         ]
       },
-      /**
-       * This loaders are needed to get the necessary styles from external modules
-       */
       {
         test: /\.css$/,
         use: [
@@ -166,8 +156,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
-  devtool: 'source-map',
-  // TODO: add more optimization options
+  devtool: 'eval',
   optimization: {
     splitChunks: {
       chunks: 'async'

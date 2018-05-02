@@ -65,6 +65,7 @@
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^1.1.5",
+    "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "stream-series": "^0.1.1",
     "style-loader": "^0.20.3",
@@ -74,5 +75,6 @@
     "webpack-dashboard": "^1.1.1",
     "webpack-dev-server": "^3.1.1",
     "webpack-serve": "^0.3.1"
-  }
+  },
+  "sassLintConfig": ".sass-lint.yml"
 }

@@ -23,6 +23,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
+  mode: 'production',
   resolve: {
     extensions: ['.js'],
     alias: {

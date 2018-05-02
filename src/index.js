@@ -5,7 +5,7 @@ import './scss/application.scss'
 
 const vm = new Vue({
   el: '#app',
-  data: () => ({
+  data: {
     title: 'Frontend Bootstrap!'
-  })
+  }
 })

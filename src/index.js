@@ -4,5 +4,8 @@ import './index.pug'
 import './scss/application.scss'
 
 const vm = new Vue({
-  el: '#app'
+  el: '#app',
+  data: () => ({
+    title: 'Frontend Bootstrap!'
+  })
 })

@@ -33,6 +33,15 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'pug-lint-loader',
+          options: require('./.pug-lintrc.json')
+        }
+      },
+      {
         test: /\.pug$/,
         use: [
           'file-loader?name=[name].html',

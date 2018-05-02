@@ -44,6 +44,15 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'pug-lint-loader',
+          options: require('./.pug-lintrc.json')
+        }
+      },
+      {
         test: /\.pug$/,
         use: [
           'file-loader?name=[name].html',
@@ -140,14 +149,8 @@ module.exports = {
         ]
       },
       {
-        // TODO: add a way to optimize assets size
         test: /\.(jpg|png|gif|svg)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: 'assets/[name].[ext]'
-          }
-        }
+        use: 'file-loader?name=assets/[name].[ext]'
       }
     ]
   },

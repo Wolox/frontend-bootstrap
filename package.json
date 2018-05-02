@@ -62,6 +62,7 @@
     "pug": "^2.0.3",
     "pug-html-loader": "^1.1.5",
     "pug-lint": "^2.5.0",
+    "pug-lint-loader": "0.0.4",
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^1.1.5",
@@ -76,5 +77,6 @@
     "webpack-dev-server": "^3.1.1",
     "webpack-serve": "^0.3.1"
   },
-  "sassLintConfig": ".sass-lint.yml"
+  "sassLintConfig": ".sass-lint.yml",
+  "pugLingConfig": ".pug-lintrc"
 }

@@ -6,7 +6,8 @@ steps:
   copy_node_modules:
     - cp -r $NODE_PATH/ ./
   lint:
-    - yarn run lint
+    - cd /install
+    - npm run precommit
 
 deploy:
   copy_node_modules:

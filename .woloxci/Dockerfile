@@ -14,12 +14,10 @@ ENV NODE_PATH=/install/node_modules
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json /install/
-COPY yarn* /install/
 
 WORKDIR /install
 
-RUN yarn install
-RUN npm install -g gulp
+RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 

@@ -3,14 +3,10 @@
 const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 
-/**
- * We need this function to retrieve each page in a multi-page app
- * without the need to change the config each time we create a new one
- * TODO: Add HMR for this new views
- */
 const entry = glob
   .sync('./src/**/*.js')
   .reduce(
@@ -157,7 +153,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
   ],
   devtool: 'eval',
   optimization: {

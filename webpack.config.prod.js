@@ -30,6 +30,7 @@ module.exports = {
       vue: 'vue/dist/vue.js'
     }
   },
+  mode: 'production',
   module: {
     rules: [
       {

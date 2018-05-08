@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
-    "eslint-plugin-vue": "^4.5.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {
@@ -44,6 +43,7 @@
     "del": "^2.2.0",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.5.0",
     "extract-loader": "^2.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
@@ -72,9 +72,11 @@
     "style-loader": "^0.20.3",
     "thread-loader": "^1.1.5",
     "webpack": "^4.4.1",
+    "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.13",
     "webpack-dashboard": "^1.1.1",
     "webpack-dev-server": "^3.1.1",
+    "webpack-monitor": "^1.0.14",
     "webpack-serve": "^0.3.1"
   },
   "sassLintConfig": ".sass-lint.yml",

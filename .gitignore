@@ -7,6 +7,9 @@ npm-debug.log
 # compiled code folder
 build
 
+# webpack monitor results
+monitor
+
 # aws keys file
 config/aws.js
 

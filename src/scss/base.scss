@@ -1,5 +1,5 @@
 body {
-  background-image: url('../assets/wolox_bg.png');
+  background-image: url('./assets/wolox_bg.png');
 }
 
 .center {
@@ -9,10 +9,10 @@ body {
   position: absolute;
   text-align: center;
   width: 60%;
+}
 
-  h1 {
-    color: $wolox-green;
-  }
+h1 {
+  color: $wolox-green;
 }
 
 .class-to-be-purified {

@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 
@@ -72,41 +72,8 @@ module.exports = {
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, 'src'),
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie <9'
-                    ],
-                    flexbox: 'no-2009'
-                  })
-                ]
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [path.resolve(__dirname,'/src/scss')]
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -126,12 +93,43 @@ module.exports = {
               ]
             }
           },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname,'src/scss')]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie <9'
+                  ],
+                  flexbox: 'no-2009'
+                })
+              ]
+            }
+          }
         ]
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
         use: [
-           'file-loader?name=assets/[name].[ext]',
+          'file-loader?name=assets/[name].[ext]',
           'image-webpack-loader'
         ]
       }
@@ -139,6 +137,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    new ExtractTextPlugin('styles.[hash:8].css')
+    new MiniCssExtractPlugin({
+      filename: 'styles.[hash].css'
+    })
   ]
 }

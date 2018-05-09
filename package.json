@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "w-equalizer": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",
@@ -45,7 +46,6 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.5.0",
     "extract-loader": "^2.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "glob": "^7.1.2",
     "html-loader": "^0.5.5",
@@ -53,6 +53,7 @@
     "husky": "^0.14.3",
     "image-webpack-loader": "^4.2.0",
     "merge-stream": "^1.0.1",
+    "mini-css-extract-plugin": "^0.4.0",
     "minimatch": "^3.0.4",
     "node-notifier": "^5.0.2",
     "node-sass": "^4.8.3",

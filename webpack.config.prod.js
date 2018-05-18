@@ -30,7 +30,6 @@ module.exports = {
       vue: 'vue/dist/vue.js'
     }
   },
-  mode: 'production',
   module: {
     rules: [
       {
@@ -38,7 +37,7 @@ module.exports = {
         test: /\.pug$/,
         exclude: /node_modules/,
         use: {
-          loader: 'pug-lint-loader',
+          loader: 'vue-pug-lint-loader',
           options: require('./.pug-lintrc.json')
         }
       },
@@ -137,8 +136,12 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    /**
+     * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install
+     * the following package: sudo apt-get install libpng16-dev
+     */
     new MiniCssExtractPlugin({
-      filename: 'styles.[hash].css'
+      filename: 'styles.[name].css'
     })
   ]
 }

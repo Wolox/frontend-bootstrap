@@ -44,7 +44,7 @@ module.exports = {
         test: /\.pug$/,
         exclude: /node_modules/,
         use: {
-          loader: 'pug-lint-loader',
+          loader: 'vue-pug-lint-loader',
           options: require('./.pug-lintrc.json')
         }
       },

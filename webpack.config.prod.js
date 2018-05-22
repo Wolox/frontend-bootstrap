@@ -127,7 +127,14 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|svg)$/,
         use: [
-          'file-loader?name=assets/[name].[ext]',
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/[name].[ext]',
+              fallback: 'file-loader',
+            }
+          },
           'image-webpack-loader'
         ]
       }

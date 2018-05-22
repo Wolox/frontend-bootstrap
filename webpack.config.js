@@ -11,8 +11,7 @@ const entry = glob
   .sync('./src/**/*.js')
   .reduce(
     (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry })
-    , { index: path.resolve('/src/index.js') }
+      Object.assign(entries, { [path.parse(entry).name]: entry }), {}
   )
 
 module.exports = {

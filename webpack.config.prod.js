@@ -12,8 +12,7 @@ const entry = glob
   .sync('./src/**/*.js')
   .reduce(
     (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry })
-    , { index: './src/index.js' }
+      Object.assign(entries, { [path.parse(entry).name]: entry }), {}
   )
 
 module.exports = {
@@ -27,7 +26,7 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      vue: 'vue/dist/vue.js'
+      vue: 'vue/dist/vue.min.js'
     }
   },
   module: {

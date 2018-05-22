@@ -29,7 +29,7 @@
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
     "vue": "^2.5.16",
-    "w-equalizer": "^1.0.3"
+    "wolox-equalizer": "0.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

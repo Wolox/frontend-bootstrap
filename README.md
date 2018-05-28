@@ -1,7 +1,6 @@
-Frontend Bootstrap
-===============
+# Frontend Bootstrap
 
-Kickoff for web applications written in VueJS.
+Kickoff for web applications written in Vue.js
 
 ## Main Tools
 
@@ -30,24 +29,8 @@ After doing `npm i`,  execute `npm start`. This will run the project instance in
 
 We use HTTPS protocol because it's required for some cool webpack configurations and it will allow us to develop a custom service worker.
 
-#### Environments
-By default, the environment will be **development**, but you can easily change it using the **env** param in your gulp tasks: ```gulp --env production```
-
 #### SCSS
 When creating SCSS files you don't need to import other files inside yours to use properties from them. There's a specific file called `application.scss` where every SCSS file should be imported in the desired priority order. This works just like the stylesheet elements in the head of an html, when repeated rules are present the rule that was imported last will override the other.
-
-#### Vendors
-To add a vendor simply install and save it using npm. Then add the path of the source files relative to the **node_modules** folder, to **vendorJs.js** or **vendorCss.js** depending on what you are adding.
-i.e: Adding jquery
-```bash
-npm install --save jquery
-```
-This will generate the **jquery** folder inside **node_modules** and add the register the dependency in the `package.json` file. Then, add the source file of jquery to **vendorJs.js**. It should look like this:
-```
-module.exports = [
-  'jquery/dist/jquery.js',
-];
-```
 
 ## Deploy
 

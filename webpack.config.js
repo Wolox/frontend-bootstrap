@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 
@@ -104,13 +105,6 @@ module.exports = {
             }
           },
           {
-            loader: 'thread-loader',
-            options: {
-              workers: 2,
-              poolParallelJobs: 50
-            }
-          },
-          {
             loader: 'sass-loader',
             options: {
               includePaths: [path.resolve(__dirname,'src/scss')]
@@ -151,6 +145,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    new DotEnv(),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new BundleAnalyzerPlugin({

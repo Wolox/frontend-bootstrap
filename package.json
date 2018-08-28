@@ -1,82 +1,29 @@
 {
   "name": "frontend-bootstrap",
-  "version": "0.0.1",
-  "engines": {
-    "node": "8.5.0",
-    "npm": "5.3.0"
-  },
-  "description": "Kickoff for web applications",
+  "version": "1.0.0",
+  "description": "Frontend project bootstraper created at Wolox",
+  "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/gulp --env production",
-    "pug-diff" : "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/.bin/pug-lint",
-    "lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
-    "precommit" : "npm run pug-diff && npm run lint-diff",
-    "lint": "sass-lint 'src/**/*.scss' -v -q"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.dev.js"
   },
-  "cacheDirectories": [
-    "node_modules"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wolox/frontend-bootstrap.git"
+    "url": "git+https://github.com/Wolox/frontend-bootstrap.git"
   },
-  "author": "Sebastian Balay <sebastian.balay@wolox.com.ar>",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Wolox/frontend-bootstrap/issues"
   },
-  "homepage": "https://github.com/Wolox/frontend-bootstrap",
-  "dependencies": {},
+  "homepage": "https://github.com/Wolox/frontend-bootstrap#readme",
   "devDependencies": {
-    "babel-core": "^6.8.0",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.8.0",
-    "backstopjs": "^2.3.7",
-    "browser-sync": "^2.12.8",
-    "concurrent-transform": "^1.0.0",
-    "del": "^2.2.0",
-    "eslint": "^3.6.1",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-awspublish": "^3.0.1",
-    "gulp-babel": "^6.1.1",
-    "gulp-cached": "^1.1.0",
-    "gulp-cloudfront-invalidate-aws-publish": "^0.2.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-connect": "^5.0.0",
-    "gulp-cssnano": "^2.1.0",
-    "gulp-eslint": "^3.0.1",
-    "gulp-expect-file": "0.0.7",
-    "gulp-filter": "^5.0.0",
-    "gulp-git": "^2.4.2",
-    "gulp-if": "^2.0.1",
-    "gulp-inject": "^4.0.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-preprocess": "^2.0.0",
-    "gulp-pug": "^3.0.4",
-    "gulp-pug-linter": "^0.4.1",
-    "gulp-purifycss": "^0.2.0",
-    "gulp-rev": "^7.1.2",
-    "gulp-rev-delete-original": "^0.2.2",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-lint": "^1.1.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.1",
-    "husky": "^0.14.3",
-    "merge-stream": "^1.0.1",
-    "minimatch": "^3.0.4",
-    "node-notifier": "^5.0.2",
-    "prompt": "^1.0.0",
-    "replace": "^0.3.0",
-    "require-dir": "^0.3.2",
-    "run-sequence": "^1.1.5",
-    "stream-series": "^0.1.1",
-    "webpack": "^1.15.0",
-    "yargs": "^6.6.0"
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "pug-loader": "^2.4.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
   }
 }

@@ -29,7 +29,8 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
-    https: true
+    https: true,
+    open: true
   },
   resolve: {
     extensions: ['.js'],

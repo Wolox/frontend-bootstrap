@@ -24,7 +24,7 @@ Run `npm i` from rootpath of the project.
 #### Run the project
 After doing `npm i`,  execute `npm start`. This will run the project instance in:
 ```
-  https://localhost:3000/
+  http://localhost:3000/
 ```
 
 We use HTTPS protocol because it's required for some cool webpack configurations and it will allow us to develop a custom service worker.

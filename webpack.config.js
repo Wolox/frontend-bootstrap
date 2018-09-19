@@ -7,6 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -38,6 +39,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       {
         enforce: 'pre',
         test: /\.pug$/,
@@ -149,7 +154,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new BundleAnalyzerPlugin({
       openAnalyzer: false
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   devtool: 'eval',
   optimization: {

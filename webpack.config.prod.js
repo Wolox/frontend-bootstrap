@@ -33,6 +33,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         enforce: 'pre',
         test: /\.pug$/,
         exclude: /node_modules/,
@@ -143,6 +147,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    new VueLoaderPlugin(),
     /**
      * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install
      * the following package: sudo apt-get install libpng16-dev

@@ -29,7 +29,6 @@
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
     "vue": "^2.5.17",
-    "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",
     "wolox-equalizer": "0.0.2"
   },
@@ -69,6 +68,7 @@
     "pug-lint": "^2.5.0",
     "pug-lint-loader": "0.0.4",
     "pug-lint-vue": "^0.1.3",
+    "pug-plain-loader": "^1.0.0",
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^1.1.5",
@@ -78,6 +78,7 @@
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
+    "vue-loader": "^15.4.2",
     "vue-pug-lint-loader": "0.0.1",
     "webpack": "^4.4.1",
     "webpack-bundle-analyzer": "^2.11.1",

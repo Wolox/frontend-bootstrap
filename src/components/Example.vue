@@ -1,10 +1,23 @@
 <template lang="pug">
-  h1 asd
+  div
+    p
+      | asd
+    p.asd
+     | hello {{name}}
 </template>
 
 <script>
-export default {}
+  export default {
+    data() {
+      return {
+        name: 'asd'
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
+  .asd {
+    font-size: 30px;
+  }
 </style>

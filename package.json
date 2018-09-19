@@ -28,8 +28,9 @@
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
-    "vue": "^2.5.16",
+    "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
     "wolox-equalizer": "0.0.2"
   },
   "devDependencies": {

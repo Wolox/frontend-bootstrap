@@ -43,7 +43,15 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
-
+      {
+        enforce: 'pre',
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'vue-pug-lint-loader',
+          options: require('./.pug-lintrc.json')
+        }
+      },
       {
         test: /\.pug$/,
         oneOf: [
@@ -55,8 +63,6 @@ module.exports = {
           {
             use: [
               'file-loader?name=[name].html',
-              'extract-loader',
-              'html-loader',
               'pug-plain-loader'
             ]
           }

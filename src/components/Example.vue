@@ -3,7 +3,7 @@
     p
       | asd
     p.asd
-     | hello {{name}}
+      | hello {{name}}
 </template>
 
 <script>
@@ -17,7 +17,10 @@
 </script>
 
 <style lang="scss" scoped>
+  $red: #ff0000;
+
   .asd {
     font-size: 30px;
+    color: $red;
   }
 </style>

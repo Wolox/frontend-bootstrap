@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import Example from '../../components/Example.vue'
+import Example from '../../components/Example'
 
 import './index.pug'
 import './index.scss'

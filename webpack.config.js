@@ -32,7 +32,7 @@ module.exports = {
     hot: true
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.js'
     }

@@ -1,26 +1,23 @@
 <template lang="pug">
   div
-    p
-      | asd
-    p.asd
-      | hello {{name}}
+    p.decolored
+      | Welcome to {{name}}
 </template>
 
 <script>
   export default {
     data() {
       return {
-        name: 'asd'
+        name: 'Vue single file components'
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  $red: #ff0000;
+  $gray: #3b3b3b4f;
 
-  .asd {
-    font-size: 30px;
-    color: $red;
+  .colored {
+    color: $gray;
   }
 </style>

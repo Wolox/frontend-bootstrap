@@ -26,7 +26,7 @@ module.exports = {
   target: 'web',
   mode: 'production',
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.min.js'
     }

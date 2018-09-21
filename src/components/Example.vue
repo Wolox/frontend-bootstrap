@@ -17,7 +17,7 @@
 <style lang="scss" scoped>
   $gray: #3b3b3b4f;
 
-  .colored {
+  .decolored {
     color: $gray;
   }
 </style>

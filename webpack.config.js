@@ -7,6 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -31,13 +32,17 @@ module.exports = {
     hot: true
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.js'
     }
   },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       {
         enforce: 'pre',
         test: /\.pug$/,
@@ -49,11 +54,18 @@ module.exports = {
       },
       {
         test: /\.pug$/,
-        use: [
-          'file-loader?name=[name].html',
-          'extract-loader',
-          'html-loader',
-          'pug-html-loader'
+        oneOf: [
+          // this applies to `<template lang="pug">` in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            use: ['pug-plain-loader']
+          },
+          {
+            use: [
+              'file-loader?name=[name].html',
+              'pug-plain-loader'
+            ]
+          }
         ]
       },
       {
@@ -149,7 +161,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new BundleAnalyzerPlugin({
       openAnalyzer: false
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   devtool: 'eval',
   optimization: {

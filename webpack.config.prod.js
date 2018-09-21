@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -25,13 +26,17 @@ module.exports = {
   target: 'web',
   mode: 'production',
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.min.js'
     }
   },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       {
         enforce: 'pre',
         test: /\.pug$/,
@@ -43,11 +48,19 @@ module.exports = {
       },
       {
         test: /\.pug$/,
-        use: [
-          'file-loader?name=[name].html',
-          'extract-loader',
-          'html-loader',
-          'pug-html-loader'
+        oneOf: [
+          // this applies to `<template lang="pug">` in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            use: ['pug-plain-loader']
+          },
+          // this applies to pug imports inside JavaScript
+          {
+            use: [
+              'file-loader?name=[name].html',
+              'pug-plain-loader'
+            ]
+          }
         ]
       },
       {
@@ -143,6 +156,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    new VueLoaderPlugin(),
     /**
      * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install
      * the following package: sudo apt-get install libpng16-dev

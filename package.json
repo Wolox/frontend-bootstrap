@@ -5,14 +5,19 @@
     "node": "8.5.0",
     "npm": "5.3.0"
   },
-  "description": "Kickoff for Vue.js web applications",
+  "description": "Kickoff for landing pages & Vue as components web pages",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "build": "webpack --config webpack.config.prod.js",
-    "pug-diff": "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/.bin/pug-lint-vue -c ./.pug-lintrc.json",
-    "lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
-    "precommit": "npm run pug-diff && npm run lint-diff",
-    "lint": "sass-lint 'src/**/*.scss' -v -q"
+    "pug-lint-diff": "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/pug-lint/bin/pug-lint -c ./.pug-lintrc.json",
+    "pug-lint-vue-diff": "git diff --name-only --cached --relative | grep \\\\.vue$ | xargs ./node_modules/.bin/pug-lint-vue -c ./.pug-lintrc.json",
+    "es-lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
+    "style-lint-diff": "git diff --name-only --cached --relative | grep \\.scss$ | xargs ./node_modules/stylelint/bin/stylelint.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pug-lint-diff && npm run pug-lint-vue-diff && npm run es-lint-diff && npm run style-lint-diff"
+    }
   },
   "cacheDirectories": [
     "node_modules"
@@ -21,7 +26,7 @@
     "type": "git",
     "url": "https://github.com/Wolox/frontend-bootstrap.git"
   },
-  "author": "Sebastian Balay <sebastian.balay@wolox.com.ar>",
+  "author": "Wolox",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Wolox/frontend-bootstrap/issues"
@@ -61,6 +66,7 @@
     "pug": "^2.0.3",
     "pug-html-loader": "^1.1.5",
     "pug-lint": "^2.5.0",
+    "pug-lint-config-wolox": "^1.0.0",
     "pug-lint-loader": "0.0.4",
     "pug-lint-vue": "^0.1.3",
     "pug-plain-loader": "^1.0.0",
@@ -69,6 +75,8 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "stylelint": "^9.5.0",
+    "stylelint-config-wolox": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "vue-loader": "^15.4.2",

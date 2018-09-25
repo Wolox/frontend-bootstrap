@@ -14,11 +14,6 @@
     "es-lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
     "style-lint-diff": "git diff --name-only --cached --relative | grep \\.scss$ | xargs ./node_modules/stylelint/bin/stylelint.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pug-lint-diff && npm run pug-lint-vue-diff && npm run es-lint-diff && npm run style-lint-diff"
-    }
-  },
   "cacheDirectories": [
     "node_modules"
   ],
@@ -89,6 +84,11 @@
     "webpack-dev-server": "^3.1.1",
     "webpack-monitor": "^1.0.14",
     "webpack-serve": "^0.3.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pug-lint-diff && npm run pug-lint-vue-diff && npm run es-lint-diff && npm run style-lint-diff"
+    }
   },
   "sassLintConfig": ".sass-lint.yml",
   "pugLingConfig": ".pug-lintrc"

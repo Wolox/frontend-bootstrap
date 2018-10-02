@@ -12,7 +12,9 @@
     "pug-diff": "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/.bin/pug-lint-vue -c ./.pug-lintrc.json",
     "lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
     "precommit": "npm run pug-diff && npm run lint-diff",
-    "lint": "sass-lint 'src/**/*.scss' -v -q"
+    "lint": "sass-lint 'src/**/*.scss' -v -q",
+    "create view": "npx vg view",
+    "create component": "npx vg component"
   },
   "cacheDirectories": [
     "node_modules"

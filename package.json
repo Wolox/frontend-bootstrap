@@ -73,6 +73,7 @@
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
+    "vue-generator": "^1.1.0",
     "vue-loader": "^15.4.2",
     "vue-pug-lint-loader": "0.0.1",
     "vue-template-compiler": "^2.5.17",

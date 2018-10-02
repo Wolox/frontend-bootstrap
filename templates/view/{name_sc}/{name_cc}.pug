@@ -4,7 +4,11 @@ html(lang='en')
     title title here
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='preload' href='./{{name_cc}}.js' as='script')
+    link(rel='preload' href='./vendor.js' as='script')
+    link(rel='preload' href='styles.{{name_cc}}.css' as='style')
     link(rel='stylesheet' href='styles.{{name_cc}}.css')
+    script(src='./vendor.js')
   body
     #app(v-cloak)
       .center

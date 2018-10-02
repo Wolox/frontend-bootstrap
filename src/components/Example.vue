@@ -5,19 +5,19 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        name: 'Vue single file components'
-      }
+export default {
+  data() {
+    return {
+      name: 'Vue single file components'
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  $gray: #3b3b3b4f;
+$gray: #3b3b3b4f;
 
-  .decolored {
-    color: $gray;
-  }
+.decolored {
+  color: $gray;
+}
 </style>

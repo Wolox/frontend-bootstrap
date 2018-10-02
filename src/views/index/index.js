@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import Example from '../../components/Example'
+const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example')
 
 import './index.pug'
 import './index.scss'
@@ -10,5 +10,7 @@ const vm = new Vue({
   data: {
     title: 'Frontend Bootstrap!'
   },
-  components: { Example }
+  components: {
+    Example
+  }
 })

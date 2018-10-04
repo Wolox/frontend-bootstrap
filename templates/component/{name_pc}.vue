@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     h1
-      | {{name_sc}} is working!
+      | {{name_pc}} is working!
 </template>
 
 <script>

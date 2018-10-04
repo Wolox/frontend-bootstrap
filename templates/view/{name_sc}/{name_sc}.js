@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import './{{name_sc}}.pug'
 import './{{name_sc}}.scss'
 

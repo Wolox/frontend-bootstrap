@@ -8,6 +8,7 @@ const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -24,12 +25,12 @@ module.exports = {
   },
   target: 'web',
   mode: 'development',
-  // TODO: add more options to make the build process more readable and enable HMR for nonJS files
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     compress: true,
     port: 3000,
-    hot: true
+    hot: true,
+    https: true
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -62,7 +63,15 @@ module.exports = {
           },
           {
             use: [
-              'file-loader?name=[name].html',
+              {
+                loader: 'file-loader',
+                options: {
+                  name(file) {
+                    if (file.includes('index')) return '[name].html'
+                    else return '[name]/index.html'
+                  }
+                }
+              },
               'pug-plain-loader'
             ]
           }
@@ -162,7 +171,20 @@ module.exports = {
     new BundleAnalyzerPlugin({
       openAnalyzer: false
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [{
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+        handler: 'cacheFirst',
+        options: {
+          cacheName: 'images',
+          expiration: {
+            maxEntries: 10
+          }
+        }
+      }]
+    })
   ],
   devtool: 'eval',
   optimization: {

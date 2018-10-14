@@ -36,7 +36,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        use: 'vue-loader'
       },
       {
         enforce: 'pre',
@@ -53,12 +53,20 @@ module.exports = {
           // this applies to `<template lang="pug">` in Vue components
           {
             resourceQuery: /^\?vue/,
-            use: ['pug-plain-loader']
+            use: 'pug-plain-loader'
           },
           // this applies to pug imports inside JavaScript
           {
             use: [
-              'file-loader?name=[name].html',
+              {
+                loader: 'file-loader',
+                options: {
+                  name(file) {
+                    if (file.includes('index')) return '[name].html'
+                    else return '[name]/index.html'
+                  }
+                }
+              },
               'pug-plain-loader'
             ]
           }

@@ -5,10 +5,10 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='preload' href='contacts.js' as='script')
-    link(rel='preload' href='vendor.js' as='script')
+    link(rel='preload' href='/vendor.js' as='script')
     link(rel='preload' href='styles.contacts.css' as='style')
-    link(rel='stylesheet' href='../styles.contacts.css')
-    script(src='../vendor.js')
+    link(rel='stylesheet' href='styles.contacts.css')
+    script(src='/vendor.js')
   body
     #app(v-cloak)
       .center
@@ -16,4 +16,4 @@ html(lang='en')
           | {{ message }}
         a(href='/')
           | to index
-    script(src='../contacts.js')
+    script(src='contacts.js')

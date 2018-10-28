@@ -8,7 +8,8 @@ const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const { GenerateSW } = require('workbox-webpack-plugin')
+
+const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -20,7 +21,10 @@ const entry = glob
 module.exports = {
   entry,
   output: {
-    filename: '[name].js',
+    filename: (chunkFileName) => {
+      if (rootFiles.some(file => file === chunkFileName.chunk.name)) return '[name].js'
+      else return '[name]/[name].js'
+    },
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -171,20 +175,7 @@ module.exports = {
     new BundleAnalyzerPlugin({
       openAnalyzer: false
     }),
-    new VueLoaderPlugin(),
-    new GenerateSW({
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-      runtimeCaching: [{
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        handler: 'cacheFirst',
-        options: {
-          cacheName: 'images',
-          expiration: {
-            maxEntries: 10
-          }
-        }
-      }]
-    })
+    new VueLoaderPlugin()
   ],
   devtool: 'eval',
   optimization: {

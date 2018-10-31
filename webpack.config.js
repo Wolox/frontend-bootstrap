@@ -29,7 +29,10 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'build'),
     compress: true,
     port: 3000,
-    hot: true
+    hot: true,
+    host: '0.0.0.0',
+    useLocalIp: true,
+    
   },
   resolve: {
     extensions: ['.js', '.vue'],

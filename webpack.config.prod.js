@@ -9,6 +9,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+const WebpackChunkHash = require('webpack-chunk-hash');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -21,7 +24,7 @@ const entry = glob
 module.exports = {
   entry,
   output: {
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -156,6 +159,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new CleanWebpackPlugin(['build']),
     new VueLoaderPlugin(),
     /**
@@ -165,6 +169,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.[name].css',
       chunkFileName: '[id].css'
+    }),
+    new HtmlWebpackPlugin({
+      inlineManifestWebpackName: 'webpackManifest',
+      template: require('html-webpack-template'),
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash(),
+    new ChunkManifestPlugin({
+      filename: 'chunk-manifest.json',
+      manifestVariable: 'webpackManifest',
+      inlineManifest: true,
     })
   ],
   optimization: {

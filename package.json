@@ -14,6 +14,7 @@
     "es-lint": "./node_modules/eslint/bin/eslint.js .",
     "style-lint": "find ./src  -name \\**.scss | xargs ./node_modules/.bin/stylelint --config .stylelintrc",
     "precommit": "npm run pug-lint && npm run pug-lint-vue && npm run es-lint && npm run style-lint",
+    "lint": "sass-lint 'src/**/*.scss' -v -q",
     "create-view": "vg view",
     "create-component": "vg component"
   },

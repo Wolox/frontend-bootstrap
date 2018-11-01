@@ -5,14 +5,17 @@
     "node": "8.5.0",
     "npm": "5.3.0"
   },
-  "description": "Kickoff for landing pages & Vue as components web pages",
+  "description": "Kickoff for multi-page web apps & landing pages",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "build": "webpack --config webpack.config.prod.js",
-    "pug-lint-diff": "git diff --name-only --cached --relative | grep \\\\.pug$ | xargs ./node_modules/pug-lint/bin/pug-lint -c ./.pug-lintrc.json",
-    "pug-lint-vue-diff": "git diff --name-only --cached --relative | grep \\\\.vue$ | xargs ./node_modules/.bin/pug-lint-vue -c ./.pug-lintrc.json",
-    "es-lint-diff": "git diff --name-only --cached --relative | grep \\.js$ | xargs ./node_modules/eslint/bin/eslint.js",
-    "style-lint-diff": "git diff --name-only --cached --relative | grep \\.scss$ | xargs ./node_modules/stylelint/bin/stylelint.js"
+    "pug-lint": "find ./src  -name \\**.pug | xargs ./node_modules/.bin/pug-lint -c ./.pug-lintrc.json",
+    "pug-lint-vue": "find ./src  -name \\**.vue | xargs ./node_modules/.bin/pug-lint-vue -c ./.pug-lintrc.json",
+    "es-lint": "./node_modules/eslint/bin/eslint.js .",
+    "style-lint": "find ./src  -name \\**.scss | xargs ./node_modules/.bin/stylelint --config .stylelintrc",
+    "precommit": "npm run pug-lint && npm run pug-lint-vue && npm run es-lint && npm run style-lint",
+    "create-view": "vg view",
+    "create-component": "vg component"
   },
   "cacheDirectories": [
     "node_modules"
@@ -36,9 +39,10 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.4",
+    "babel-plugin-dynamic-import-webpack": "^1.0.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-env": "^1.6.1",
-    "backstopjs": "^2.3.7",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "dotenv-webpack": "^1.5.7",
@@ -71,9 +75,12 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "stylelint": "^9.5.0",
-    "stylelint-config-wolox": "^1.0.0",
+    "stylelint-config-wolox": "^1.0.3",
+    "stylelint-no-indistinguishable-colors": "^1.2.1",
+    "stylelint-scss": "^3.3.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
+    "vue-generator": "^1.1.0",
     "vue-loader": "^15.4.2",
     "vue-pug-lint-loader": "0.0.1",
     "vue-template-compiler": "^2.5.17",

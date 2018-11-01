@@ -1,4 +1,7 @@
 {
-  "extends": "stylelint-config-wolox"
+  "extends": "stylelint-config-wolox",
+  "rules": {
+    "block-closing-brace-newline-after": "always-multi-line",
+    "block-closing-brace-space-after": "always-single-line"
+  }
 }
-

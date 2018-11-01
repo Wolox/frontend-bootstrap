@@ -14,7 +14,8 @@ const entry = glob
   .sync('./src/**/*.js')
   .reduce(
     (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry }), {}
+      Object.assign(entries, { [path.parse(entry).name]: entry }),
+      { vendor: ['vue'] }
   )
 
 module.exports = {

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import { installServiceWorker } from '../../serviceWorkerInstaller'
+
 const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example')
 
 import './index.pug'
@@ -14,3 +16,5 @@ const vm = new Vue({
     Example
   }
 })
+
+if (process.env.NODE_ENV === 'production') installServiceWorker()

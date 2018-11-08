@@ -30,11 +30,11 @@ module.exports = {
   target: 'web',
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'src'),
+    watchContentBase: true,
     compress: true,
     port: 3000,
-    hot: true,
-    https: true
+    hot: true
   },
   resolve: {
     extensions: ['.js', '.vue'],

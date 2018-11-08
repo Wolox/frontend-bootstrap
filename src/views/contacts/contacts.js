@@ -6,6 +6,9 @@ import './contacts.scss'
 const vm = new Vue({
   el: '#app',
   data: { 
-    message: 'contacts works!'
+
+  },
+  components: { 
+    
   }
 })

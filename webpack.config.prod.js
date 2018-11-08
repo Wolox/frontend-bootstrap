@@ -163,8 +163,7 @@ module.exports = {
               name: 'assets/[name].[ext]',
               fallback: 'file-loader',
             }
-          },
-          'image-webpack-loader'
+          }
         ]
       }
     ]
@@ -177,8 +176,7 @@ module.exports = {
      * the following package: sudo apt-get install libpng16-dev
      */
     new MiniCssExtractPlugin({
-      filename: 'styles.[name].css',
-      chunkFileName: '[id].css'
+      filename: 'styles.[name].css'
     }),
     new GenerateSW({
       exclude: [/\.(?:png|jpg|jpeg|svg)$/],
@@ -195,16 +193,6 @@ module.exports = {
     })
   ],
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,

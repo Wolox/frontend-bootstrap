@@ -1,3 +1,4 @@
 {
+  "processors": ["stylelint-processor-html"],
   "extends": "stylelint-config-wolox"
 }

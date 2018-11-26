@@ -5,10 +5,6 @@ import './contacts.scss'
 
 const vm = new Vue({
   el: '#app',
-  data: { 
-
-  },
-  components: { 
-    
-  }
+  data: () =>  ({}),
+  components: {}
 })

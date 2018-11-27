@@ -163,7 +163,8 @@ module.exports = {
               name: 'assets/[name].[ext]',
               fallback: 'file-loader',
             }
-          }
+          },
+          'image-webpack-loader'
         ]
       }
     ]

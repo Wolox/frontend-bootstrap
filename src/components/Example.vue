@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gray: #3b3b3b4f;
+$gray: #3b3b3b;
 
 .decolored {
   color: $gray;

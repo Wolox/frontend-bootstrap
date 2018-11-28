@@ -1,16 +1,17 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
-const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example')
+const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example');
 
-import './index.pug'
-import './index.scss'
+import './index.pug';
+import './index.scss';
 
+// eslint-disable-next-line
 const vm = new Vue({
   el: '#app',
-  data: {
-    title: 'Frontend Bootstrap!'
-  },
   components: {
     Example
+  },
+  data: {
+    title: 'Frontend Bootstrap!'
   }
-})
+});

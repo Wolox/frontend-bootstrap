@@ -1,8 +1,8 @@
-[v-cloak] {
+[v-cloak] { // stylelint-disable-line selector-max-attribute
   display: none;
 }
 
-body {
+body { // stylelint-disable-line selector-max-type
   background-image: url('../../assets/wolox_bg.png');
 }
 
@@ -15,7 +15,7 @@ body {
   width: 60%;
 }
 
-h1 {
+.title {
   color: $wolox-green;
 }
 

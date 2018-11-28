@@ -33,8 +33,6 @@
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
     "eslint": "^5.9.0",
-    "eslint-config-wolox": "^2.1.0",
-    "eslint-config-wolox-vue": "^1.0.0",
     "eslint-plugin-vue": "^5.0.0-beta.4",
     "vue": "^2.5.17",
     "wolox-equalizer": "0.0.2"
@@ -51,6 +49,8 @@
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "dotenv-webpack": "^1.5.7",
+    "eslint-config-wolox": "^2.2.1",
+    "eslint-config-wolox-vue": "^1.0.7",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "^3.0.0",
     "extract-loader": "^2.0.1",

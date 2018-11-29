@@ -7,13 +7,14 @@ const Example = () => import(/* webpackChunkName: "example" */ '../../components
 import './index.pug'
 import './index.scss'
 
+// eslint-disable-next-line
 const vm = new Vue({
   el: '#app',
-  data: {
-    title: 'Frontend Bootstrap!'
-  },
   components: {
     Example
+  },
+  data: {
+    title: 'Frontend Bootstrap!'
   }
 })
 

@@ -22,8 +22,7 @@ module.exports = {
   entry,
   output: {
     filename: (chunkFileName) => {
-      if (rootFiles.some(file => file === chunkFileName.chunk.name)) return '[name].js'
-      else return '[name]/[name].js'
+      return rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js'
     },
     path: path.resolve(__dirname, 'build')
   },
@@ -71,8 +70,7 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                   name(file) {
-                    if (file.includes('index')) return '[name].html'
-                    else return '[name]/index.html'
+                    return file.includes('index') ? '[name].html' : '[name]/index.html'
                   }
                 }
               },

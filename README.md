@@ -55,10 +55,10 @@ To run these specs against your development environment, execute the following: 
 ## Deploy
 
 #### S3
-In order to deploy you must first create **config/aws.js** file with the credentials of the Amazon S3 bucket for each environment.
+In order to deploy you must first create **aws.js** file with the credentials of the Amazon S3 bucket for each environment.
 The file needs to have to follow the format specified in *config/aws.js.example*
 
-Then just run `gulp s3 --env <environment name>` with your desired env as parameter.
+Then just run `aws-deploy --env <environment name>` with your desired env as parameter.
 
 Finally, you need to add a custom routing rule so that s3 handles the 404 (or 403 depending or the bucket policy) to the s3 properties. In the **Static Website Hosting** panel, check the **Enable website hosting** option and complete the form with the following:
 ```

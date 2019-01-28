@@ -1,3 +1,5 @@
+const angular = require('angular');
+
 angular.module('app-bootstrap').config([
   '$stateProvider', '$urlRouterProvider', '$locationProvider',
   function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -13,7 +15,7 @@ angular.module('app-bootstrap').config([
         abstract: true,
         views: {
           main: {
-            templateUrl: '../app/components/centered/centered.html'
+            templateUrl: '../app/components/centered/centered.pug'
           }
         }
       })
@@ -21,7 +23,7 @@ angular.module('app-bootstrap').config([
         url: '/state1',
         views: {
           content: {
-            templateUrl: '../app/components/centered/component1/component1.html',
+            templateUrl: '../app/components/centered/component1/component1.pug',
             controller: 'Component1Controller',
             controllerAs: 'comp1Ctrl'
           }
@@ -31,7 +33,7 @@ angular.module('app-bootstrap').config([
         url: '/state2',
         views: {
           content: {
-            templateUrl: '../app/components/centered/component2/component2.html',
+            templateUrl: '../app/components/centered/component2/component2.pug',
             controller: 'Component2Controller',
             controllerAs: 'comp2Ctrl'
           }

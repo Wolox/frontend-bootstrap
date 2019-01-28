@@ -1,3 +1,5 @@
+const angular = require('angular');
+
 angular.module('app-bootstrap').controller('Component1Controller', [
   function () {
 

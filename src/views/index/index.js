@@ -1,9 +1,11 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
-const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example');
+import { installServiceWorker } from '../../serviceWorkerInstaller'
 
-import './index.pug';
-import './index.scss';
+const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example')
+
+import './index.pug'
+import './index.scss'
 
 // eslint-disable-next-line
 const vm = new Vue({
@@ -14,4 +16,6 @@ const vm = new Vue({
   data: {
     title: 'Frontend Bootstrap!'
   }
-});
+})
+
+if (process.env.NODE_ENV === 'production') installServiceWorker()

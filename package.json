@@ -1,6 +1,6 @@
 {
   "name": "frontend-bootstrap",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": "8.5.0",
     "npm": "5.3.0"
@@ -75,6 +75,7 @@
     "pug-plain-loader": "^1.0.0",
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
+    "resolve-url-loader": "^3.0.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
@@ -96,7 +97,8 @@
     "webpack-dashboard": "^1.1.1",
     "webpack-dev-server": "^3.1.1",
     "webpack-monitor": "^1.0.14",
-    "webpack-serve": "^0.3.1"
+    "webpack-serve": "^0.3.1",
+    "workbox-webpack-plugin": "^3.6.2"
   },
   "husky": {
     "hooks": {

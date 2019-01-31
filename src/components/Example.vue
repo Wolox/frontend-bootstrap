@@ -9,9 +9,9 @@ export default {
   data() {
     return {
       name: 'Vue single file components'
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

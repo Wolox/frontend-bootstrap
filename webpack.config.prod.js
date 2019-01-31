@@ -9,6 +9,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
+
+const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 
 const entry = glob
   .sync('./src/**/*.js')
@@ -21,7 +24,9 @@ const entry = glob
 module.exports = {
   entry,
   output: {
-    filename: '[name].js',
+    filename: (chunkFileName) => {
+      return rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js'
+    },
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -36,7 +41,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        use: 'vue-loader'
       },
       {
         enforce: 'pre',
@@ -53,12 +58,19 @@ module.exports = {
           // this applies to `<template lang="pug">` in Vue components
           {
             resourceQuery: /^\?vue/,
-            use: ['pug-plain-loader']
+            use: 'pug-plain-loader'
           },
           // this applies to pug imports inside JavaScript
           {
             use: [
-              'file-loader?name=[name].html',
+              {
+                loader: 'file-loader',
+                options: {
+                  name(file) {
+                    return file.includes('index') ? '[name].html' : '[name]/index.html'
+                  }
+                }
+              },
               'pug-plain-loader'
             ]
           }
@@ -163,21 +175,23 @@ module.exports = {
      * the following package: sudo apt-get install libpng16-dev
      */
     new MiniCssExtractPlugin({
-      filename: 'styles.[name].css',
-      chunkFileName: '[id].css'
+      filename: 'styles.[name].css'
+    }),
+    new GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [{
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+        handler: 'cacheFirst',
+        options: {
+          cacheName: 'images',
+          expiration: {
+            maxEntries: 10
+          }
+        }
+      }]
     })
   ],
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,

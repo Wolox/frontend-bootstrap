@@ -9,6 +9,8 @@ const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
+
 const entry = glob
   .sync('./src/**/*.js')
   .reduce(
@@ -19,14 +21,16 @@ const entry = glob
 module.exports = {
   entry,
   output: {
-    filename: '[name].js',
+    filename: (chunkFileName) => {
+      return rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js'
+    },
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
   mode: 'development',
-  // TODO: add more options to make the build process more readable and enable HMR for nonJS files
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'src'),
+    watchContentBase: true,
     compress: true,
     port: 3000,
     hot: true
@@ -62,7 +66,14 @@ module.exports = {
           },
           {
             use: [
-              'file-loader?name=[name].html',
+              {
+                loader: 'file-loader',
+                options: {
+                  name(file) {
+                    return file.includes('index') ? '[name].html' : '[name]/index.html'
+                  }
+                }
+              },
               'pug-plain-loader'
             ]
           }

@@ -3,7 +3,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin // eslint-disable-line prefer-destructuring
 const DotEnv = require('dotenv-webpack')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
@@ -14,16 +14,14 @@ const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 const entry = glob
   .sync('./src/**/*.js')
   .reduce(
-    (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry }), {}
+    (entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }),
+    {}
   )
 
 module.exports = {
   entry,
   output: {
-    filename: (chunkFileName) => {
-      return rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js'
-    },
+    filename: (chunkFileName) => rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -129,7 +127,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
+              includePaths: [path.resolve(__dirname, 'src/scss')]
             }
           }
         ]
@@ -156,7 +154,7 @@ module.exports = {
                 })
               ]
             }
-          },
+          }
         ]
       },
       {

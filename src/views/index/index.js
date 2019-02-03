@@ -18,4 +18,6 @@ const vm = new Vue({
   }
 })
 
-if (process.env.NODE_ENV === 'production') installServiceWorker()
+if (process.env.NODE_ENV === 'production') {
+  installServiceWorker()
+}

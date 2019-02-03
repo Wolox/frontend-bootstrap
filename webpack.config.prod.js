@@ -1,6 +1,5 @@
 'use strict'
 
-const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -16,17 +15,14 @@ const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 const entry = glob
   .sync('./src/**/*.js')
   .reduce(
-    (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry }),
-      { vendor: ['vue'] }
+    (entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }),
+    { vendor: ['vue'] }
   )
 
 module.exports = {
   entry,
   output: {
-    filename: (chunkFileName) => {
-      return rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js'
-    },
+    filename: (chunkFileName) => rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -121,7 +117,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
+              includePaths: [path.resolve(__dirname, 'src/scss')]
             }
           }
         ]
@@ -159,7 +155,7 @@ module.exports = {
             options: {
               limit: 10000,
               name: 'assets/[name].[ext]',
-              fallback: 'file-loader',
+              fallback: 'file-loader'
             }
           },
           'image-webpack-loader'

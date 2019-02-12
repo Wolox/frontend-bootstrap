@@ -3,6 +3,10 @@
   "env": {
     "node": true
   },
+  "globals": {
+    "angular": true,
+    "window": true
+  },
   "rules": {
     "accessor-pairs": 0,
     "array-bracket-spacing": [2, "never"],

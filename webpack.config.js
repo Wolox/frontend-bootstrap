@@ -1,26 +1,21 @@
-'use strict'
+'use strict';
 
-const webpack = require('webpack')
-const path = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const DotEnv = require('dotenv-webpack')
-const autoprefixer = require('autoprefixer')
-const glob = require('glob')
+const webpack = require('webpack');
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const DotEnv = require('dotenv-webpack');
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const entry = glob
-  .sync('./src/**/*.js')
-  .reduce(
-    (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry }), {}
-  )
-
 module.exports = {
-  entry,
+  entry: {
+    app: './src/app.js',
+    vendor: ['angular']
+  },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'build')
+    filename: 'app.bundle.js',
+    path: path.resolve(__dirname, '/js')
   },
   target: 'web',
   mode: 'development',
@@ -31,34 +26,13 @@ module.exports = {
     hot: true
   },
   resolve: {
-    extensions: ['.js'],
-    alias: {
-      angular: 'angular/index.js'
-    }
+    extensions: ['.js']
   },
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.pug$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'pug-lint-loader',
-          options: require('./.pug-lintrc.json')
-        }
-      },
-      {
-        test: /[^{index}]\.pug$/,
-        use: [
-          'file-loader?name=[name].html',
-          'pug-plain-loader'
-        ]
-      },
-      {
-        test: /\.pug$/,
-        use: [
-          'pug-plain-loader'
-        ]
+        loader: 'pug-loader'
       },
       {
         enforce: 'pre',
@@ -110,7 +84,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
+              includePaths: [path.resolve(__dirname, 'src/scss')]
             }
           }
         ]
@@ -137,7 +111,7 @@ module.exports = {
                 })
               ]
             }
-          },
+          }
         ]
       },
       {
@@ -156,7 +130,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Front-End Bootstrap',
-      template: './src/views/index/index.pug'
+      template: './src/views/index/index.pug',
+      filename: 'index.html'
     })
   ],
   devtool: 'eval',

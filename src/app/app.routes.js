@@ -1,45 +1,17 @@
 const angular = require('angular');
 
 angular.module('app-bootstrap').config([
-  '$stateProvider', '$urlRouterProvider', '$locationProvider',
-  function ($stateProvider, $urlRouterProvider, $locationProvider) {
-
-    // For any unmatched urls
-    $urlRouterProvider.otherwise(($injector) => {
-      $injector.get('$state').go('centered.state1');
+  '$routeProvider',
+  function ($routeProvider) {
+    $routeProvider
+    .when('/', {
+      template: require('./components/centered/centered.pug')
+    })
+    .when('/banana', {
+      template: '<h1>Banana</h1><p>Bananas contain around 75% water.</p>'
+    })
+    .when('/tomato', {
+      template: '<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>'
     });
-
-    // Now set up the states
-    $stateProvider
-      .state('centered', {
-        abstract: true,
-        views: {
-          main: {
-            templateUrl: '../app/components/centered/centered.pug'
-          }
-        }
-      })
-      .state('centered.state1', {
-        url: '/state1',
-        views: {
-          content: {
-            templateUrl: '../app/components/centered/component1/component1.pug',
-            controller: 'Component1Controller',
-            controllerAs: 'comp1Ctrl'
-          }
-        }
-      })
-      .state('centered.state2', {
-        url: '/state2',
-        views: {
-          content: {
-            templateUrl: '../app/components/centered/component2/component2.pug',
-            controller: 'Component2Controller',
-            controllerAs: 'comp2Ctrl'
-          }
-        }
-      });
-
-    $locationProvider.html5Mode(true);
   }
 ]);

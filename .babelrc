@@ -1,4 +1,14 @@
 {
-  "plugins": ["transform-object-rest-spread"],
-  "presets": ["es2015"]
+  "plugins": [
+    "transform-object-rest-spread",
+    "dynamic-import-webpack",
+    "syntax-dynamic-import"
+  ],
+  "presets": [
+    ["env", {
+      "targets": [
+        "last 2 versions", "safari >= 7", "not ie < 9"
+      ]
+    }]
+  ]
 }

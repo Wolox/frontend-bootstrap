@@ -1,5 +1,9 @@
-body {
-  background-image: url('../assets/wolox_bg.png');
+[v-cloak] { // stylelint-disable-line selector-max-attribute
+  display: none;
+}
+
+body { // stylelint-disable-line selector-max-type
+  background-image: url('../../assets/wolox_bg.png');
 }
 
 .center {
@@ -9,10 +13,10 @@ body {
   position: absolute;
   text-align: center;
   width: 60%;
+}
 
-  h1 {
-    color: $wolox-green;
-  }
+.title {
+  color: $wolox-green;
 }
 
 .class-to-be-purified {

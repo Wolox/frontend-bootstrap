@@ -1,23 +1,23 @@
 <template lang="pug">
-  div
-    p.decolored
-      | Welcome to {{name}}
+  div.example
+    p
+      | This is {{name}}.
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: 'Vue single file components'
+      name: 'Vue single file component'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-$gray: #3B3B3B4F;
-
-.decolored {
-  color: $gray;
+.example {
+  padding-top: 30px;
+  text-align: center;
 }
+
 </style>

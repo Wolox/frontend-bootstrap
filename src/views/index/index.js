@@ -14,7 +14,7 @@ const vm = new Vue({
     Example
   },
   data: {
-    title: 'Frontend Bootstrap!'
+    title: 'Welcome to Frontend Bootstrap!'
   }
 })
 

@@ -1,24 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+
 [v-cloak] { // stylelint-disable-line selector-max-attribute
   display: none;
 }
 
-body { // stylelint-disable-line selector-max-type
+.page {
+  align-items: center;
+  background-color: $wolox-blue;
   background-image: url('../../assets/wolox_bg.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0px;
 }
 
-.center {
-  background-color: $translucent-white;
-  height: 100%;
-  left: 20%;
-  position: absolute;
-  text-align: center;
-  width: 60%;
+.logo {
+  max-width: 350px;
+  margin-bottom: 50px;
 }
 
 .title {
-  color: $wolox-green;
-}
-
-.class-to-be-purified {
-  color: $translucent-white;
+  color: $white;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }

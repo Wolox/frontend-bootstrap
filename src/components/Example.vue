@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.example
+  .example
     p
       | This is {{name}}.
 </template>

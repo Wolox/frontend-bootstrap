@@ -3,7 +3,6 @@
     p
       | This is {{name}}.
 </template>
-
 <script>
 export default {
   data() {
@@ -13,11 +12,9 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .example {
   padding-top: 30px;
   text-align: center;
 }
-
 </style>

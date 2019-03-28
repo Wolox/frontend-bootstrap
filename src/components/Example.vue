@@ -1,7 +1,6 @@
 <template lang="pug">
-  .example
-    p
-      | This is {{name}}.
+  p.example
+    | This is {{name}}.
 </template>
 <script>
 export default {
@@ -14,6 +13,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .example {
+  display: block;
   padding-top: 30px;
   text-align: center;
 }

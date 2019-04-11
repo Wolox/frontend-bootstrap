@@ -1,6 +1,6 @@
 <template lang="pug">
   p.example
-    | This is {{name}}.
+    | This is {{ name }}.
 </template>
 <script>
 export default {

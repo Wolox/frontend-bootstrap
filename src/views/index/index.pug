@@ -11,8 +11,9 @@ html(lang='en')
     script(src='./vendor.js')
   body
     #app(v-cloak)
-      .center
-        h1
+      .page
+        img.logo(src='./assets/wolox_logo.svg' alt='logo')
+        h1.title
           | {{ title }}
-        example
+      example
     script(src='./index.js')

@@ -84,6 +84,7 @@ module.exports = {
         use: {
           loader: 'eslint-loader',
           options: {
+            configFile: '.eslintrc',
             cache: true,
             emitError: true,
             emitWarning: true

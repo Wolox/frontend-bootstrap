@@ -15,12 +15,12 @@ Use this command for get current default version
 ```bash
 nvm alias default
 ```
-Use this command for install specific node version (example with 10.14.1)
+Use this command for install specific node version (example with 10.16.0)
 ```bash
-nvm install 10.14.1
+nvm install 10.16.0
 ```
 Use this command for set node version as default
 ```bash
-vm alias default 10.14.1
+nvm alias default 10.16.0
 ```
 Now try to commit.

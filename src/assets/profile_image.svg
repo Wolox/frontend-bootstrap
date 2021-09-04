@@ -1,0 +1,83 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="Mask">
+      <rect class="mask-square" x="84.4794" y="253.438" width="162.082" height="162.082" fill="black">
+        <!-- <animate attributeName="fill" to="white" calczMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="84.4794" y="84.4794" width="162.082" height="162.082" >
+        <!-- <animate begin="0.1s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="253.438" y="168.959" width="162.082" height="162.082" >
+        <!-- <animate begin="0.2s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="253.438" y="337.917" width="162.082" height="162.082" >
+        <!-- <animate begin="0.3s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="42.2397" y="337.917" width="35.3634" height="35.3635" >
+        <!-- <animate begin="0.4s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="422.397" y="423.094" width="35.3634" height="35.3635" >
+        <!-- <animate begin="0.5s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="253.438" y="42.2397" width="35.3634" height="35.3635" >
+        <!-- <animate begin="0.6s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="6.10352e-05" y="253.438" width="77.6031" height="77.6031" >
+        <!-- <animate begin="0.7s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="253.438" y="84.4794" width="77.6031" height="77.6031" >
+        <!-- <animate begin="0.8s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="84.4794" y="422.397" width="77.6031" height="77.6031" >
+        <!-- <animate begin="0.9s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="422" y="169" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="168.959" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1.1s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="168.959" y="422.397" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1.2s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="337.917" y="84.4794" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1.3s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="6.10352e-05" y="380.157" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1.4s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <rect class="mask-square" x="422.397" y="337.917" width="77.6031" height="77.6031" >
+        <!-- <animate begin="1.5s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" /> -->
+      </rect>
+      <!-- <rect id="s1" x="380.157" y="42.2399" width="35.3634" height="35.3635" >
+        <animate begin="1.6s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect> -->
+      <!-- <rect id="s1" y="337.917" width="35.3634" height="35.3635" >
+        <animate begin="1.6s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect>
+      <rect id="s1" x="42.2397" y="464.636" width="35.3634" height="35.3635" >
+        <animate begin="1.7s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect>
+      <rect id="s1" x="295.677" y="0.000244141" width="77.6031" height="77.6031" >
+        <animate begin="1.8s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect>
+      <rect id="s1" x="253.438" width="35.3634" height="35.3635" >
+        <animate begin="1.9s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect>
+      <rect id="s1" x="6.10352e-05" y="168.959" width="77.6031" height="77.6031" >
+        <animate begin="2s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect>
+      <rect id="s1" x="422.397" y="253.438" width="77.6031" height="77.6031" >
+        <animate begin="2.1s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect> -->
+
+      <!-- <rect id="s1" y="84.4794" width="77.6031" height="77.6031" >
+        <animate begin="2.2s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect> -->
+      <!-- <rect id="s1" x="84.4794" width="77.6031" height="77.6031" >
+        <animate begin="2.3s" attributeName="fill" to="white" calcMode="spline" keySplines="0.25 0.1 0.25 1" dur="0.7s" fill="freeze" />
+      </rect> -->
+    </mask>
+  </defs>
+  <image width="500" height="500" mask="url(#Mask)" href="assets/profile_image.png" />
+</svg>

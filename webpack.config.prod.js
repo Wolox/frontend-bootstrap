@@ -14,15 +14,15 @@ const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 
 const entry = glob
   .sync('./src/**/*.js')
-  .reduce(
-    (entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }),
-    { vendor: ['vue'] }
-  )
+  .reduce((entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }), {
+    vendor: ['vue']
+  })
 
 module.exports = {
   entry,
   output: {
-    filename: (chunkFileName) => rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
+    filename: chunkFileName =>
+      rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -148,8 +148,34 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif|svg|otf)$/,
+        test: /\.(jpg|png|gif|otf)$/,
         use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/[name].[ext]',
+              fallback: 'file-loader'
+            }
+          },
+          'image-webpack-loader'
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'vue-svg-loader',
+            options: {
+              svgo: {
+                plugins: [
+                  {cleanupIDs: false},
+                  {convertPathData: false},
+                  {mergePaths: false}
+                ]
+              }
+            }
+          },
           {
             loader: 'url-loader',
             options: {

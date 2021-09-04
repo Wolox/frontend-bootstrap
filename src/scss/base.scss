@@ -1,27 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+html {
+  cursor: none;
 
-[v-cloak] { // stylelint-disable-line selector-max-attribute
-  display: none;
+  &:hover {
+    .cursor {
+      opacity: 1;
+    }
+  }
 }
 
-.page {
-  align-items: center;
-  background-color: $wolox-blue;
-  background-image: url('../../assets/wolox_bg.png');
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px 0;
-}
-
-.logo {
-  max-width: 350px;
-  margin-bottom: 50px;
-}
-
-.title {
-  color: $white;
-  font-size: 30px;
-  font-weight: 500;
-  font-family: Montserrat, sans-serif;
+button:hover, a:hover {
+  cursor: none;
 }

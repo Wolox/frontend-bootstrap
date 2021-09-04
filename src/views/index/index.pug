@@ -1,19 +1,38 @@
 doctype html
 html(lang='en')
   head
-    title title here
+    title SKOLZ - Intro
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    //- script(src="https://cdn.jsdelivr.net/npm/vue@2.6.12")
+    script(type="text/javascript" src="./vendor.js")
     link(rel='preload' href='./index.js' as='script')
-    link(rel='preload' href='./vendor.js' as='script')
+    //- link(rel='preload' href='./vendor.js' as='script')
     link(rel='preload' href='styles.index.css' as='style')
     link(rel='stylesheet' href='styles.index.css')
     script(src='./vendor.js')
   body
     #app(v-cloak)
-      .page
-        img.logo(src='./assets/wolox_logo.svg' alt='logo')
-        h1.title
-          | {{ title }}
-      example
+      custom-cursor
+      a.logo(href="/")
+        logo-image.logo-image
+      .intro-section
+        .border
+        .intro-info
+          h1.title.first-name
+            | Gabriel
+          h1.title.last-name.regular.uppercase.big.m-bottom-10
+            | Zanzotti
+          p.description.m-bottom-auto
+            | Software Engineer graduated from ITBA specialized in Front-End development. Currently making Front-End & Mobile developers grow technically and professionally at 
+            a.inline-link(href="https://www.wolox.co" rel="noreferrer noopener" target="_blank")
+              wolox-logo.description-image-text
+          .social
+            a.social-linkedin.social-link.m-right-4(href="https://www.linkedin.com/in/skolz/" rel="noreferrer noopener" target="_blank")
+              linkedin-icon.social-icon
+            a.social-github.social-link.m-right-4(href="https://github.com/SKOLZ" rel="noreferrer noopener" target="_blank")
+              github-icon.social-icon
+            a.social-twitter.social-link(href="https://twitter.com/WSKOLZ" rel="noreferrer noopener" target="_blank")
+              twitter-icon.social-icon
+        profile-image.profile-image
     script(src='./index.js')

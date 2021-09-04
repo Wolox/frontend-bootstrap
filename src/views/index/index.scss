@@ -1,1 +1,102 @@
 @import 'application';
+
+.intro-section {
+  background-image: url('../../assets/black-felt.png');
+  background-color: $SKOLZ-black;
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+}
+
+.border {
+  // opacity: 0;
+  height: calc(100vh - 80px);
+  width: calc(100vw - 80px);
+  border-radius: 1px;
+  position: absolute;
+  background-image: url('../../assets/brilliant.png');
+  background-color: $SKOLZ-white;
+  clip-path: polygon(0 0, calc(100% - 270px - 140px) 0, calc(100% - 270px - 140px) 30px, 30px 30px, 30px calc(100% - 30px), calc(100% - 30px) calc(100% - 30px), calc(100% - 30px) 30px, calc(100% - 80px) 30px, calc(100% - 80px) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.logo {
+  position: absolute;
+  top: 25px;
+  right: 150px;
+  height: 60px;
+  width: 270px;
+}
+
+.title {
+  font-family: 'Jost', sans-serif;
+  font-size: 60px;
+  line-height: 60px;
+  position: relative;
+  color: $SKOLZ-white;
+  font-weight: 100;
+
+  &.regular {
+    font-weight: 400;
+    color: $SKOLZ-light-purple;
+  }
+
+  &.big {
+    font-size: 100px;
+    line-height: 100px;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+}
+
+.intro-info {
+  display: flex;
+  flex-direction: column;
+  padding: 120px 100px;
+}
+
+.description {
+  position: relative;
+  color: $SKOLZ-white;
+  font-family: 'Jost', sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  width: 530px;
+  line-height: 50px;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.social {
+  display: flex;
+}
+
+.profile-image{
+  margin: 0 auto;
+  align-self: center;
+}
+
+.social-link:hover .social-icon-main,
+.logo:hover .logo-image,
+.inline-link:hover .description-image-text {
+  fill: lighten($SKOLZ-light-purple, 10%);
+}
+
+.social-icon-main,
+.logo-image,
+.description-image-text {
+  transition: fill 0.4s ease;
+}
+
+.description-image-text {
+  height: 16px;
+  margin-left: 4px;
+}
+
+[v-cloak] {
+  display: none;
+}

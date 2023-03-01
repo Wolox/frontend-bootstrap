@@ -76,7 +76,7 @@
     "replace": "^0.3.0",
     "require-dir": "^0.3.2",
     "resolve-url-loader": "^3.0.0",
-    "sass-lint": "^1.12.1",
+    "sass-lint": "^1.13.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "stylelint": "^9.5.0",

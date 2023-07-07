@@ -79,7 +79,7 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "stylelint": "^9.5.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-wolox": "^1.0.3",
     "stylelint-no-indistinguishable-colors": "^1.2.1",
     "stylelint-processor-html": "^1.0.0",
